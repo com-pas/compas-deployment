@@ -10,13 +10,8 @@ SPDX-License-Identifier: Apache-2.0
 # CoMPAS Deployment Repository
 Containing tools / configurations for deploying CoMPAS services
 
-## Keycloak
-By default, the following command starts a standalone Keycloak instance:
-
-`docker run -p 8089:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -d jboss/keycloak`
-
-### Keycloak Demo Configuration
-For demo purposes, a [demo Keycloak configuration](keycloak/configuration/keycloak_demo_config.json) is created which can be imported when
+## Keycloak Demo Configuration
+For demo purposes, a [demo Keycloak configuration](keycloak/keycloak_compas_realm.json) is created which can be imported when
 running a Keycloak instance.
 
 The following Keylcoak attributes have been added:
@@ -30,3 +25,13 @@ When running Keycloak with the demo configuration, go to the pre-configured
 is a trusted web service within a realm, the Account client is a pre-configured web service to edit your profile information
 for example.
 
+There is a pre configured [Dockerfile](keycloak/Dockerfile), which creates all necessary settings and the Admin user.
+To build the Dockerfile, run this command in the directory containing the Dockerfile:
+
+`docker build -t compas-keycloak .`
+
+Then, run it and expose the 8080 port:
+
+`docker run -d -p 8089:8080 compas-keycloak`
+
+Once the container is running, you can go to [http://localhost:8089/auth/](http://localhost:8089/auth/) and access the Administration Console.
