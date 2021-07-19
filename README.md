@@ -11,7 +11,7 @@ SPDX-License-Identifier: Apache-2.0
 Containing tools / configurations for deploying CoMPAS services
 
 ## Keycloak Demo Configuration
-For demo purposes, a [demo Keycloak configuration](keycloak/keycloak_compas_realm.json) is created which can be imported when
+For demo purposes, a [demo Keycloak configuration](docker/keycloak/keycloak_compas_realm.json) is created which can be imported when
 running a Keycloak instance.
 
 The following Keylcoak attributes have been added:
@@ -25,7 +25,7 @@ When running Keycloak with the demo configuration, go to the pre-configured
 is a trusted web service within a realm, the Account client is a pre-configured web service to edit your profile information
 for example.
 
-There is a pre configured [Dockerfile](keycloak/Dockerfile), which creates all necessary settings and the Admin user.
+There is a pre configured [Dockerfile](docker/keycloak/Dockerfile), which creates all necessary settings and the Admin user.
 To build the Dockerfile, run this command in the directory containing the Dockerfile:
 
 `docker build -t compas-keycloak .`
