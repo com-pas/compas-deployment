@@ -6,28 +6,28 @@ version: "3.9"
 
 services:
   open-scd:
-    image: "lfenergycompas/compas-open-scd:latest"
+    image: "lfenergycompas/compas-open-scd:v0.4.1-compas-1"
     ports:
       - "8080:80"
     depends_on:
       - scl-data-service
   scl-data-service:
-    image: "lfenergycompas/compas-scl-data-service:latest"
+    image: "lfenergycompas/compas-scl-data-service:0.0.4"
     ports:
-      - "9091:8080"
+      - "9090:8080"
     depends_on:
       - basex
   basex:
-    image: "basex/basexhttp:latest"
+    image: "basex/basexhttp:9.5.2"
     ports:
       - "1984:1984"
     volumes:
       - basex-volume:/srv/basex/data
 
   cim-mapping:
-    image: "lfenergycompas/compas-cim-mapping:latest"
+    image: "lfenergycompas/compas-cim-mapping:0.0.2"
     ports:
-      - "8081:8080"
+      - "9091:8080"
 
   keycloak:
     build: keycloak
