@@ -8,7 +8,7 @@ SPDX-License-Identifier: Apache-2.0
 [![Slack](https://raw.githubusercontent.com/com-pas/compas-architecture/master/public/LFEnergy-slack.svg)](http://lfenergy.slack.com/)
 
 # CoMPAS Deployment Repository
-Containing tools / configurations for deploying CoMPAS services
+Containing tools / configurations for deploying CoMPAS services.
 
 ## Keycloak Demo Configuration
 For demo purposes, a [demo Keycloak configuration](docker/keycloak/keycloak_compas_realm.json) is created which can be imported when
@@ -20,18 +20,19 @@ The following Keylcoak attributes have been added:
 - **CoMPAS Group**: A CoMPAS demo group has been added.
 - **A Demo User**: A Demo user. Username: 'Demo', password: 'Demo'.
 
-When running Keycloak with the demo configuration, go to the pre-configured
-[Account client](http://localhost:8089/auth/realms/compas/account/) and login with the Demo user. A client in Keycloak
-is a trusted web service within a realm, the Account client is a pre-configured web service to edit your profile information
-for example.
+## Docker Compose
+There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
+To start all configured services, go to the `docker` directory and run:
 
-There is a pre configured [Dockerfile](docker/keycloak/Dockerfile), which creates all necessary settings and the Admin user.
-To build the Dockerfile, run this command in the directory containing the Dockerfile:
+`docker-compose up`
 
-`docker build -t compas-keycloak .`
+This starts all CoMPAS services at the same time.
+Now, the following services are available:
 
-Then, run it and expose the 8080 port:
-
-`docker run -d -p 8089:8080 compas-keycloak`
-
-Once the container is running, you can go to [http://localhost:8089/auth/](http://localhost:8089/auth/) and access the Administration Console.
+- OpenSCD, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**
+- SCL Data Service, available at [http://localhost:9090/compas-scl-data-service](http://localhost:9090/compas-scl-data-service).
+- BaseX, available at [http://localhost:1984/](http://localhost:1984/)
+    - Added an extra volume for saving files.
+- CIM - IEC 61850 mapping, available at [http://localhost:9091/](http://localhost:9091/).
+- Keycloak, available at [http://localhost:8089/auth/](http://localhost:8089/auth/).
+    - Imports the demo configuration.
