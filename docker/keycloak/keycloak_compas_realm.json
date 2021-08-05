@@ -510,6 +510,84 @@
   "webAuthnPolicyPasswordlessCreateTimeout": 0,
   "webAuthnPolicyPasswordlessAvoidSameAuthenticatorRegister": false,
   "webAuthnPolicyPasswordlessAcceptableAaguids": [],
+  "users": [
+    {
+      "id": "02cd799b-554b-404b-965f-ea45e002b736",
+      "createdTimestamp": 1627390593803,
+      "username": "admin",
+      "enabled": true,
+      "totp": false,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "id": "dab5fbe3-77c1-4126-afe3-f539449a988b",
+          "type": "password",
+          "createdDate": 1627390601769,
+          "secretData": "{\"value\":\"K3Wk3nHACPpTMjk1WE5v6eOlxxrPSdISn2mIYD0X+Bz5pbWbg5+wR8XA/vZ7kT9DHsPY9nxmmugwCfVlmS1/0g==\",\"salt\":\"eyRO/je7fRjBKtLdoD8gFA==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+        }
+      ],
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "default-roles-compas",
+        "compas-admin"
+      ],
+      "notBefore": 0,
+      "groups": []
+    },
+    {
+      "id": "68f82bd0-4ad7-4737-ada1-b280dd13133d",
+      "createdTimestamp": 1627390619550,
+      "username": "god",
+      "enabled": true,
+      "totp": false,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "id": "8c6e20c3-bb15-491a-98d3-28bea23efc8d",
+          "type": "password",
+          "createdDate": 1627390627798,
+          "secretData": "{\"value\":\"9TILmNOeVg7AjbSZIHcAircjZkPzTRT+AeXJSr/0ihUVKuxNbzZO6pB78RZ/g+HE8dg/7/zMJKSBcs+X1hNDrg==\",\"salt\":\"2WiaUpMnwp0MxzgVi8zD5g==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+        }
+      ],
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "default-roles-compas",
+        "compas-user",
+        "compas-admin"
+      ],
+      "notBefore": 0,
+      "groups": []
+    },
+    {
+      "id": "f39d44bd-466a-47bf-917d-aebd7e6ed3ca",
+      "createdTimestamp": 1627390417072,
+      "username": "user",
+      "enabled": true,
+      "totp": false,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "id": "a6ea517f-843f-4740-98f8-b915f4913cbe",
+          "type": "password",
+          "createdDate": 1627390435159,
+          "secretData": "{\"value\":\"Q8HnmImQbIXED+1yEDHIEEjPWaqsWTNxD5dvCEbfU15A5QHAubGn5QkzqNSqUhskcnNrEWqLilnVg4UR8wL/Bw==\",\"salt\":\"fMMD56Iu4mwpfxz79TcVww==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+        }
+      ],
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "default-roles-compas",
+        "compas-user"
+      ],
+      "notBefore": 0,
+      "groups": []
+    }
+  ],
   "scopeMappings": [
     {
       "clientScope": "offline_access",
@@ -1475,6 +1553,12 @@
         "providerId": "rsa-generated",
         "subComponents": {},
         "config": {
+          "privateKey": [
+            "MIIEpAIBAAKCAQEArRy4CRnoDdhE9pMMg2383J5wSGwCY1xinjQLTmrLrseDtED4TXIWI4qLdpKmbz9Oownld7ZVjWqUCoLMHgBZYv4LXbuHx3iuo4vpuIyR52SxhMj6gM6Dmt9Kp04S+4fHhP5Z8MYJfamKW6a1o2Z729aezBeTZzyGIx8jEQ9kdgvIhry+vfhnac8ZW6s+k68GGfzTqBquB7ihU48V2S8v/OC3GQVXvbDkS2Phgi+oPoOehWh89Xg4129vkq2vtOuLCfOdytQ24tuas7MeqPYBo3NnKOMgwzVoWolr5Wz6GdNKhwXd8wB+DT2rojdLWiy5zNINuR5iu2MLVoqKfitztwIDAQABAoIBABbNCZBpUR9BtROlGqjU+9EzLSbc0xOzP2oHANY7Ssiijr5XMF1DAZd80BG2DyXn+LuQuiCia3JM72LTB3+MHDnlrCmUYbXsN1RjQU2FdlI7+QW8UwJUMRFdB8AxkF6A686gkcgczXM3uXmI47O58+ZoxlGraUbXufM2TrAYjurdOsRo0b6xOul/DNmT2o8PrZIZ8KU3Id0r4v3QlyJoP3vOnsvJ6+TL96CK+2c/e8ybXqBk5eHa5HtSFP0opaNavdQzLOGShvCvvU3wdjtD91nsSaL3FORhXmyDMiO7P7o+lyLzplDoRRJhFaCzV3FLfN1hZEUglmggUW4LSfeBvUECgYEA5qSqMtOaFdy4ZBNnPBMNx/JD8ayOcPJHKUxgoTWFcH/9Q6Ht9HNcWw1ucuHzDYMgwe4JppMw3VMg9dpoa4CAGDXON1k12GF4Kp3GbWqenyI7G02r1mmmKY6J9IK4ugMG3xBKH4LCpFZnX1kN47Whkfyst632o/1Dqspa79WYIi0CgYEAwCTfWpShaiUcsEgB7gMOAZoYLbFLBTNnf86brycfIk27Ckn9xgb0FCQFNhe6f1N+DOFKP0nRfX9d41JR/s6gFZ5CUDz3FoV2AOGOnXDP1WZNTn0A9n7cRUQAdJH+4jWxGCQV3SWMNIFFkjk8nk/BirkvA8JpH4Wxeys+ycon7/MCgYB1O/3HGAeaVTbkp3gx8P1wRJSEo1FD1+KT+16ikrHhHS1+0zBAsOKg5ZLekjsZAy4DZRtCsE6GMVrvnLS27/osVC0dtRrJgcGy57+Unj1CZgPlPPW7ZrgvJ2S4BDohUqiLeZwzqCOHpOOmc3274PbfXa/tLV/Qu0tJ5NGUVt2dgQKBgQCesFU/TC2bqpbtCCt/1UoGDKwXYKui2feK2Ko/mEHgZO4q6z0KBcgjsjQTnrlKWzxpis91QZQg38Y87koF9cTE1fXSqucu1H7G74KHiRo9FsaWIitfaRqmoij2HXWygcGHPJZKFK6c1n8M6vSjkx83YQXxRujnPdV88hRjN/CP/QKBgQDfpl7bWdVlMrs687dSX1vWvn9z9Ayk2aQrlr4+kCACAYUPtx5MP0etIn56s28im9pdCb5Sa9CoNZobRz2A3fj3NFBWGRdb4mVC+laCZFYPOsf+/Mc46F9brKbrKG9R+KcFFqsAg5dYsb1qhwsvyfPXj/b7fgHITtouh9kB4pjzpQ=="
+          ],
+          "certificate": [
+            "MIICmzCCAYMCBgF6xA7j+jANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZjb21wYXMwHhcNMjEwNzIwMTMxNDA4WhcNMzEwNzIwMTMxNTQ4WjARMQ8wDQYDVQQDDAZjb21wYXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtHLgJGegN2ET2kwyDbfzcnnBIbAJjXGKeNAtOasuux4O0QPhNchYjiot2kqZvP06jCeV3tlWNapQKgsweAFli/gtdu4fHeK6ji+m4jJHnZLGEyPqAzoOa30qnThL7h8eE/lnwxgl9qYpbprWjZnvb1p7MF5NnPIYjHyMRD2R2C8iGvL69+Gdpzxlbqz6TrwYZ/NOoGq4HuKFTjxXZLy/84LcZBVe9sORLY+GCL6g+g56FaHz1eDjXb2+Sra+064sJ853K1Dbi25qzsx6o9gGjc2co4yDDNWhaiWvlbPoZ00qHBd3zAH4NPauiN0taLLnM0g25HmK7YwtWiop+K3O3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAIkOjmpIV50FSWaK5dG2W46RbyzJqdf0LHSpoiqh1ChXd5BC7w0f0pokgmnllhGwmksLAtwuwHL7/E7PalgdPdlq2OJLrmbsK5gx32Qv4yuVZ23lThEoRV9wx4OpS4QVMfMYesY/ZiYOONS5u4+6Dj1wIPnDRFoWjKcY6NVBy4XQB+r4oXqzk5hqOyjZvHho0UV0AC8v+VYqEOfur5B7TKJr1yVQdSeg55uRlBHc/xdVolUzhE/o7MFc2lmMhxiIcqVgQ/fG/pAjcxsHy4mmeBJ1JK28njtouwUOMFEAYGhtXDz8zJ2ywNGVBtGflAmuOJ1FccHATuQgxPF53JePjxg="
+          ],
           "priority": [
             "100"
           ]
@@ -1486,6 +1570,12 @@
         "providerId": "aes-generated",
         "subComponents": {},
         "config": {
+          "kid": [
+            "b95b1d91-3e04-417c-b0d3-e7b9a7ff1d48"
+          ],
+          "secret": [
+            "mYXGVN-R5VwL0dhvDXoorw"
+          ],
           "priority": [
             "100"
           ]
@@ -1497,6 +1587,12 @@
         "providerId": "hmac-generated",
         "subComponents": {},
         "config": {
+          "kid": [
+            "948f05cf-96a8-46de-9f85-ec97c48d9fdd"
+          ],
+          "secret": [
+            "Z8yKz7ez7BMpFpaC34osC-nIY0S6Rn8uNiYzVx2vlRjjkFbw8kYWZlQbWf8PZk0xQDc5lf0hmQu3hEi3QDfIzw"
+          ],
           "priority": [
             "100"
           ],
