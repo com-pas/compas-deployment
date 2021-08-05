@@ -22,11 +22,13 @@ The following Keylcoak attributes have been added:
 
 ## Docker Compose
 There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
-To start all configured services, go to the `docker` directory and run:
+To start all configured services, go to the `docker` directory and run the following two commands:
 
-`docker-compose up`
+`docker-compose build`
 
-This starts all CoMPAS services at the same time.
+`docker-compose up -d`
+
+This first build 2 containers (keycloak and reverse proxy) and next starts all CoMPAS services at the same time.
 Now, the following services are available:
 
 - OpenSCD, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**

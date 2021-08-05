@@ -5,34 +5,36 @@
 version: "3.9"
 
 services:
+  basex:
+    image: "basex/basexhttp:9.5.2"
+    volumes:
+      - type: "bind"
+        source: "./basex-data"
+        target: "/srv/basex/data"
+
+  keycloak:
+    build: keycloak
+
+  scl-data-service:
+    image: "lfenergycompas/compas-scl-data-service:0.1.0"
+    depends_on:
+      - basex
+
+  cim-mapping:
+    image: "lfenergycompas/compas-cim-mapping:0.1.0"
+
   open-scd:
-    image: "lfenergycompas/compas-open-scd:v0.4.1-compas-1"
+    image: "lfenergycompas/compas-open-scd:v0.6.0-compas"
+    depends_on:
+      - scl-data-service
+      - cim-mapping
+      - keycloak
+
+  reverse-proxy:
+    build: reverse-proxy
     ports:
       - "8080:80"
     depends_on:
       - scl-data-service
-  scl-data-service:
-    image: "lfenergycompas/compas-scl-data-service:0.0.4"
-    ports:
-      - "9090:8080"
-    depends_on:
-      - basex
-  basex:
-    image: "basex/basexhttp:9.5.2"
-    ports:
-      - "1984:1984"
-    volumes:
-      - basex-volume:/srv/basex/data
-
-  cim-mapping:
-    image: "lfenergycompas/compas-cim-mapping:0.0.2"
-    ports:
-      - "9091:8080"
-
-  keycloak:
-    build: keycloak
-    ports:
-      - "8089:8080"
-
-volumes:
-  basex-volume:
+      - cim-mapping
+      - open-scd
