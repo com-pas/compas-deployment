@@ -18,7 +18,7 @@ The following Keylcoak attributes have been added:
 - **CoMPAS Realm**: A separate CoMPAS realm containing all CoMPAS attributes like Groups, Client and Roles.
 - **CoMPAS Demo Role**: A separate CoMPAS role which can be assigned to users.
 - **CoMPAS Group**: A CoMPAS demo group has been added.
-- **A Demo User**: A Demo user. Username: 'Demo', password: 'Demo'.
+- **A Demo User**: A Demo user. Username: 'user', password: 'user'.
 
 ## Docker Compose
 There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
