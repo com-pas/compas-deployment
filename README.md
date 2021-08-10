@@ -28,13 +28,14 @@ To start all configured services, go to the `docker` directory and run the follo
 
 `docker-compose up -d`
 
-This first build 2 containers (keycloak and reverse proxy) and next starts all CoMPAS services at the same time.
+This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
 Now, the following services are available:
 
-- OpenSCD, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**
-- SCL Data Service, available at [http://localhost:9090/compas-scl-data-service](http://localhost:9090/compas-scl-data-service).
-- BaseX, available at [http://localhost:1984/](http://localhost:1984/)
-    - Added an extra volume for saving files.
-- CIM - IEC 61850 mapping, available at [http://localhost:9091/](http://localhost:9091/).
-- Keycloak, available at [http://localhost:8089/auth/](http://localhost:8089/auth/).
+- open-scd, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**
+- scl-data-service, available at [http://localhost:8080/compas-scl-data-service](http://localhost:8080/compas-scl-data-service).
+- basex, available at [http://localhost:1984/](http://localhost:1984/)
+    - Added an extra volume (binding) for saving files in directory docker/basex-data.
+- cim-mapping - IEC 61850 mapping, available at [http://localhost:8080/compas-cim-mapping/](http://localhost:8080/compas-cim-mapping/).
+- keycloak, available at [http://localhost:8080/auth/](http://localhost:8080/auth/).
     - Imports the demo configuration.
+- reverse-proxy, Nginx instance that works as a reverse proxy so all services are available through a single port.

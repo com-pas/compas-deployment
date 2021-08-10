@@ -8,15 +8,17 @@ services:
   basex:
     image: "basex/basexhttp:9.5.2"
     volumes:
-      - type: "bind"
-        source: "./basex-data"
-        target: "/srv/basex/data"
+      - basex-data-volume:/srv/basex/data
+      - basex-repo-volume:/srv/basex/repo
+      - basex-webapp-volume:/srv/basex/webapp
 
   keycloak:
     build: keycloak
 
   scl-data-service:
     image: "lfenergycompas/compas-scl-data-service:0.1.0"
+    ports:
+      - "1984:1984"
     depends_on:
       - basex
 
@@ -38,3 +40,8 @@ services:
       - scl-data-service
       - cim-mapping
       - open-scd
+
+volumes:
+  basex-data-volume:
+  basex-repo-volume:
+  basex-webapp-volume:
