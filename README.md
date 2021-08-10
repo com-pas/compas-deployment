@@ -18,21 +18,24 @@ The following Keylcoak attributes have been added:
 - **CoMPAS Realm**: A separate CoMPAS realm containing all CoMPAS attributes like Groups, Client and Roles.
 - **CoMPAS Demo Role**: A separate CoMPAS role which can be assigned to users.
 - **CoMPAS Group**: A CoMPAS demo group has been added.
-- **A Demo User**: A Demo user. Username: 'Demo', password: 'Demo'.
+- **A Demo User**: A Demo user. Username: 'user', password: 'user'.
 
 ## Docker Compose
 There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
-To start all configured services, go to the `docker` directory and run:
+To start all configured services, go to the `docker` directory and run the following two commands:
 
-`docker-compose up`
+`docker-compose build`
 
-This starts all CoMPAS services at the same time.
+`docker-compose up -d`
+
+This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
 Now, the following services are available:
 
-- OpenSCD, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**
-- SCL Data Service, available at [http://localhost:9090/compas-scl-data-service](http://localhost:9090/compas-scl-data-service).
-- BaseX, available at [http://localhost:1984/](http://localhost:1984/)
-    - Added an extra volume for saving files.
-- CIM - IEC 61850 mapping, available at [http://localhost:9091/](http://localhost:9091/).
-- Keycloak, available at [http://localhost:8089/auth/](http://localhost:8089/auth/).
+- open-scd, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**
+- scl-data-service, available at [http://localhost:8080/compas-scl-data-service](http://localhost:8080/compas-scl-data-service).
+- basex, available at [http://localhost:1984/](http://localhost:1984/)
+    - Added an extra volume (binding) for saving files in directory docker/basex-data.
+- cim-mapping - IEC 61850 mapping, available at [http://localhost:8080/compas-cim-mapping/](http://localhost:8080/compas-cim-mapping/).
+- keycloak, available at [http://localhost:8080/auth/](http://localhost:8080/auth/).
     - Imports the demo configuration.
+- reverse-proxy, Nginx instance that works as a reverse proxy so all services are available through a single port.
