@@ -5,6 +5,3 @@
 # IDE specific
 .idea
 *.iml
-
-# Iggnore BaseX Data Files.
-docker/basex-data/*
