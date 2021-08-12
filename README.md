@@ -14,11 +14,22 @@ Containing tools / configurations for deploying CoMPAS services.
 For demo purposes, a [demo Keycloak configuration](docker/keycloak/keycloak_compas_realm.json) is created which can be imported when
 running a Keycloak instance.
 
-The following Keylcoak attributes have been added:
+The following Keycloak attributes have been added:
 - **CoMPAS Realm**: A separate CoMPAS realm containing all CoMPAS attributes like Groups, Client and Roles.
-- **CoMPAS Demo Role**: A separate CoMPAS role which can be assigned to users.
+- **OpenSCD client**: A client has been made for interacting with OpenSCD.
+- **SCL Data Service client**: A client has been made for interacting with the SCL Data Service.
+- **CRUD roles for the SCL Data Service**: Create, Read, Update and Delete roles have been added to the SCL Data Service client.
+When interacting with the SCL Data Service, a JWT token needs to have certain roles before interaction is possible. These roles are assigned to certain users (see below).
 - **CoMPAS Group**: A CoMPAS demo group has been added.
-- **A Demo User**: A Demo user. Username: 'user', password: 'user'.
+- **A Demo User**: A Demo user without specific roles.
+  - Username: 'user'
+  - Password: 'user'.
+- **A SCL Data Editor**: A user with the roles 'Create', 'Read', 'Update' and 'Delete'. This way, it has read and write access to the SCL Data Service.
+  - Username: scl-data-editor
+  - Password: editor
+- **A SCL Data Reader**: A user with the role 'Read'. This way, it only has reading access to the SCL Data Service.
+  - Username: scl-data-reader
+  - Password: reader
 
 ## Docker Compose
 There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
