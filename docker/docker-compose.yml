@@ -22,9 +22,8 @@ services:
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
-      - KEYCLOAK_HOST=keycloak
-      - KEYCLOAK_PORT=8080
-      - KEYCLOAK_REALM=compas
+      - AUTH_SERVER_URL=http://keycloak:8080/auth/realms/compas
+      - AUTH_CLIENT_ID=scl-data-service
     depends_on:
       - basex
 
