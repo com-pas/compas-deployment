@@ -49,4 +49,4 @@ Now, the following services are available:
 - cim-mapping - IEC 61850 mapping, available at [http://localhost:8080/compas-cim-mapping/](http://localhost:8080/compas-cim-mapping/).
 - keycloak, available at [http://localhost:8080/auth/](http://localhost:8080/auth/).
     - Imports the demo configuration.
-- reverse-proxy, Nginx instance that works as a reverse proxy so all services are available through a single port.
+- reverse-proxy, OpenResty instance that works as a reverse proxy so all services are available through a single port.
