@@ -5,7 +5,7 @@ access_by_lua_block {
     client_id = "openscd",
     redirect_uri_scheme = "http",
     logout_path = "/logout",
-    redirect_after_logout_uri = "http://keycloak:8080/auth/realms/compas/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Flocalhost%2F",
+    redirect_after_logout_uri = "http://localhost/auth/realms/compas/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Flocalhost%2F",
     redirect_after_logout_with_id_token_hint = false,
     session_contents = {id_token=true, access_token=true},
     renew_access_token_on_expiry = true,
