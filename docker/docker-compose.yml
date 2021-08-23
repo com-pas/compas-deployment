@@ -17,23 +17,22 @@ services:
   keycloak:
     build: keycloak
     ports:
-      - "8089:8080"
+      - "8080:8080"
     environment:
-      - KEYCLOAK_FRONTEND_URL=http://localhost:8080/auth/
+      - KEYCLOAK_FRONTEND_URL=http://localhost/auth/
 
   scl-data-service:
     image: "lfenergycompas/compas-scl-data-service:0.3.0"
-    ports:
-      - "9090:8080"
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
-      - JWT_VERIFY_ISSUER=http://localhost:8080/auth/realms/compas
+      - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
       - JWT_VERIFY_CLIENT_ID=scl-data-service
       - JWT_GROUPS_PATH=resource_access/scl-data-service/roles
     depends_on:
       - basex
+      - keycloak
 
   cim-mapping:
     image: "lfenergycompas/compas-cim-mapping:0.1.0"
@@ -47,7 +46,7 @@ services:
   reverse-proxy:
     build: reverse-proxy
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - keycloak
       - scl-data-service
