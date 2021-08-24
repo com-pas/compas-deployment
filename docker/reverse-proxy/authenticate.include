@@ -1,0 +1,24 @@
+access_by_lua_block {
+  local opts = {
+    redirect_uri_path = "/redirect_uri",
+    discovery = "http://keycloak:8080/auth/realms/compas/.well-known/openid-configuration",
+    client_id = "openscd",
+    redirect_uri_scheme = "http",
+    logout_path = "/logout",
+    redirect_after_logout_uri = "http://localhost/auth/realms/compas/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Flocalhost%2F",
+    redirect_after_logout_with_id_token_hint = false,
+    session_contents = {id_token=true, access_token=true},
+    renew_access_token_on_expiry = true,
+  }
+
+  -- call introspect for OAuth 2.0 Bearer Access Token validation
+  local res, err, _, session = require("resty.openidc").authenticate(opts)
+
+  if err then
+    ngx.status = 403
+    ngx.say(err)
+    ngx.exit(ngx.HTTP_FORBIDDEN)
+  end
+
+  ngx.var.access_token = res.access_token
+}

@@ -30,6 +30,9 @@ When interacting with the SCL Data Service, a JWT token needs to have certain ro
 - **A SCL Data Reader**: A user with the role 'Read'. This way, it only has reading access to the SCL Data Service.
   - Username: scl-data-reader
   - Password: reader
+- **A SCD Reader**: A user with the role 'Read' only on the SCD Type.
+  - Username: scd-reader
+  - Password: reader
 
 ## Docker Compose
 There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
@@ -42,11 +45,15 @@ To start all configured services, go to the `docker` directory and run the follo
 This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
 Now, the following services are available:
 
-- open-scd, available at [http://localhost:8080/](http://localhost:8080/). **Not fully working yet, can't communicate with Data Service yet.**
-- scl-data-service, available at [http://localhost:8080/compas-scl-data-service](http://localhost:8080/compas-scl-data-service).
+- open-scd, available at [http://localhost/](http://localhost/). **Not fully working yet, can't communicate with Data Service yet.**
+- scl-data-service, available at [http://localhost/compas-scl-data-service](http://localhost/compas-scl-data-service).
 - basex, available at [http://localhost:1984/](http://localhost:1984/)
-    - Added an extra volume (binding) for saving files in directory docker/basex-data.
-- cim-mapping - IEC 61850 mapping, available at [http://localhost:8080/compas-cim-mapping/](http://localhost:8080/compas-cim-mapping/).
-- keycloak, available at [http://localhost:8080/auth/](http://localhost:8080/auth/).
+- cim-mapping - IEC 61850 mapping, available at [http://localhost/compas-cim-mapping/](http://localhost/compas-cim-mapping/).
+- keycloak, available at [http://localhost/auth/](http://localhost/auth/) or direclty if needed [http://localhost:8080/auth/](http://localhost:8080/auth/).
     - Imports the demo configuration.
-- reverse-proxy, Nginx instance that works as a reverse proxy so all services are available through a single port.
+- reverse-proxy, OpenResty instance that works as a reverse proxy so all services are available through a single port.
+    - The JWT Access Token is added to the header for all Services, like the SCL Data Service.
+
+To stop and remove all the containers run the command:
+
+`docker-compose down`
