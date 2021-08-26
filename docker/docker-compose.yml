@@ -45,7 +45,7 @@ services:
       - keycloak
 
   open-scd:
-    image: "lfenergycompas/compas-open-scd:v0.6.0-compas-1"
+    image: "lfenergycompas/compas-open-scd:v0.6.0-compas-2"
     depends_on:
       - scl-data-service
       - cim-mapping
