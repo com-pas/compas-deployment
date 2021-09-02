@@ -54,6 +54,6 @@ Now, the following services are available:
 - reverse-proxy, OpenResty instance that works as a reverse proxy so all services are available through a single port.
     - The JWT Access Token is added to the header for all Services, like the SCL Data Service.
 
-To stop and remove all the containers run the command:
+To stop and remove all the containers run the following command:
 
 `docker-compose down`
