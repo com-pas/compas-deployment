@@ -1,6 +1,6 @@
 access_by_lua_block {
   local opts = {
-    redirect_uri_path = "/redirect_uri",
+    redirect_uri = "http://localhost/redirect_uri",
     discovery = "http://keycloak:8080/auth/realms/compas/.well-known/openid-configuration",
     client_id = "openscd",
     redirect_uri_scheme = "http",
@@ -12,7 +12,7 @@ access_by_lua_block {
   }
 
   -- call introspect for OAuth 2.0 Bearer Access Token validation
-  local res, err, _, session = require("resty.openidc").authenticate(opts)
+  local res, err = require("resty.openidc").authenticate(opts)
 
   if err then
     ngx.status = 403

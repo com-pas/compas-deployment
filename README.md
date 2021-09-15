@@ -45,11 +45,12 @@ To start all configured services, go to the `docker` directory and run the follo
 This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
 Now, the following services are available:
 
-- open-scd, available at [http://localhost/](http://localhost/). **Not fully working yet, can't communicate with Data Service yet.**
+- open-scd, available at [http://localhost/](http://localhost/).
+- logout,  available at [http://localhost/logout](http://localhost/logout).
 - scl-data-service, available at [http://localhost/compas-scl-data-service](http://localhost/compas-scl-data-service).
-- basex, available at [http://localhost:1984/](http://localhost:1984/)
 - cim-mapping - IEC 61850 mapping, available at [http://localhost/compas-cim-mapping/](http://localhost/compas-cim-mapping/).
-- keycloak, available at [http://localhost/auth/](http://localhost/auth/) or direclty if needed [http://localhost:8080/auth/](http://localhost:8080/auth/).
+- basex, available at [http://localhost:1984/](http://localhost:1984/)
+- keycloak, available at [http://localhost/auth/](http://localhost/auth/) or directly if needed [http://localhost:8089/auth/](http://localhost:8089/auth/).
     - Imports the demo configuration.
 - reverse-proxy, OpenResty instance that works as a reverse proxy so all services are available through a single port.
     - The JWT Access Token is added to the header for all Services, like the SCL Data Service.
