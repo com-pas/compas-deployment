@@ -31,6 +31,8 @@ services:
       - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
       - JWT_VERIFY_CLIENT_ID=scl-data-service
       - JWT_GROUPS_PATH=resource_access/scl-data-service/roles
+      - USERINFO_NAME_CLAIMNAME=name
+      - USERINFO_WHO_CLAIMNAME=name
     depends_on:
       - basex
       - keycloak
@@ -42,6 +44,7 @@ services:
       - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
       - JWT_VERIFY_CLIENT_ID=cim-mapping
       - JWT_GROUPS_PATH=resource_access/cim-mapping/roles
+      - USERINFO_WHO_CLAIMNAME=name
     depends_on:
       - keycloak
 
