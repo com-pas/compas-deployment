@@ -17,12 +17,13 @@ services:
   keycloak:
     build: keycloak
     ports:
-      - "8080:8080"
+      - "8089:8080"
     environment:
       - KEYCLOAK_FRONTEND_URL=http://localhost/auth/
+      - PROXY_ADDRESS_FORWARDING=true
 
   scl-data-service:
-    image: "lfenergycompas/compas-scl-data-service:0.3.0"
+    image: "lfenergycompas/compas-scl-data-service:0.6.2"
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
@@ -30,22 +31,25 @@ services:
       - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
       - JWT_VERIFY_CLIENT_ID=scl-data-service
       - JWT_GROUPS_PATH=resource_access/scl-data-service/roles
+      - USERINFO_NAME_CLAIMNAME=name
+      - USERINFO_WHO_CLAIMNAME=name
     depends_on:
       - basex
       - keycloak
 
   cim-mapping:
-    image: "lfenergycompas/compas-cim-mapping:0.2.0"
+    image: "lfenergycompas/compas-cim-mapping:0.6.0"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
       - JWT_VERIFY_CLIENT_ID=cim-mapping
       - JWT_GROUPS_PATH=resource_access/cim-mapping/roles
+      - USERINFO_WHO_CLAIMNAME=name
     depends_on:
       - keycloak
 
   open-scd:
-    image: "lfenergycompas/compas-open-scd:v0.6.0-compas-3"
+    image: "lfenergycompas/compas-open-scd:v0.7.0-compas-4"
     depends_on:
       - scl-data-service
       - cim-mapping
