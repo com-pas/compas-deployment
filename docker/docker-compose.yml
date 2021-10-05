@@ -23,7 +23,7 @@ services:
       - PROXY_ADDRESS_FORWARDING=true
 
   scl-data-service:
-    image: "lfenergycompas/compas-scl-data-service:0.6.2"
+    image: "lfenergycompas/compas-scl-data-service:0.6.3"
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
@@ -38,7 +38,7 @@ services:
       - keycloak
 
   cim-mapping:
-    image: "lfenergycompas/compas-cim-mapping:0.6.0"
+    image: "lfenergycompas/compas-cim-mapping:0.6.1"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
@@ -49,7 +49,7 @@ services:
       - keycloak
 
   open-scd:
-    image: "lfenergycompas/compas-open-scd:v0.7.0-compas-4"
+    image: "lfenergycompas/compas-open-scd:v0.7.0-compas-5"
     depends_on:
       - scl-data-service
       - cim-mapping
