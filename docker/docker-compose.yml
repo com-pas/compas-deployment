@@ -23,7 +23,7 @@ services:
       - PROXY_ADDRESS_FORWARDING=true
 
   scl-data-service:
-    image: "lfenergycompas/compas-scl-data-service:0.6.2"
+    image: "lfenergycompas/compas-scl-data-service:0.8.1"
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
@@ -33,12 +33,14 @@ services:
       - JWT_GROUPS_PATH=resource_access/scl-data-service/roles
       - USERINFO_NAME_CLAIMNAME=name
       - USERINFO_WHO_CLAIMNAME=name
+      - USERINFO_SESSION_WARNING=20
+      - USERINFO_SESSION_EXPIRES=30
     depends_on:
       - basex
       - keycloak
 
   cim-mapping:
-    image: "lfenergycompas/compas-cim-mapping:0.6.0"
+    image: "lfenergycompas/compas-cim-mapping:0.7.2"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://localhost/auth/realms/compas
@@ -49,7 +51,7 @@ services:
       - keycloak
 
   open-scd:
-    image: "lfenergycompas/compas-open-scd:v0.7.0-compas-4"
+    image: "lfenergycompas/compas-open-scd:v0.7.0-compas-6"
     depends_on:
       - scl-data-service
       - cim-mapping
