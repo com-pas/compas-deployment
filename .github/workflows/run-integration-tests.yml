@@ -28,7 +28,9 @@ jobs:
       - name: Wait until containers started
         run: sh ./bin/docker-wait-on-containers.sh health=starting
 
-      - name: Robot Framework
+      - name: Created output directory (firefox)
+        run: mkdir -p target/firefox
+      - name: Execute integration tests (firefox)
         uses: joonvena/robotframework-docker-action@v1.0
         with:
           browser: 'firefox'
