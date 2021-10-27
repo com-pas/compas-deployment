@@ -57,4 +57,6 @@ Now, the following services are available:
 
 To stop and remove all the containers run the command:
 
-`docker-compose down`
+`docker-compose down -v`
+
+The option '-v' also removes the volumes created, so all data is lost with this option.
