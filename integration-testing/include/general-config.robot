@@ -11,10 +11,10 @@ Library         DateTime
 
 *** Variables ***
 ${enable_presenter_mode}    false
-${headless}                 false
+${headless}                 true
 ${devtools}                 false
 
-${browser}       firefox
+${browser}       %{BROWSER=firefox}
 ${url}           http://localhost/
 ${username}      scl-data-editor
 ${password}      editor
