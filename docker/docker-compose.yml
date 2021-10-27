@@ -21,6 +21,11 @@ services:
     environment:
       - KEYCLOAK_FRONTEND_URL=http://localhost/auth/
       - PROXY_ADDRESS_FORWARDING=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   scl-data-service:
     image: "lfenergy/compas-scl-data-service:0.8.2"
@@ -35,6 +40,11 @@ services:
       - USERINFO_WHO_CLAIMNAME=name
       - USERINFO_SESSION_WARNING=20
       - USERINFO_SESSION_EXPIRES=30
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/compas-scl-data-service/q/health/ready"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
     depends_on:
       - basex
       - keycloak
@@ -47,11 +57,21 @@ services:
       - JWT_VERIFY_CLIENT_ID=cim-mapping
       - JWT_GROUPS_PATH=resource_access/cim-mapping/roles
       - USERINFO_WHO_CLAIMNAME=name
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/compas-cim-mapping/q/health/ready"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
     depends_on:
       - keycloak
 
   open-scd:
     image: "lfenergy/compas-open-scd:v0.7.1-compas-1"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     depends_on:
       - scl-data-service
       - cim-mapping
@@ -60,6 +80,11 @@ services:
     build: reverse-proxy
     ports:
       - "80:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     depends_on:
       - keycloak
       - scl-data-service
