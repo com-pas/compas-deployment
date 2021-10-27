@@ -29,7 +29,9 @@ jobs:
         run: docker-compose -f "docker/docker-compose.yml" up -d --build
 
       - name: Wait until containers started
-        run: ./bin/docker-wait-on-containers.sh health=starting
+        run: |
+          ls -la .
+          ./bin/docker-wait-on-containers.sh health=starting
 
       - name: Stop containers
         if: always()
@@ -37,4 +39,6 @@ jobs:
 
       - name: Wait until containers stopped
         if: always()
-        run: ./bin/docker-wait-on-containers.sh status=running
+        run: |
+          ls -la .
+          ./bin/docker-wait-on-containers.sh status=running
