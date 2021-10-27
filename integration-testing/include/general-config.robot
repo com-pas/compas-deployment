@@ -5,7 +5,7 @@
 *** Settings ***
 Documentation   Setup up configuration to run all Robot TestCases using the Browser Library (playwright)
 Library         Browser  enable_presenter_mode=${enable_presenter_mode}
-...                      run_on_failure=Execute Teardown Failure
+...                      run_on_failure=Make screenshot on failure
 Library         OperatingSystem
 Library         DateTime
 
@@ -23,3 +23,4 @@ ${password}      editor
 Set global variables
     ${current-date}=    Get Current Date  result_format=%Y%m%d_%H%M%S
     Set Suite Variable  ${current-date}  ${current-date}
+    Set Tags            ${browser}

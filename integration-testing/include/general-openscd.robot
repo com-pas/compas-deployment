@@ -13,15 +13,15 @@ ${dialog-selector}              wizard-dialog mwc-dialog
 ${substation-editor-selector}   substation-editor:nth-child(1) > editor-container
 
 *** Keywords ***
-Execute Test Setup
+Initialize and start OpenSCD
     Set global variables
     Open OpenSCD and Login
 
-Execute Test Teardown
+Make screenshot and stop OpenSCD
     Run Keyword If Test Passed      Take Screenshot     filename=${TEST NAME}-{index}  fullPage=true
     Close OpenSCD
 
-Execute Teardown Failure
+Make screenshot on failure
     Take Screenshot     filename=${TEST NAME}-failure-{index}  fullPage=true
 
 Open OpenSCD and Login
