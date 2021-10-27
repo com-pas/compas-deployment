@@ -14,9 +14,13 @@ Containing tools / configurations for deploying CoMPAS services.
 There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
 To start all configured services, go to the `docker` directory and run the following two commands:
 
-`docker-compose build`
+```
+# First build the Keycloak Custom image and Reverse Proxy.
+docker-compose build
 
-`docker-compose up -d`
+# Start all the containers in the background.
+docker-compose up -d
+```
 
 This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
 Now, the following services are available:
@@ -33,7 +37,9 @@ Now, the following services are available:
 
 To stop and remove all the containers run the command:
 
-`docker-compose down -v`
+```
+docker-compose down -v
+```
 
 The option '-v' also removes the volumes created, so all data is lost with this option.
 
@@ -85,13 +91,13 @@ Please follow the instructions of [Robot Framework](https://robotframework.org/)
 And also follow the instruction of [Browser Library](https://github.com/MarketSquare/robotframework-browser) to install this needed library.
 
 ```
-# Prefer to remove the target directory before starting
+# Prefer to remove the target directory before starting.
 rm -r target
 
-# Normal run of all the test suites (with firefox, headless)
+# Normal run of all the test suites (with firefox, headless).
 robot -d target/firefox integration-testing/
 
-# Run of all the test suites (with firefox in presenter mode to better follow what happens)
+# Run of all the test suites (with firefox in presenter mode to better follow what happens).
 robot -d target/firefox -v browser:firefox -v enable_presenter_mode:true -v headless:false integration-testing/
 
 # Run of all the test suites (with chromium, headless), looks like chromium now only works headless. It crashs otherwise.
