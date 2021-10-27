@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Alliander N.V.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 *** Settings ***
 Documentation   Generic variables and Keywords to work with the OpenSCD CoMPAS Components
 Resource        ./general-config.robot

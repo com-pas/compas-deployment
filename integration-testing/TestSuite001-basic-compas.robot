@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Alliander N.V.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 *** Settings ***
 Documentation   Some basic test cases, like opening and saving files.
 Resource        ./include/general-compas.robot

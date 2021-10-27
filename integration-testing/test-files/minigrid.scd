@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: Apache-2.0
+-->
     <SCL version="2007" revision="B" release="4" xmlns:compas="https://www.lfenergy.org/compas/extension/v1" xmlns="http://www.iec.ch/61850/2003/SCL">
 <!--        <Header id="619b364b-29ad-4517-9073-5d505151a5fc" version="0.0.1" revision="">
             <History>

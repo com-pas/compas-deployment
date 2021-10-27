@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Alliander N.V.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 *** Settings ***
 Documentation   Setup up configuration to run all Robot TestCases using the Browser Library (playwright)
 Library         Browser  enable_presenter_mode=${enable_presenter_mode}
