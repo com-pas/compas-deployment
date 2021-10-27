@@ -6,6 +6,8 @@ version: "3.9"
 
 services:
   basex:
+    labels:
+      compas: true
     image: "basex/basexhttp:9.5.2"
     ports:
       - "1984:1984"
@@ -16,6 +18,8 @@ services:
 
   keycloak:
     build: keycloak
+    labels:
+      compas: true
     ports:
       - "8089:8080"
     environment:
@@ -28,6 +32,8 @@ services:
       retries: 5
 
   scl-data-service:
+    labels:
+      compas: true
     image: "lfenergy/compas-scl-data-service:0.8.2"
     environment:
       - BASEX_HOST=basex
@@ -50,6 +56,8 @@ services:
       - keycloak
 
   cim-mapping:
+    labels:
+      compas: true
     image: "lfenergy/compas-cim-mapping:0.7.4"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
@@ -66,6 +74,8 @@ services:
       - keycloak
 
   open-scd:
+    labels:
+      compas: true
     image: "lfenergy/compas-open-scd:v0.7.1-compas-1"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
@@ -77,6 +87,8 @@ services:
       - cim-mapping
 
   reverse-proxy:
+    labels:
+      compas: true
     build: reverse-proxy
     ports:
       - "80:80"

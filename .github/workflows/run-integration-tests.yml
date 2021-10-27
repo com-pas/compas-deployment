@@ -7,9 +7,9 @@ name: Run all integration tests
 on: push
 
 jobs:
-  docker:
+  integration-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
