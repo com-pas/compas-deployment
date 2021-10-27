@@ -54,7 +54,7 @@ Select Tab
 
 Open local file
     [Arguments]         ${name}     ${type}
-    ${promise}=         Promise To Upload File    ${CURDIR}/../../test-files/${name}.${type.lower()}
+    ${promise}=         Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
     Click               ${dialog-selector} compas-open mwc-button[label="Open file..."] button
     ${upload_result}=   Wait For  ${promise}
     Get Style           open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   opacity  ==  0

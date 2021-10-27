@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation   Setup up configuration to run all Robot TestCases using the Browser Library (playwright)
 Library         Browser  enable_presenter_mode=${enable_presenter_mode}
 ...                      run_on_failure=Execute Teardown Failure
 Library         OperatingSystem

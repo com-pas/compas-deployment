@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation   Some basic test cases, like opening and saving files.
-Resource        include/general-compas.robot
+Resource        ./include/general-compas.robot
 
 Test Setup      Execute Test Setup
 Test Teardown   Execute Test Teardown
