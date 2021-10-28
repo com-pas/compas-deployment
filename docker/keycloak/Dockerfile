@@ -4,8 +4,11 @@
 
 FROM jboss/keycloak:latest
 
+ARG COMPAS_HOSTNAME
+
 # Copy the demo realm configuration to /tmp/ inside the container, so it can be used afterwards
-COPY keycloak_compas_realm.json /tmp/keycloak_compas_realm.json
+COPY --chown=jboss:jboss keycloak_compas_realm.json /tmp/keycloak_compas_realm.json
+RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /tmp/keycloak_compas_realm.json
 
 # Creating an Admin account
 ENV KEYCLOAK_USER admin
