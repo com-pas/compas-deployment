@@ -33,15 +33,19 @@ jobs:
         # Extra the IP Address form the Docker Container.
         run: echo "##[set-output name=ipaddress;]$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker_reverse-proxy_1)"
 
-      - name: Created output directory (firefox)
-        run: mkdir -p target/firefox
-      - name: Execute integration tests (firefox)
-        uses: joonvena/robotframework-docker-action@v1.0
+#      - name: Created output directory (firefox)
+#        run: mkdir -p target/firefox
+#      - name: Execute integration tests (firefox)
+#        uses: joonvena/robotframework-docker-action@v1.0
+#        with:
+#          browser: 'firefox'
+#          robot_tests_dir: 'integration-testing'
+#          robot_reports_dir: 'target/firefox'
+#          robot_options : '-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/'
+      - name: curl
+        uses: wei/curl@v1
         with:
-          browser: 'firefox'
-          robot_tests_dir: 'integration-testing'
-          robot_reports_dir: 'target/firefox'
-          robot_options : '-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/'
+          args: -v http://${{ steps.extract_ipaddress.outputs.ipaddress }}/
 
       - name: Stop containers
         if: always()
