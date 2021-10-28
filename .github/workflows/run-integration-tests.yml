@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
 
       - name: Start containers
-        run: docker-compose -f "docker/docker-compose.yml" up -d --build
+        run: docker-compose -f "compas/docker-compose.yml" up -d --build
         env:
           COMPAS_HOSTNAME: compas_reverse-proxy_1
       - name: Wait until containers started
@@ -44,4 +44,4 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker-compose -f "docker/docker-compose.yml" down -v
+        run: docker-compose -f "compas/docker-compose.yml" down -v
