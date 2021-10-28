@@ -34,7 +34,7 @@ jobs:
         run: mkdir -p target/firefox
       - name: Execute integration tests (firefox)
         run: |
-          docker run --rm --user pwuser \
+          docker run --rm --user $(id -u):$(id -g) \
                      -v $(pwd)/integration-testing/:/test \
                      marketsquare/robotframework-browser:latest \
                      bash -c "robot -d /test/output -v browser:firefox -v url:http://compas_reverse-proxy_1/ /test"
