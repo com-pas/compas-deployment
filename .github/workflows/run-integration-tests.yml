@@ -34,13 +34,21 @@ jobs:
         run: mkdir -p target/firefox
       - name: Execute integration tests (firefox)
         run: |
-          docker run -e BROWSER=firefox \
-            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
-            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
-            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
-            --user $(id -u):$(id -g) \
-            --network=compas_default \
-            ppodgorsek/robot-framework:latest
+          docker run --rm \
+                     -v $(pwd)/integration-testing:/integration-testing \
+                     -v $(pwd)/target/firefox:/reports \
+                     --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json
+                     marketsquare/robotframework-browser:latest
+                     bash -c "robot -d /reports -v browser:firefox -v url:http://compas_reverse-proxy_1/ /integration-testing"
+#      - name: Execute integration tests (firefox)
+#        run: |
+#          docker run -e BROWSER=firefox \
+#            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
+#            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
+#            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
+#            --user $(id -u):$(id -g) \
+#            --network=compas_default \
+#            ppodgorsek/robot-framework:latest
 
       - name: Stop containers
         if: always()
