@@ -30,29 +30,17 @@ jobs:
       - name: Wait until containers started
         run: sh ./bin/docker-wait-on-containers.sh
 
-#      - name: Extract IP Address
-#        id: extract_ipaddress
-#        shell: bash
-#        # Extra the IP Address form the Docker Container.
-#        run: echo "##[set-output name=ipaddress;]$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker_reverse-proxy_1)"
-#
-      - name: Created output directory (firefox)
-        run: mkdir -p target/firefox
-      - name: Execute integration tests (firefox)
+      - name: Created output directory (chromium)
+        run: mkdir -p target/chromium
+      - name: Execute integration tests (chromium)
         run: |
-          docker run -e BROWSER=firefox \
+          docker run -e BROWSER=chromium \
             -e ROBOT_OPTIONS="-v url:http://docker_reverse-proxy_1/" \
-            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
+            -v $(pwd)/target/chromium:/opt/robotframework/reports:Z \
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
             --network=docker_default \
             ppodgorsek/robot-framework:latest
-#        uses: joonvena/robotframework-docker-action@v1.0
-#        with:
-#          browser: 'firefox'
-#          robot_tests_dir: 'integration-testing'
-#          robot_reports_dir: 'target/firefox'
-#          robot_options : '-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/'
 
       - name: Stop containers
         if: always()
