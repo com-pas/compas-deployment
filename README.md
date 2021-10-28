@@ -11,7 +11,7 @@ SPDX-License-Identifier: Apache-2.0
 Containing tools / configurations for deploying CoMPAS services.
 
 ## Docker Compose
-There is a pre configured [Docker Compose](docker/docker-compose.yml) file, which starts all the given CoMPAS services.
+There is a pre configured [Docker Compose](compas/docker-compose.yml) file, which starts all the given CoMPAS services.
 To start all configured services, go to the `docker` directory and run the following two commands:
 
 ```
@@ -44,7 +44,7 @@ docker-compose down -v
 The option '-v' also removes the volumes created, so all data is lost with this option.
 
 ## Keycloak Demo Configuration
-For demo purposes, a [demo Keycloak configuration](docker/keycloak/keycloak_compas_realm.json) is created which can be imported when
+For demo purposes, a [demo Keycloak configuration](compas/keycloak/keycloak_compas_realm.json) is created which can be imported when
 running a Keycloak instance.
 
 The following Keycloak attributes have been added:

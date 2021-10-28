@@ -26,20 +26,20 @@ jobs:
       - name: Start containers
         run: docker-compose -f "docker/docker-compose.yml" up -d --build
         env:
-          COMPAS_HOSTNAME: docker_reverse-proxy_1
+          COMPAS_HOSTNAME: compas_reverse-proxy_1
       - name: Wait until containers started
         run: sh ./bin/docker-wait-on-containers.sh
 
-      - name: Created output directory (chromium)
-        run: mkdir -p target/chromium
-      - name: Execute integration tests (chromium)
+      - name: Created output directory (firefox)
+        run: mkdir -p target/firefox
+      - name: Execute integration tests (firefox)
         run: |
-          docker run -e BROWSER=chromium \
-            -e ROBOT_OPTIONS="-v url:http://docker_reverse-proxy_1/" \
-            -v $(pwd)/target/chromium:/opt/robotframework/reports:Z \
+          docker run -e BROWSER=firefox \
+            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
+            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
-            --network=docker_default \
+            --network=compas_default \
             ppodgorsek/robot-framework:latest
 
       - name: Stop containers
