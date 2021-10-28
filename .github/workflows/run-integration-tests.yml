@@ -26,28 +26,31 @@ jobs:
       - name: Start containers
         run: docker-compose -f "docker/docker-compose.yml" up -d --build
       - name: Wait until containers started
-        run: sh ./bin/docker-wait-on-containers.sh health=starting
+        run: sh ./bin/docker-wait-on-containers.sh
       - name: Extract IP Address
         id: extract_ipaddress
         shell: bash
         # Extra the IP Address form the Docker Container.
         run: echo "##[set-output name=ipaddress;]$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker_reverse-proxy_1)"
 
-#      - name: Created output directory (firefox)
-#        run: mkdir -p target/firefox
-#      - name: Execute integration tests (firefox)
+      - name: Created output directory (firefox)
+        run: mkdir -p target/firefox
+      - name: Execute integration tests (firefox)
+        run: |
+          docker run -e BROWSER=firefox \
+            -e ROBOT_OPTIONS="-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/" \
+            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
+            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
+            --user $(id -u):$(id -g) \
+            --network=docker_default \
+            ppodgorsek/robot-framework:latest
 #        uses: joonvena/robotframework-docker-action@v1.0
 #        with:
 #          browser: 'firefox'
 #          robot_tests_dir: 'integration-testing'
 #          robot_reports_dir: 'target/firefox'
 #          robot_options : '-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/'
-      - name: curl
-        run: curl -v http://${{ steps.extract_ipaddress.outputs.ipaddress }}/
 
       - name: Stop containers
         if: always()
         run: docker-compose -f "docker/docker-compose.yml" down -v
-      - name: Wait until containers stopped
-        if: always()
-        run: sh ./bin/docker-wait-on-containers.sh status=running
