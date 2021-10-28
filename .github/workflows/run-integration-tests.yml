@@ -38,7 +38,7 @@ jobs:
       - name: Execute integration tests (firefox)
         run: |
           docker run -e BROWSER=firefox \
-            -e ROBOT_OPTIONS="-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/" \
+            -e ROBOT_OPTIONS="-v url:http://docker_reverse-proxy_1/" \
             -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
