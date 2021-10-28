@@ -35,10 +35,9 @@ jobs:
       - name: Execute integration tests (firefox)
         run: |
           docker run --rm --user pwuser \
-                     -v $(pwd)/integration-testing:/integration-testing \
-                     -v $(pwd)/target/firefox:/reports \
+                     -v $(pwd)/integration-testing/:/test \
                      marketsquare/robotframework-browser:latest \
-                     bash -c "robot -d /reports -v browser:firefox -v url:http://compas_reverse-proxy_1/ /integration-testing"
+                     bash -c "robot -d /test/output -v browser:firefox -v url:http://compas_reverse-proxy_1/ /test"
 
 #                     --ipc=host --security-opt seccomp=seccomp_profile.json \
 #      - name: Execute integration tests (firefox)
