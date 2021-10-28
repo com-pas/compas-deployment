@@ -43,9 +43,7 @@ jobs:
 #          robot_reports_dir: 'target/firefox'
 #          robot_options : '-v url:http://${{ steps.extract_ipaddress.outputs.ipaddress }}/'
       - name: curl
-        uses: wei/curl@v1
-        with:
-          args: -v http://${{ steps.extract_ipaddress.outputs.ipaddress }}/
+        run: curl -v http://${{ steps.extract_ipaddress.outputs.ipaddress }}/
 
       - name: Stop containers
         if: always()
