@@ -3,11 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 *** Settings ***
-Documentation   Some basic test cases, like opening and saving files.
+Documentation   Basic test cases for opening and saving SCL files to/from Local File and CoMPAS.
 Resource        ./include/general-compas.robot
 
-Test Setup      Initialize and start OpenSCD
-Test Teardown   Make screenshot and stop OpenSCD
+Test Setup      Initialize and Start OpenSCD
+Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Test Cases ***
 TestCase001-01
@@ -105,36 +105,3 @@ TestCase001-04
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}
     Close Menu
-
-TestCase001-05
-    [Documentation]     Save multiple versions to CoMPAS
-    Set Test Variable   ${sclname}  minigrid
-    Set Test Variable   ${scltype}  SCD
-
-    Open Menu               Open project
-    Open local file         ${sclname}    ${scltype}
-    Close Menu
-    Check Title Filename    ${sclname}    ${scltype}
-
-    Set Test Variable   ${sclname}  ${TEST NAME}
-    Set Test Variable   ${scltype}  CID
-
-    Open Menu               Save project
-    Add to CoMPAS           ${sclname}    ${scltype}
-    Close Menu
-    Check Title Filename    ${sclname}-${current-date}-1.0.0    ${scltype}
-
-    Open Menu               Save project
-    Update in CoMPAS        MAJOR
-    Close Menu
-    Check Title Filename    ${sclname}-${current-date}-2.0.0    ${scltype}
-
-    Open Menu               Save project
-    Update in CoMPAS        MINOR
-    Close Menu
-    Check Title Filename    ${sclname}-${current-date}-2.1.0    ${scltype}
-
-    Open Menu               Save project
-    Update in CoMPAS        PATCH
-    Close Menu
-    Check Title Filename    ${sclname}-${current-date}-2.1.1    ${scltype}

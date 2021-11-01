@@ -13,11 +13,11 @@ ${dialog-selector}              wizard-dialog mwc-dialog
 ${substation-editor-selector}   substation-editor:nth-child(1) > editor-container
 
 *** Keywords ***
-Initialize and start OpenSCD
+Initialize and Start OpenSCD
     Set global variables
     Open OpenSCD and Login
 
-Make screenshot and stop OpenSCD
+Make screenshot and Stop OpenSCD
     Run Keyword If Test Passed      Take Screenshot     filename=${TEST NAME}-{index}  fullPage=true
     Close OpenSCD
 
