@@ -32,23 +32,29 @@ jobs:
 
       - name: Created output directory (firefox)
         run: mkdir -p target/firefox
-      - name: Execute integration tests (firefox)
-        run: |
-          docker run --rm --user $(id -u):$(id -g) \
-                     -v $(pwd)/integration-testing/:/test \
-                     marketsquare/robotframework-browser:latest \
-                     bash -c "robot -d /test/output -v browser:firefox -v url:http://compas_reverse-proxy_1/ /test"
 
-#                     --ipc=host --security-opt seccomp=seccomp_profile.json \
+#&& chmod -R 777 target
 #      - name: Execute integration tests (firefox)
 #        run: |
-#          docker run -e BROWSER=firefox \
-#            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
-#            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
-#            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
-#            --user $(id -u):$(id -g) \
-#            --network=compas_default \
-#            ppodgorsek/robot-framework:latest
+#          docker run --rm \
+#                     --user $(id -u):$(id -g) \
+#                     --network=compas_default \
+#                     -v $(pwd)/target/firefox:/output \
+#                     -v $(pwd)/integration-testing/:/test \
+#                     marketsquare/robotframework-browser:latest \
+#                     bash -c "robot -d /output -v browser:firefox -v url:http://compas_reverse-proxy_1/ /test"
+#
+#                     --ipc=host --security-opt seccomp=seccomp_profile.json \
+
+      - name: Execute integration tests (firefox)
+        run: |
+          docker run --rm -e BROWSER=firefox \
+            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
+            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
+            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
+            --user $(id -u):$(id -g) \
+            --network=compas_default \
+            ppodgorsek/robot-framework:latest
 
       - name: Stop containers
         if: always()
