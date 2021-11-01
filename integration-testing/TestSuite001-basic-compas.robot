@@ -23,9 +23,6 @@ TestCase001-01
     Select Tab      Substation
     Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
 
-    Select Tab      CoMPAS Versions
-    Get Text        ${compas-versions-editor-selector} mwc-list > mwc-list-item > span:has-text("No versions found")
-
 TestCase001-02
     [Documentation]     Open project from Local File and Add to CoMPAS
     Set Test Variable   ${sclname}  minigrid
@@ -46,9 +43,6 @@ TestCase001-02
 
     Select Tab      Substation
     Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
-
-    Select Tab          CoMPAS Versions
-    Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  1
 
 TestCase001-03
     [Documentation]     Open project from CoMPAS
@@ -79,9 +73,6 @@ TestCase001-03
 
     Select Tab      Substation
     Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
-
-    Select Tab          CoMPAS Versions
-    Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  1
 
 TestCase001-04
     [Documentation]     Open project from CoMPAS and Save to Local File
