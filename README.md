@@ -12,7 +12,7 @@ Containing tools / configurations for deploying CoMPAS services.
 
 ## Docker Compose
 There is a pre configured [Docker Compose](compas/docker-compose.yml) file, which starts all the given CoMPAS services.
-To start all configured services, go to the `docker` directory and run the following two commands:
+To start all configured services, go to the `compas` directory and run the following two commands:
 
 ```
 # First build the Keycloak Custom image and Reverse Proxy.
