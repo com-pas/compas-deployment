@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: Run all integration tests
+name: Run integration tests
 
 on: push
 
