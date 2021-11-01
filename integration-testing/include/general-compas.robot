@@ -13,20 +13,26 @@ ${compas-versions-editor-selector}  compas-versions-plugin
 
 *** Keywords ***
 Open from CoMPAS
-    [Arguments]     ${name}     ${type}
-    Click           ${dialog-selector} compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
-    Click           ${dialog-selector} compas-open compas-scl-list > mwc-list > mwc-list-item:has-text("${name}-${current-date}")
-    Get Style       open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   opacity  ==  0
+    [Arguments]        ${name}     ${type}
+    Click              ${dialog-selector} compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
+    Click              ${dialog-selector} compas-open compas-scl-list > mwc-list > mwc-list-item:has-text("${name}-${current-date}")
+    Wait for Progressbar
+    Close Issues Snackbar
+    Close Menu
 
 Add to CoMPAS
-    [Arguments]     ${name}     ${type}
-    Fill Text       ${dialog-selector} compas-save mwc-textfield#name input   ${name}-${current-date}
-    Click           ${dialog-selector} compas-save compas-scltype-radiogroup mwc-list > mwc-radio-list-item[value="${type.upper()}"]
-    Click           ${dialog-selector} mwc-button[slot="primaryAction"] > button
-    Get Style       open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   opacity  ==  0
+    [Arguments]        ${name}     ${type}
+    Fill Text          ${dialog-selector} compas-save mwc-textfield#name input   ${name}-${current-date}
+    Click              ${dialog-selector} compas-save compas-scltype-radiogroup mwc-list > mwc-radio-list-item[value="${type.upper()}"]
+    Click              ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Wait for Progressbar
+    Close Issues Snackbar
+    Close Menu
 
 Update in CoMPAS
-    [Arguments]     ${changeType}
-    Click           ${dialog-selector} compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
-    Click           ${dialog-selector} mwc-button[slot="primaryAction"] > button
-    Get Style       open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   opacity  ==  0
+    [Arguments]        ${changeType}
+    Click              ${dialog-selector} compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
+    Click              ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Wait for Progressbar
+    Close Issues Snackbar
+    Close Menu

@@ -34,6 +34,7 @@ Open OpenSCD and Login
     Fill Text           input[id="username"]     ${username}
     Fill Secret         input[id="password"]     $password
     Click               input[type="submit"][id="kc-login"]
+    Wait For Response
     Check Browser Title
 
 Close OpenSCD
@@ -61,8 +62,9 @@ Open local file
     ${promise}=         Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
     Click               ${dialog-selector} compas-open mwc-button[label="Open file..."] button
     ${upload_result}=   Wait For  ${promise}
-    Get Style           open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   opacity  ==  0
-    Click               mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
+    Wait for Progressbar
+    Close Issues Snackbar
+    Close Menu
 
 Save to local file
     [Arguments]         ${name}     ${type}
@@ -70,7 +72,18 @@ Save to local file
     Click               ${dialog-selector} compas-save mwc-button[label="Save to file..."] button
     ${file_obj}=        Wait For  ${dl_promise}
     File Should Exist   ${file_obj}[saveAs]
+    Close Menu
 
 Check Title Filename
     [Arguments]     ${filename}     ${scltype}
     Get Text        open-scd > mwc-drawer div#title:text-is("${filename}.${scltype.lower()}")
+
+Wait for Progressbar
+    ${promise}=     Promise To   Wait For Function   element => element.style.opacity == 0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
+    Wait For        ${promise}
+
+Close Issues Snackbar
+    ${snackbar}=        Get Element State   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
+    IF                  ${snackbar} == 'visible'
+    Click               mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
+    END

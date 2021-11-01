@@ -15,11 +15,8 @@ There is a pre configured [Docker Compose](compas/docker-compose.yml) file, whic
 To start all configured services, go to the `compas` directory and run the following two commands:
 
 ```
-# First build the Keycloak Custom image and Reverse Proxy.
-docker-compose build
-
-# Start all the containers in the background.
-docker-compose up -d
+# Build (if needed) and start all the containers in the background.
+docker-compose up -d --build
 ```
 
 This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
@@ -38,6 +35,7 @@ Now, the following services are available:
 To stop and remove all the containers run the command:
 
 ```
+# Stop all containers and remove the volumes.
 docker-compose down -v
 ```
 
