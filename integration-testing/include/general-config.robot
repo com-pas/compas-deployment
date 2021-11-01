@@ -24,3 +24,4 @@ Set global variables
     ${current-date}=    Get Current Date  result_format=%Y%m%d_%H%M%S
     Set Suite Variable  ${current-date}  ${current-date}
     Set Tags            ${browser}
+    Set Log Level       DEBUG
