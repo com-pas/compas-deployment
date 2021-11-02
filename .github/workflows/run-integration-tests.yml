@@ -60,6 +60,15 @@ jobs:
 #            --network=compas_default \
 #            ppodgorsek/robot-framework:latest
 
+      - name: Archive Robot Framework Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: robot-framework-reports
+          retention-days: 7
+          path: |
+            target/firefox/*.*
+            target/chromium/*.*
+
       - name: Stop containers
         if: always()
         run: docker-compose -f "compas/docker-compose.yml" down -v

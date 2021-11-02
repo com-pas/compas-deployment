@@ -19,10 +19,12 @@ Initialize and Start OpenSCD
 
 Make screenshot and Stop OpenSCD
     Run Keyword If Test Passed      Take Screenshot     filename=${TEST NAME}-{index}  fullPage=true
+    Run Keyword If Test Passed      Take Screenshot     filename=EMBED  fullPage=true
     Close OpenSCD
 
 Make screenshot on failure
     Take Screenshot     filename=${TEST NAME}-failure-{index}  fullPage=true
+    Take Screenshot     filename=EMBED  fullPage=true
 
 Open OpenSCD and Login
     New Browser         browser=${browser}
