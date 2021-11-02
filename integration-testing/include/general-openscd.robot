@@ -79,8 +79,7 @@ Check Title Filename
     Get Text        open-scd > mwc-drawer div#title:text-is("${filename}.${scltype.lower()}")
 
 Wait for Progressbar
-    ${promise}=     Promise To   Wait For Function   element => element.style.opacity == 0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
-    Wait For        ${promise}
+    Get Style       open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   opacity  ==  0
 
 Close Issues Snackbar
     ${snackbar}=        Get Element State   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
