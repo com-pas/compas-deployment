@@ -9,7 +9,7 @@ Resource        ./general-config.robot
 *** Variables ***
 # Variables of Selectors commonly used.
 ${menu-selector}                mwc-drawer[id="menu"]
-${dialog-selector}              wizard-dialog mwc-dialog
+${dialog-selector}              wizard-dialog
 ${substation-editor-selector}   substation-editor:nth-child(1) > editor-container
 
 *** Keywords ***
@@ -51,7 +51,7 @@ Open Menu
 Close Menu
     # To make the editors visible again we need to close the menu.
     # We click outside the menu somewhere in the browser.
-    Mouse Button    click   x=350   y=100
+    Mouse Button    click   x=350   y=350
 
 Select Tab
     [Arguments]     ${tabname}
@@ -72,6 +72,7 @@ Save to local file
     Click               ${dialog-selector} compas-save mwc-button[label="Save to file..."] button
     ${file_obj}=        Wait For  ${dl_promise}
     File Should Exist   ${file_obj}[saveAs]
+    Wait for dialog is closed
     Close Menu
 
 Check Title Filename
