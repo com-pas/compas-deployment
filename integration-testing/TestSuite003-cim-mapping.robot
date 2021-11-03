@@ -11,22 +11,22 @@ Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Keywords ***
 Open Project from CIM
-    [Arguments]         ${name}
-    ${promise}=         Promise To Upload File    ${CURDIR}/test-files/${name}.xml
-    Open Menu           Project from CIM
-    ${upload_result}=   Wait For  ${promise}
+    [Arguments]                ${name}   ${scltype}
+    ${promise}=                Promise To Upload File    ${CURDIR}/test-files/${name}.xml
+    Open Menu                  Project from CIM
+    ${upload_result}=          Wait For  ${promise}
+    Sleep                      0.5s   Wait until loading file starts.
     Wait for Progressbar
-    Wait for dialog is closed
+    Check Title Filename       ${name}   ${scltype}
     Close Menu
 
 *** Test Cases ***
 TestCase003-01
-    [Documentation]     Create project from CIM File
-    Set Test Variable   ${sclname}  MiniGridTestConfiguration_BC_EQ_v3.0.0
-    Set Test Variable   ${scltype}  SSD
+    [Documentation]         Create project from CIM File
+    Set Test Variable       ${sclname}  MiniGridTestConfiguration_BC_EQ_v3.0.0
+    Set Test Variable       ${scltype}  SSD
 
-    Open Project from CIM   ${sclname}
-    Check Title Filename    ${sclname}    ${scltype}
+    Open Project from CIM   ${sclname}   ${scltype}
 
-    Select Tab      Substation
-    Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Select Tab              Substation
+    Get Text                ${substation-editor-selector} div#header > h1:has-text("Sub1")

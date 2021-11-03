@@ -58,12 +58,15 @@ Select Tab
     Click           mwc-tab[label="${tabname}"] > button
 
 Open local file
-    [Arguments]         ${name}     ${type}
-    ${promise}=         Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
-    Click               ${dialog-selector} compas-open mwc-button[label="Open file..."] button
-    ${upload_result}=   Wait For  ${promise}
+    [Arguments]                 ${name}     ${type}
+    ${promise}=                 Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
+    Click                       ${dialog-selector} compas-open mwc-button[label="Open file..."] button
+    ${upload_result}=           Wait For  ${promise}
+    Sleep                       0.5s   Wait until loading file starts.
     Wait for Progressbar
     Wait for dialog is closed
+    # check if the title (filename) changed to the new expected one. This way we know we can close the menu.
+    Check Title Filename        ${name}    ${scltype}
     Close Menu
 
 Save to local file
@@ -77,7 +80,7 @@ Save to local file
 
 Check Title Filename
     [Arguments]     ${filename}     ${scltype}
-    Get Text        open-scd > mwc-drawer div#title:text-is("${filename}.${scltype.lower()}")
+    Get Text        open-scd > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
 
 Wait for Progressbar
     Wait For Function   element => element.style.opacity==0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
