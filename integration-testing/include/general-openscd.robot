@@ -63,7 +63,7 @@ Open local file
     Click               ${dialog-selector} compas-open mwc-button[label="Open file..."] button
     ${upload_result}=   Wait For  ${promise}
     Wait for Progressbar
-    Close Issues Snackbar
+    Wait for dialog is closed
     Close Menu
 
 Save to local file
@@ -79,8 +79,10 @@ Check Title Filename
     Get Text        open-scd > mwc-drawer div#title:text-is("${filename}.${scltype.lower()}")
 
 Wait for Progressbar
-    ${promise}=     Promise To   Wait For Function   element => element.style.opacity == 0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
-    Wait For        ${promise}
+    Wait For Function   element => element.style.opacity==0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
+
+Wait for dialog is closed
+    Wait For Elements State   ${dialog-selector}   hidden
 
 Close Issues Snackbar
     ${snackbar}=        Get Element State   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button

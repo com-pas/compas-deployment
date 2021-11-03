@@ -5,11 +5,8 @@ SPDX-FileCopyrightText: 2021 Alliander N.V.
 SPDX-License-Identifier: Apache-2.0
 -->
     <SCL version="2007" revision="B" release="4" xmlns:compas="https://www.lfenergy.org/compas/extension/v1" xmlns="http://www.iec.ch/61850/2003/SCL">
-<!--        <Header id="619b364b-29ad-4517-9073-5d505151a5fc" version="0.0.1" revision="">
-            <History>
-                <Hitem version="0.0.1" revision="" when="2021-09-27T03:36:47+02:00" who="Mr Editor" what="SCL created from CIM File(s): CONFIG_BC_EQ_V1.0.0.XML"/>
-            </History>
-        </Header> -->
+        <Header>
+        </Header>
         <Substation name="_af9a4ae3-ba2e-4c34-8e47-5af894ee20f4" desc="Sub1">
             <PowerTransformer type="PTR" name="T4">
                 <TransformerWinding type="PTW" name="T4_3">

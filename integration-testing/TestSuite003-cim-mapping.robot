@@ -16,7 +16,7 @@ Open Project from CIM
     Open Menu           Project from CIM
     ${upload_result}=   Wait For  ${promise}
     Wait for Progressbar
-    Close Issues Snackbar
+    Wait for dialog is closed
     Close Menu
 
 *** Test Cases ***
