@@ -13,11 +13,11 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
-      - name: Cache register
+      - name: Cache Docker Register
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
@@ -59,6 +59,16 @@ jobs:
 #            --user $(id -u):$(id -g) \
 #            --network=compas_default \
 #            ppodgorsek/robot-framework:latest
+
+      - name: Archive Robot Framework Reports
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: robot-framework-reports
+          retention-days: 7
+          path: |
+            target/firefox/*.*
+            target/chromium/*.*
 
       - name: Stop containers
         if: always()
