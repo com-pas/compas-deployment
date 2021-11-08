@@ -10,7 +10,7 @@ Resource        ./general-config.robot
 # Variables of Selectors commonly used.
 ${menu-selector}                mwc-drawer[id="menu"]
 ${dialog-selector}              wizard-dialog
-${substation-editor-selector}   substation-editor:nth-child(1) > editor-container
+${substation-editor-selector}   substation-editor:first-child > editor-container
 
 *** Keywords ***
 Initialize and Start OpenSCD
