@@ -167,9 +167,6 @@ TestCase002-31
     [Documentation]      Compare current version from CoMPAS not selecting correct number of versions
     Initialize Versions  True
 
-    Open Menu            Save project
-    Update in CoMPAS     MAJOR   ${sclname}   ${scltype}   3.0.0
-
     Select Tab  CoMPAS Versions
     # Now select no versions and try to compare, should show a error dialog.
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
@@ -186,7 +183,7 @@ TestCase002-31
     Wait for dialog is closed
 
 TestCase002-32
-    [Documentation]      Compare current version from CoMPAS
+    [Documentation]      Compare two versions from CoMPAS
     Initialize Versions  False
 
     Delete first substation
