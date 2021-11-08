@@ -16,7 +16,6 @@ Open Project from CIM
     Open Menu                  Project from CIM
     ${upload_result}=          Wait For  ${promise}
     Sleep                      0.5s   Wait until loading file starts.
-    Wait for Progressbar
     Check Title Filename       ${name}   ${scltype}
     Close Menu
 

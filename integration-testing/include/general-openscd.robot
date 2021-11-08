@@ -63,7 +63,6 @@ Open local file
     Click                       ${dialog-selector} compas-open mwc-button[label="Open file..."] button
     ${upload_result}=           Wait For  ${promise}
     Sleep                       0.5s   Wait until loading file starts.
-    Wait for Progressbar
     Wait for dialog is closed
     # check if the title (filename) changed to the new expected one. This way we know we can close the menu.
     Check Title Filename        ${name}    ${scltype}
@@ -82,10 +81,8 @@ Check Title Filename
     [Arguments]     ${filename}     ${scltype}
     Get Text        open-scd > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
 
-Wait for Progressbar
-    Wait For Function   element => element.style.opacity==0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
-
 Wait for dialog is closed
+    Wait For Function         element => element.style.opacity==0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
     Wait For Elements State   ${dialog-selector}   hidden
 
 Close Issues Snackbar
