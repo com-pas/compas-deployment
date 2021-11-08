@@ -6,6 +6,7 @@
 Documentation   Setup up configuration to run all Robot TestCases using the Browser Library (playwright)
 Library         Browser  enable_presenter_mode=${enable_presenter_mode}
 ...                      run_on_failure=Make screenshot on failure
+...                      retry_assertions_for=0:00:10
 Library         OperatingSystem
 Library         DateTime
 

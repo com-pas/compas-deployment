@@ -15,31 +15,28 @@ TestCase001-01
     Set Test Variable   ${sclname}  MiniGrid
     Set Test Variable   ${scltype}  SCD
 
-    Open Menu              Open project
-    Open local file        ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}    ${scltype}
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
 
-    Select Tab      Substation
-    Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Select Tab          Substation
+    Get Text            ${substation-editor-selector} div#header > h1:has-text("Sub1")
 
 TestCase001-02
     [Documentation]     Open project from Local File and Add to CoMPAS
     Set Test Variable   ${sclname}  MiniGrid
     Set Test Variable   ${scltype}  SCD
 
-    Open Menu              Open project
-    Open local file        ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}    ${scltype}
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
 
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
 
-    Open Menu              Save project
-    Add to CoMPAS          ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}-${current-date}-1.0.0    ${scltype}
+    Open Menu           Save project
+    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
 
-    Select Tab      Substation
-    Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Select Tab          Substation
+    Get Text            ${substation-editor-selector} div#header > h1:has-text("Sub1")
 
 TestCase001-03
     [Documentation]     Open project from CoMPAS
@@ -47,26 +44,23 @@ TestCase001-03
     Set Test Variable   ${sclname}  MiniGrid
     Set Test Variable   ${scltype}  SCD
 
-    Open Menu              Open project
-    Open local file        ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}    ${scltype}
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
 
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
 
-    Open Menu              Save project
-    Add to CoMPAS          ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}-${current-date}-1.0.0    ${scltype}
+    Open Menu           Save project
+    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
 
     Close OpenSCD
     Open OpenSCD and Login
 
-    Open Menu              Open project
-    Open from CoMPAS       ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}-${current-date}-1.0.0    ${scltype}
+    Open Menu           Open project
+    Open from CoMPAS    ${sclname}   ${scltype}   1.0.0
 
-    Select Tab      Substation
-    Get Text        ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Select Tab          Substation
+    Get Text            ${substation-editor-selector} div#header > h1:has-text("Sub1")
 
 TestCase001-04
     [Documentation]     Open project from CoMPAS and Save to Local File
@@ -74,16 +68,14 @@ TestCase001-04
     Set Test Variable   ${sclname}  MiniGrid
     Set Test Variable   ${scltype}  SCD
 
-    Open Menu              Open project
-    Open local file        ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}    ${scltype}
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
 
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
 
-    Open Menu              Save project
-    Add to CoMPAS          ${sclname}    ${scltype}
-    Check Title Filename   ${sclname}-${current-date}-1.0.0    ${scltype}
+    Open Menu           Save project
+    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
 
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}
