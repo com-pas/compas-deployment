@@ -9,8 +9,8 @@ Resource        ./general-config.robot
 *** Variables ***
 # Variables of Selectors commonly used.
 ${menu-selector}                mwc-drawer[id="menu"]
-${dialog-selector}              wizard-dialog mwc-dialog
-${substation-editor-selector}   substation-editor:nth-child(1) > editor-container
+${dialog-selector}              wizard-dialog
+${substation-editor-selector}   substation-editor:first-child > editor-container
 
 *** Keywords ***
 Initialize and Start OpenSCD
@@ -51,19 +51,21 @@ Open Menu
 Close Menu
     # To make the editors visible again we need to close the menu.
     # We click outside the menu somewhere in the browser.
-    Mouse Button    click   x=350   y=100
+    Mouse Button    click   x=350   y=350
 
 Select Tab
     [Arguments]     ${tabname}
     Click           mwc-tab[label="${tabname}"] > button
 
 Open local file
-    [Arguments]         ${name}     ${type}
-    ${promise}=         Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
-    Click               ${dialog-selector} compas-open mwc-button[label="Open file..."] button
-    ${upload_result}=   Wait For  ${promise}
-    Wait for Progressbar
-    Close Issues Snackbar
+    [Arguments]                 ${name}     ${type}
+    ${promise}=                 Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
+    Click                       ${dialog-selector} compas-open mwc-button[label="Open file..."] button
+    ${upload_result}=           Wait For  ${promise}
+    Sleep                       0.5s   Wait until loading file starts.
+    Wait for dialog is closed
+    # check if the title (filename) changed to the new expected one. This way we know we can close the menu.
+    Check Title Filename        ${name}    ${scltype}
     Close Menu
 
 Save to local file
@@ -72,15 +74,16 @@ Save to local file
     Click               ${dialog-selector} compas-save mwc-button[label="Save to file..."] button
     ${file_obj}=        Wait For  ${dl_promise}
     File Should Exist   ${file_obj}[saveAs]
+    Wait for dialog is closed
     Close Menu
 
 Check Title Filename
     [Arguments]     ${filename}     ${scltype}
-    Get Text        open-scd > mwc-drawer div#title:text-is("${filename}.${scltype.lower()}")
+    Get Text        open-scd > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
 
-Wait for Progressbar
-    ${promise}=     Promise To   Wait For Function   element => element.style.opacity == 0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
-    Wait For        ${promise}
+Wait for dialog is closed
+    Wait For Function         element => element.style.opacity==0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
+    Wait For Elements State   ${dialog-selector}   hidden
 
 Close Issues Snackbar
     ${snackbar}=        Get Element State   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
