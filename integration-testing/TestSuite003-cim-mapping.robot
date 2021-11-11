@@ -14,7 +14,7 @@ Open Project from CIM
     [Arguments]                ${name}   ${scltype}
     ${promise}=                Promise To Upload File    ${CURDIR}/test-files/${name}.xml
     Open Menu                  Project from CIM
-    ${upload_result}=          Wait For  ${promise}
+    ${upload_result}=          Wait For   ${promise}
     Sleep                      0.5s   Wait until loading file starts.
     Check Title Filename       ${name}   ${scltype}
     Close Menu
