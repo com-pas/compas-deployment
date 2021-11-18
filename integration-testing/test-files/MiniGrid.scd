@@ -5,7 +5,7 @@ SPDX-FileCopyrightText: 2021 Alliander N.V.
 SPDX-License-Identifier: Apache-2.0
 -->
     <SCL version="2007" revision="B" release="4" xmlns:compas="https://www.lfenergy.org/compas/extension/v1" xmlns="http://www.iec.ch/61850/2003/SCL">
-        <Header>
+        <Header id="some-strange-id" version="v1">
         </Header>
         <Substation name="_af9a4ae3-ba2e-4c34-8e47-5af894ee20f4" desc="Sub1">
             <PowerTransformer type="PTR" name="T4">
