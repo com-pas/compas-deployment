@@ -16,7 +16,7 @@ services:
       - POSTGRES_DB=compas
       - PGDATA=/var/lib/postgresql/data/compas
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "sleep 10 && pg_isready -U postgres"]
       interval: 5s
       timeout: 10s
       retries: 10
@@ -58,6 +58,12 @@ services:
       - USERINFO_WHO_CLAIMNAME=name
       - USERINFO_SESSION_WARNING=20
       - USERINFO_SESSION_EXPIRES=30
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-scl-data-service/q/health/ready"]
       interval: 15s
