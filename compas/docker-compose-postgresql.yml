@@ -16,7 +16,7 @@ services:
       - POSTGRES_DB=compas
       - PGDATA=/var/lib/postgresql/data/compas
     healthcheck:
-      test: ["CMD-SHELL", "sleep 10 && pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 10s
       retries: 10
