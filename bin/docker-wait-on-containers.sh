@@ -10,7 +10,5 @@ do
   docker ps -a --filter label=compas
 done
 
-docker logs compas_scl-data-service_1
-
 echo "Done no containers with filter 'health=starting'."
 docker ps -a --filter label=compas

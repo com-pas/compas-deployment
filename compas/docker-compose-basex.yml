@@ -51,6 +51,12 @@ services:
       - USERINFO_WHO_CLAIMNAME=name
       - USERINFO_SESSION_WARNING=20
       - USERINFO_SESSION_EXPIRES=30
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-scl-data-service/q/health/ready"]
       interval: 15s
@@ -70,6 +76,12 @@ services:
       - JWT_VERIFY_CLIENT_ID=cim-mapping
       - JWT_GROUPS_PATH=resource_access/cim-mapping/roles
       - USERINFO_WHO_CLAIMNAME=name
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-cim-mapping/q/health/ready"]
       interval: 15s

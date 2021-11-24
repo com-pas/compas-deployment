@@ -17,9 +17,9 @@ services:
       - PGDATA=/var/lib/postgresql/data/compas
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
+      interval: 15s
       timeout: 10s
-      retries: 10
+      retries: 5
     volumes:
       - postgresql-data-volume:/var/lib/postgresql/data
 
@@ -83,6 +83,12 @@ services:
       - JWT_VERIFY_CLIENT_ID=cim-mapping
       - JWT_GROUPS_PATH=resource_access/cim-mapping/roles
       - USERINFO_WHO_CLAIMNAME=name
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-cim-mapping/q/health/ready"]
       interval: 15s
