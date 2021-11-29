@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: Run integration tests
+name: Run integration tests (BaseX)
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ hashFiles('**/Dockerfile') }}
 
       - name: Start containers
-        run: docker-compose -f "compas/docker-compose.yml" up -d --build
+        run: docker-compose -f "compas/docker-compose-basex.yml" up -d --build
         env:
           COMPAS_HOSTNAME: compas_reverse-proxy_1
       - name: Wait until containers started
@@ -79,4 +79,4 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker-compose -f "compas/docker-compose.yml" down -v
+        run: docker-compose -f "compas/docker-compose-basex.yml" down -v

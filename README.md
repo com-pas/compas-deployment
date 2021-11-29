@@ -10,16 +10,19 @@ SPDX-License-Identifier: Apache-2.0
 # CoMPAS Deployment Repository
 Containing tools / configurations for deploying CoMPAS services.
 
-## Docker Compose
-There is a pre configured [Docker Compose](compas/docker-compose.yml) file, which starts all the given CoMPAS services.
-To start all configured services, go to the `compas` directory and run the following two commands:
+## Docker Compose (BaseX)
+There is a pre configured [Docker Compose](compas/docker-compose-basex.yml) file, which starts all the given CoMPAS services.
+To start all configured services using BaseX, run the following two commands:
 
 ```
 # Build (if needed) and start all the containers in the background.
-docker-compose up -d --build
+docker-compose -f compas/docker-compose-basex.yml up -d --build
 ```
 
-This first command builds 2 containers (keycloak and reverse proxy) and next command starts all CoMPAS services at the same time.
+This command will first build the custom images for Keycloak and the Reverse Proxy and then start all containers.
+To know if all containers are running execute the shell script "bin/docker-wait-on-containers.sh". 
+This script will wait until all containers are running.
+
 Now, the following services are available:
 
 - open-scd, available at [http://localhost/](http://localhost/).
@@ -36,16 +39,42 @@ To stop and remove all the containers run the command:
 
 ```
 # Stop all containers and remove the volumes.
-docker-compose down -v
+docker-compose -f compas/docker-compose-basex.yml down -v
+```
+
+The option '-v' also removes the volumes created, so all data is lost with this option.
+
+## Docker Compose (PostgreSQL)
+There is a pre configured [Docker Compose](compas/docker-compose-postgresql.yml) file, which starts all the given CoMPAS services.
+To start all configured services using PostgreSQL, run the following two commands:
+
+```
+# Build (if needed) and start all the containers in the background.
+docker-compose -f compas/docker-compose-postgresql.yml up -d --build
+```
+
+This command will first build the custom images for Keycloak and the Reverse Proxy and then start all containers.
+To know if all containers are running execute the shell script "bin/docker-wait-on-containers.sh".
+This script will wait until all containers are running.
+
+The URLs are the same as for the BaseX version, except of course the BaseX Container. This is now a PostgreSQL
+container. The PostgreSQL container is available at port 5432. 
+
+To stop and remove all the containers run the command:
+
+```
+# Stop all containers and remove the volumes.
+docker-compose -f compas/docker-compose-postgresql.yml down -v
 ```
 
 The option '-v' also removes the volumes created, so all data is lost with this option.
 
 ### Known issue with Docker Compose
 
-Using the current configuration with Keycloak and OpenResty (lua-resty-session) sometimes gives an error "**state from argument does not match state restored from session**". 
+Using the current configuration with Keycloak and OpenResty (lua-resty-session) sometimes gives an error 
+"**state from argument does not match state restored from session**". 
 This mostly happens after using logout or the session is expired. The login page is shown, but after login this error is shown.
-Just open the url [http://localhost/](http://localhost/) again and OpenSCD is shown again also being logged in.
+Just open the url [http://localhost/](http://localhost/) again and OpenSCD is shown again, also being logged in.
 
 ## Keycloak Demo Configuration
 For demo purposes, a [demo Keycloak configuration](compas/keycloak/keycloak_compas_realm.json) is created which can be imported when
@@ -56,7 +85,8 @@ The following Keycloak attributes have been added:
 - **OpenSCD client**: A client has been made for interacting with OpenSCD.
 - **SCL Data Service client**: A client has been made for interacting with the SCL Data Service.
 - **CRUD roles for the SCL Data Service**: Create, Read, Update and Delete roles have been added to the SCL Data Service client.
-When interacting with the SCL Data Service, a JWT token needs to have certain roles before interaction is possible. These roles are assigned to certain users (see below).
+When interacting with the SCL Data Service, a JWT token needs to have certain roles before interaction is possible. 
+These roles are assigned to certain users (see below).
 - **CoMPAS Group**: A CoMPAS demo group has been added.
 - **A Demo User**: A Demo user without specific roles.
   - Username: 'user'

@@ -5,16 +5,23 @@
 version: "3.9"
 
 services:
-  basex:
+  postgresql:
     labels:
       compas: true
-    image: "basex/basexhttp:9.5.2"
+    image: "postgres:latest"
     ports:
-      - "1984:1984"
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=compas
+      - PGDATA=/var/lib/postgresql/data/compas
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
     volumes:
-      - basex-data-volume:/srv/basex/data
-      - basex-repo-volume:/srv/basex/repo
-      - basex-webapp-volume:/srv/basex/webapp
+      - postgresql-data-volume:/var/lib/postgresql/data
 
   keycloak:
     build:
@@ -39,10 +46,10 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.8.3"
+    image: "lfenergy/compas-scl-data-service:0.9.0-postgresql"
     environment:
-      - BASEX_HOST=basex
-      - BASEX_PORT=1984
+      - POSTGRESQL_HOST=postgresql
+      - POSTGRESQL_DB=compas
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
       - JWT_VERIFY_CLIENT_ID=scl-data-service
@@ -51,13 +58,19 @@ services:
       - USERINFO_WHO_CLAIMNAME=name
       - USERINFO_SESSION_WARNING=20
       - USERINFO_SESSION_EXPIRES=30
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-scl-data-service/q/health/ready"]
       interval: 15s
       timeout: 10s
       retries: 5
     depends_on:
-      - basex
+      - postgresql
       - keycloak
 
   cim-mapping:
@@ -70,6 +83,12 @@ services:
       - JWT_VERIFY_CLIENT_ID=cim-mapping
       - JWT_GROUPS_PATH=resource_access/cim-mapping/roles
       - USERINFO_WHO_CLAIMNAME=name
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-cim-mapping/q/health/ready"]
       interval: 15s
@@ -112,6 +131,4 @@ services:
       - open-scd
 
 volumes:
-  basex-data-volume:
-  basex-repo-volume:
-  basex-webapp-volume:
+  postgresql-data-volume:

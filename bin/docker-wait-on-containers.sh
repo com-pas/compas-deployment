@@ -7,6 +7,7 @@ while [ `docker ps --filter health=starting --filter label=compas -q | wc -l` -g
 do
   echo "Still waiting for the containers with filter 'health=starting'."
   sleep 10
+  docker ps -a --filter label=compas
 done
 
 echo "Done no containers with filter 'health=starting'."
