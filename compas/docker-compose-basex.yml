@@ -54,9 +54,7 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-        delay: 5s
         max_attempts: 3
-        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-scl-data-service/q/health/ready"]
       interval: 15s
@@ -79,9 +77,7 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-        delay: 5s
         max_attempts: 3
-        window: 30s
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-cim-mapping/q/health/ready"]
       interval: 15s
