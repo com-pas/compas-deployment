@@ -39,7 +39,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.9.0-basex"
+    image: "lfenergy/compas-scl-data-service:0.9.1-basex"
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
@@ -67,7 +67,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.7.6"
+    image: "lfenergy/compas-cim-mapping:0.7.7"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
@@ -80,6 +80,28 @@ services:
         max_attempts: 3
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/compas-cim-mapping/q/health/ready"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      - keycloak
+
+  scl-auto-alignment:
+    labels:
+      compas: true
+    image: "lfenergy/compas-scl-auto-alignment:0.0.2"
+    environment:
+      - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
+      - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
+      - JWT_VERIFY_CLIENT_ID=scl-auto-alignment
+      - JWT_GROUPS_PATH=resource_access/scl-auto-alignment/roles
+      - USERINFO_WHO_CLAIMNAME=name
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/compas-scl-auto-alignment/q/health/ready"]
       interval: 15s
       timeout: 10s
       retries: 5
