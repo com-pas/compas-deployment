@@ -28,4 +28,4 @@ TestCase003-01
     Open Project from CIM   ${sclname}   ${scltype}
 
     Select Tab              Substation
-    Get Text                ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Get Text                ${substation-editor-selector} section > h1:has-text("Sub1")

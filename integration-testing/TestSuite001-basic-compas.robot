@@ -19,7 +19,7 @@ TestCase001-01
     Open local file     ${sclname}    ${scltype}
 
     Select Tab          Substation
-    Get Text            ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
 
 TestCase001-02
     [Documentation]     Open project from Local File and Add to CoMPAS
@@ -36,7 +36,7 @@ TestCase001-02
     Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
 
     Select Tab          Substation
-    Get Text            ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
 
 TestCase001-03
     [Documentation]     Open project from CoMPAS
@@ -60,7 +60,7 @@ TestCase001-03
     Open from CoMPAS    ${sclname}   ${scltype}   1.0.0
 
     Select Tab          Substation
-    Get Text            ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
 
 TestCase001-04
     [Documentation]     Open project from CoMPAS and Save to Local File

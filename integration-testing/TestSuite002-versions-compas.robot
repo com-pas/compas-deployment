@@ -48,9 +48,9 @@ Initialize Versions
 Delete first substation
     Select Tab  Substation
     # Got to the Substation tab and remove the first substation (Sub1), next the first substation should be Sub2.
-    Get Text    ${substation-editor-selector} div#header > h1:has-text("Sub1")
+    Get Text    ${substation-editor-selector} section > h1:has-text("Sub1")
     Click       ${substation-editor-selector} > abbr[title="Remove"] > mwc-icon-button[icon="delete"]
-    Get Text    ${substation-editor-selector} div#header > h1:has-text("Sub2")
+    Get Text    ${substation-editor-selector} section > h1:has-text("Sub2")
 
 
 *** Test Cases ***
