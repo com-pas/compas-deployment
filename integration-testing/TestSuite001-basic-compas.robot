@@ -33,7 +33,7 @@ TestCase001-02
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
@@ -51,7 +51,7 @@ TestCase001-03
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
 
     Close OpenSCD
     Open OpenSCD and Login
@@ -75,7 +75,7 @@ TestCase001-04
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
 
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}

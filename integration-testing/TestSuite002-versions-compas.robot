@@ -34,7 +34,7 @@ Initialize Versions
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
 
     Select Tab          CoMPAS Versions
     Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  1
