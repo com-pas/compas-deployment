@@ -22,7 +22,9 @@ Open from CoMPAS
     Close Menu
 
 Add to CoMPAS
-    [Arguments]                 ${name}   ${type}   ${expectedVersion}
+    [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
+    # Make sure the initial value is entered. so we can continue.
+    Get Text                    ${dialog-selector} compas-save mwc-textfield#name input   ==   ${initialValue}
     Fill Text                   ${dialog-selector} compas-save mwc-textfield#name input   ${name}-${current-date}
     Click                       ${dialog-selector} compas-save compas-scltype-radiogroup mwc-list > mwc-radio-list-item[value="${type.upper()}"]
     Click                       ${dialog-selector} mwc-button[slot="primaryAction"] > button
