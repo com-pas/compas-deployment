@@ -52,6 +52,19 @@ Close Menu
     # To make the editors visible again we need to close the menu.
     # We click outside the menu somewhere in the browser.
     Mouse Button    click   x=350   y=350
+    Sleep           100 milliseconds
+
+Enable Extension
+    [Arguments]         ${extensionName}
+    Open Menu           Extensions
+    ${checkboxState}=   Get Element State   mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]   Checked
+    IF                  ${checkboxState} == False
+    Check Checkbox      mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
+    END
+    # Press the escape key to close the dialog.
+    Keyboard Key        press    Escape
+    Sleep               100 milliseconds
+    Close Menu
 
 Select Tab
     [Arguments]     ${tabname}
