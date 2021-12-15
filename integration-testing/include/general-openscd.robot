@@ -59,7 +59,7 @@ Enable Extension
     Open Menu           Extensions
     ${checkboxState}=   Get Element State   mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]   Checked
     IF                  ${checkboxState} == False
-    Check Checkbox      mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
+      Check Checkbox    mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
     END
     # Press the escape key to close the dialog.
     Keyboard Key        press    Escape
