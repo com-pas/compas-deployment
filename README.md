@@ -38,7 +38,7 @@ Now, the following services are available:
 To stop and remove all the containers run the command:
 
 ```
-# Stop all containers and remove the volumes.
+# Stop all containers and remove the volumes. 
 docker-compose -f compas/docker-compose-basex.yml down -v
 ```
 
