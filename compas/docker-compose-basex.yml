@@ -39,7 +39,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.9.1-basex"
+    image: "lfenergy/compas-scl-data-service:0.9.2-basex"
     environment:
       - BASEX_HOST=basex
       - BASEX_PORT=1984
@@ -67,7 +67,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.7.7"
+    image: "lfenergy/compas-cim-mapping:0.8.0"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
@@ -89,7 +89,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.0.2"
+    image: "lfenergy/compas-scl-auto-alignment:0.1.0"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
@@ -111,7 +111,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.8.0-compas-1"
+    image: "lfenergy/compas-open-scd:v0.8.2-compas-1"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s
