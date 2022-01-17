@@ -10,8 +10,10 @@ Test Setup      Initialize and Start OpenSCD
 Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Variables ***
-${substation1VoltageLevel}      _af9a4ae3-ba2e-4c34-8e47-5af894ee20f4>S1 110kV
-${substation3VoltageLevel}      _974565b1-ac55-4901-9f48-afc7ef5486df>S3 110kV
+${substation1}                  _af9a4ae3-ba2e-4c34-8e47-5af894ee20f4
+${substation1VoltageLevel}      ${substation1}>S1 110kV
+${substation3}                  _974565b1-ac55-4901-9f48-afc7ef5486df
+${substation3VoltageLevel}      ${substation3}>S3 110kV
 
 *** Keywords ***
 Execute SCL Auto Alignment
@@ -24,10 +26,17 @@ Execute SCL Auto Alignment
     Wait for dialog is closed
     Close Menu
 
+Select SLD Substation
+    [Arguments]         ${id}
+    # First click on the selectbox to open the dropdown box, to make the values visible.
+    Click               single-line-diagram-plugin mwc-select[id="substationSelector"]
+    # Now we can select the correct substation.
+    Click               single-line-diagram-plugin mwc-select[id="substationSelector"] > mwc-list-item[value="${id}"]
+
 Check X/Y Coordinates
     [Arguments]         ${id}   ${x}    ${y}
-    Get Attribute       single-line-diagram-plugin svg > g[id="${id}"]   sxy:x   ==  ${x}
-    Get Attribute       single-line-diagram-plugin svg > g[id="${id}"]   sxy:y   ==  ${y}
+    Get Attribute       single-line-diagram-plugin svg g[id="${id}"]   sxy:x   ==  ${x}
+    Get Attribute       single-line-diagram-plugin svg g[id="${id}"]   sxy:y   ==  ${y}
 
 *** Test Cases ***
 TestCase004-01
@@ -44,7 +53,9 @@ TestCase004-01
     Execute SCL Auto Alignment  Sub1
 
     Select Tab               Single Line Diagram
+    Select SLD Substation    ${substation1}
     Check X/Y Coordinates    ${substation1VoltageLevel}    36    10
+    Select SLD Substation    ${substation3}
     Check X/Y Coordinates    ${substation3VoltageLevel}    0     0
 
 TestCase004-02
@@ -61,6 +72,8 @@ TestCase004-02
     Execute SCL Auto Alignment  Sub1   Sub3
 
     Select Tab               Single Line Diagram
+    Select SLD Substation    ${substation1}
     Check X/Y Coordinates    ${substation1VoltageLevel}    36    10
+    Select SLD Substation    ${substation3}
     Check X/Y Coordinates    ${substation3VoltageLevel}    12    8
 
