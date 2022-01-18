@@ -10,6 +10,23 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.2.0
+
+Next release for testing the CoMPAS System with all components.
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.2):  
+  - Updated libraries to the latest versions;
+  - Centralized the SCL Types to CoMPAS Common Library;
+- [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.1.0):  
+  - Updated libraries to the latest versions;
+  - Replace the RawGraphBuilder with custom GraphBuilder for CoMPAS;
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.8.0):  
+  - Updated libraries to the latest versions;
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.8.2):   
+  - New IED Editor;
+  - Small improvements in the Single Line Diagram Editor;
+  - Allow updating X/Y coordinates in SLD for Busbar/ConductingEquipment/PowerTransformer;
+  - Show SampledValueControl for IED and whole project;
+
 ### Release 0.1.0
 
 First release for testing the CoMPAS System with all components.
