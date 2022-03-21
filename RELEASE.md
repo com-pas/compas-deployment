@@ -10,7 +10,7 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
-### Release 0.4.0
+### Release 0.5.0
 
 Next release for testing the CoMPAS System with all components.
 - [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.4):
