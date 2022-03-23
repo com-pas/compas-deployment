@@ -8,3 +8,8 @@ target
 # IDE specific
 .idea
 *.iml
+
+# Data Directories for Docker Compose
+# Ignore all files, except the README.md
+compas/data/**/*.*
+!compas/data/**/README.md
