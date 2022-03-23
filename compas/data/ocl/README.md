@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2021 Alliander N.V.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 This directory can be used to add custom OCL Files to the validation process.
 
 You can use subdirectories like `SemanticConstraints` as RiseClipse is doing.
