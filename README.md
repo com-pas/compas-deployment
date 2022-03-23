@@ -69,6 +69,13 @@ docker-compose -f compas/docker-compose-postgresql.yml down -v
 
 The option '-v' also removes the volumes created, so all data is lost with this option.
 
+## Docker Compose (Common)
+
+### Custom files
+
+The SCL Validator Service can be extended with custom OCL and NSDOC Files. These can be placed in specific directories,
+see [OCL Files](compas/data/ocl/README.md) and [NSDOC Files](compas/data/nsdoc/README.md).
+
 ### Known issue with Docker Compose
 
 Using the current configuration with Keycloak and OpenResty (lua-resty-session) sometimes gives an error 
@@ -76,7 +83,7 @@ Using the current configuration with Keycloak and OpenResty (lua-resty-session) 
 This mostly happens after using logout or the session is expired. The login page is shown, but after login this error is shown.
 Just open the url [http://localhost/](http://localhost/) again and OpenSCD is shown again, also being logged in.
 
-## Keycloak Demo Configuration
+### Keycloak Demo Configuration
 For demo purposes, a [demo Keycloak configuration](compas/keycloak/keycloak_compas_realm.json) is created which can be imported when
 running a Keycloak instance.
 
