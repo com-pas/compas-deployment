@@ -67,7 +67,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.8.3"
+    image: "lfenergy/compas-cim-mapping:0.8.4"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
@@ -89,7 +89,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.2.1"
+    image: "lfenergy/compas-scl-auto-alignment:0.2.2"
     environment:
       - JWT_VERIFY_KEY=http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
       - JWT_VERIFY_ISSUER=http://${COMPAS_HOSTNAME}/auth/realms/compas
