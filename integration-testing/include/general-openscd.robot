@@ -95,8 +95,11 @@ Check Title Filename
     Get Text        open-scd > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
 
 Wait for dialog is closed
-    Wait For Function         element => element.style.opacity==0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]
+    Wait until executed
     Wait For Elements State   ${dialog-selector}   hidden
+
+Wait until executed
+    Wait For Function         element => element.className.indexOf('mdc-circular-progress--closed') >= 0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   timeout=20s
 
 Close Issues Snackbar
     ${snackbar}=        Get Element State   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
