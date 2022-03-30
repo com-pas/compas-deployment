@@ -111,7 +111,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.1.0"
+    image: "lfenergy/compas-scl-validator:0.1.1"
     ports:
       - "9093:8080"
     environment:
@@ -138,7 +138,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.12.0.1"
+    image: "lfenergy/compas-open-scd:v0.12.0.2"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s

@@ -10,6 +10,17 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.6.0
+
+Next release for testing the CoMPAS System with all components.
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.1.1):
+  - Validation using OCL Files;
+  - Facilitate automatic loading of NSDoc Files in OpenSCD; 
+  - Updated libraries to the latest versions;
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.12.0.2):
+  - Automatic loading of NSDoc Files from SCL Validator Service;
+  - Added CoMPAS Validation using the SCL Validator Service;
+
 ### Release 0.5.0
 
 Next release for testing the CoMPAS System with all components.
@@ -20,7 +31,7 @@ Next release for testing the CoMPAS System with all components.
 - [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.8.3):
   - Updated libraries to the latest versions;
 - [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.12.0.0):
-  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.12.0)
+  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.12.0);
   
 ### Release 0.3.0
 
