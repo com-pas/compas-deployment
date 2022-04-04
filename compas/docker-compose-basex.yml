@@ -111,7 +111,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.1.1"
+    image: "lfenergy/compas-scl-validator:0.1.2"
     ports:
       - "9093:8080"
     environment:
