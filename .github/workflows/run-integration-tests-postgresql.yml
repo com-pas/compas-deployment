@@ -68,7 +68,7 @@ jobs:
 
       - name: Archive Robot Framework Reports
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: robot-framework-reports
           retention-days: 7
