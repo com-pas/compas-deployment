@@ -41,3 +41,15 @@ Update in CoMPAS
     # check if the title (filename) changed to the new expected one. This way we know we can close the menu.
     Check Title Filename        ${sclname}-${current-date}-${expectedVersion}    ${scltype}
     Close Menu
+
+Change Websockets setting
+    [Arguments]                 ${checked}
+    Open Menu                   CoMPAS Settings
+    IF                          ${checked} == True
+      Check Checkbox            ${dialog-selector} compas-settings mwc-switch#useWebsockets #basic-switch
+    ELSE
+      Uncheck Checkbox          ${dialog-selector} compas-settings mwc-switch#useWebsockets #basic-switch
+    END
+    Click                       ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Wait for dialog is closed
+    Close Menu
