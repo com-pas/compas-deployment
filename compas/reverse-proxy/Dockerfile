@@ -2,7 +2,10 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM openresty/openresty:alpine-fat
+# We want to go back to below image, but it seems to be broken.
+# For now use fixed version which still works.
+#FROM openresty/openresty:alpine-fat
+FROM openresty/openresty:1.19.9.1-10-alpine-fat
 
 ARG COMPAS_HOSTNAME
 
