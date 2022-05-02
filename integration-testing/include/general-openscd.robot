@@ -46,7 +46,7 @@ Check Browser Title
 Open Menu
     [Arguments]     ${menuItemTitle}
     Click           ${menu-selector} mwc-icon-button[label="Menu"] > button
-    Click           ${menu-selector} mwc-list > mwc-list-item >> span:has-text("${menuItemTitle}")
+    Click           ${menu-selector} mwc-list > mwc-list-item >> span:text-is("${menuItemTitle}")
 
 Close Menu
     # To make the editors visible again we need to close the menu.
