@@ -13,8 +13,23 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 ### Release 0.7.0
 
 Next release for testing the CoMPAS System with all components.
-- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.13.0.0):
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.15.0.0):
+  - Save as... menu option;
+  - Rename the name of the SCL File (CoMPAS);
   - Small fixes and improvements in editors and wizards;
+  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.15.0);
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.5):
+  - Small bugfixes;
+  - Updated libraries to the latest versions;
+- [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.2.3):
+  - Small bugfixes; 
+  - Updated libraries to the latest versions;
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.8.5):
+  - Small bugfixes;
+  - Updated libraries to the latest versions;
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.1.4):
+  - Small bugfixes;
+  - Updated libraries to the latest versions;
 
 ### Release 0.6.0
 
@@ -59,7 +74,7 @@ Next release for testing the CoMPAS System with all components.
   - Loading nsdoc files through settings;
   - Add basic wizard for ReportControl;
   - Add wizard for sampledvaluecontrol/smv;
-  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.9.0)
+  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.9.0);
 
 ### Release 0.2.0
 
