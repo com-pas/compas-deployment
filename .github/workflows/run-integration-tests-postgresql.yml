@@ -52,19 +52,17 @@ jobs:
             --network=compas_default \
             ppodgorsek/robot-framework:latest
 
-#      We need to wait for a new version of the Docker Image.
-#      There is an issue with Chromium (https://github.com/ppodgorsek/docker-robot-framework/issues/372)
-#      - name: Created output directory (chromium)
-#        run: mkdir -p target/chromium
-#      - name: Execute integration tests (chromium)
-#        run: |
-#          docker run --rm -e BROWSER=chromium \
-#            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
-#            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
-#            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
-#            --user $(id -u):$(id -g) \
-#            --network=compas_default \
-#            ppodgorsek/robot-framework:latest
+      - name: Created output directory (chromium)
+        run: mkdir -p target/chromium
+      - name: Execute integration tests (chromium)
+        run: |
+          docker run --rm -e BROWSER=chromium \
+            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
+            -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
+            -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
+            --user $(id -u):$(id -g) \
+            --network=compas_default \
+            ppodgorsek/robot-framework:latest
 
       - name: Archive Robot Framework Reports
         if: failure()
