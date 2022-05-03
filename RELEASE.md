@@ -24,9 +24,10 @@ Next release for testing the CoMPAS System with all components.
 - [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.2.3):
   - Small bugfixes; 
   - Updated libraries to the latest versions;
-- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.8.5):
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.8.6):
   - Small bugfixes;
   - Updated libraries to the latest versions;
+  - Temporary disabled native image;
 - [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.1.4):
   - Small bugfixes;
   - Updated libraries to the latest versions;
