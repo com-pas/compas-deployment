@@ -55,6 +55,10 @@ jobs:
       - name: Created output directory (chromium)
         run: mkdir -p target/chromium
       - name: Execute integration tests (chromium)
+        # Using the Docker Image from ppodgorsek (https://github.com/ppodgorsek/docker-robot-framework)
+        # to run the Robot Framework Test Scripts.
+        # To connect with the Docker Compose and use http://compas_reverse-proxy_1/ as URL we are
+        # connecting to the same network "compas_default" that's started bij Docker Compose.
         run: |
           docker run --rm -e BROWSER=chromium \
             -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
