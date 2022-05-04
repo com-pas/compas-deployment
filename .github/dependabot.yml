@@ -12,7 +12,12 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 5
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/compas/keycloak/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
+  - package-ecosystem: "docker"
+    directory: "/compas/reverse-proxy/"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 5
