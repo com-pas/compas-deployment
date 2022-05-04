@@ -11,3 +11,10 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 5
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "09:05"
+      timezone: "Europe/Amsterdam"
+    open-pull-requests-limit: 5
