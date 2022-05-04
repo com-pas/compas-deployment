@@ -12,7 +12,7 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 5
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/compas"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 5
