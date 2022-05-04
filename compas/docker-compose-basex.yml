@@ -8,7 +8,7 @@ services:
   basex:
     labels:
       compas: true
-    image: "basex/basexhttp:9.5.2"
+    image: "basex/basexhttp:9.4.6"
     ports:
       - "1984:1984"
     volumes:
