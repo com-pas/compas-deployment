@@ -54,7 +54,7 @@ TestCase004-01
 
     Select Tab               Single Line Diagram
     Select SLD Substation    ${substation1}
-    Check X/Y Coordinates    ${substation1VoltageLevel}    36    10
+    Check X/Y Coordinates    ${substation1VoltageLevel}    36    14
     Select SLD Substation    ${substation3}
     Check X/Y Coordinates    ${substation3VoltageLevel}    0     0
 
@@ -73,7 +73,7 @@ TestCase004-02
 
     Select Tab               Single Line Diagram
     Select SLD Substation    ${substation1}
-    Check X/Y Coordinates    ${substation1VoltageLevel}    36    10
+    Check X/Y Coordinates    ${substation1VoltageLevel}    36    14
     Select SLD Substation    ${substation3}
-    Check X/Y Coordinates    ${substation3VoltageLevel}    12    8
+    Check X/Y Coordinates    ${substation3VoltageLevel}    12    10
 

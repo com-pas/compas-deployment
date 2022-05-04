@@ -46,7 +46,7 @@ Check Browser Title
 Open Menu
     [Arguments]     ${menuItemTitle}
     Click           ${menu-selector} mwc-icon-button[label="Menu"] > button
-    Click           ${menu-selector} mwc-list > mwc-list-item >> span:has-text("${menuItemTitle}")
+    Click           ${menu-selector} mwc-list > mwc-list-item >> span:text-is("${menuItemTitle}")
 
 Close Menu
     # To make the editors visible again we need to close the menu.
@@ -55,11 +55,11 @@ Close Menu
     Sleep           100 milliseconds
 
 Enable Extension
-    [Arguments]         ${extensionName}
-    Open Menu           Extensions
-    ${checkboxState}=   Get Element State   mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]   Checked
-    IF                  ${checkboxState} == False
-      Check Checkbox    mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
+    [Arguments]           ${extensionName}
+    Open Menu             Extensions
+    ${checkboxChecked}=   Get Element States   mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]   *=   checked
+    IF                    ${checkboxChecked} == False
+      Check Checkbox      mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
     END
     # Press the escape key to close the dialog.
     Keyboard Key        press    Escape
@@ -102,7 +102,7 @@ Wait until executed
     Wait For Function         element => element.className.indexOf('mdc-circular-progress--closed') >= 0   open-scd > mwc-circular-progress-four-color > div[role="progressbar"]   timeout=30s
 
 Close Issues Snackbar
-    ${snackbar}=        Get Element State   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
-    IF                  ${snackbar} == 'visible'
-    Click               mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
+    ${snackbarVisible}=   Get Element States   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button    *=    visible
+    IF                    ${snackbarVisible} == 'visible'
+    Click                 mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
     END
