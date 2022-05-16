@@ -29,7 +29,7 @@ TestCase005-01
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   [SCD File] DataTypeTemplates section is mandatory (line 1)
+    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   OCL/FileSpecifics/ICD-IID-SED/DataTypeTemplates_required;1;DataTypeTemplates section is mandatory
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-02
@@ -45,7 +45,7 @@ TestCase005-02
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   [SCD File] DataTypeTemplates section is mandatory (line 1)
+    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   OCL/FileSpecifics/ICD-IID-SED/DataTypeTemplates_required;1;DataTypeTemplates section is mandatory
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-03
