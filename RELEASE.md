@@ -10,6 +10,20 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.8.0
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.16.0.0):
+  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.16.0);
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.6):
+  - Updated libraries to the latest versions;
+- [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.2.4):
+  - Updated libraries to the latest versions;
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.8.7):
+  - Updated libraries to the latest versions;
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.2.0):
+  - Updated libraries to the latest versions;
+
 ### Release 0.7.0
 
 Next release for testing the CoMPAS System with all components.
