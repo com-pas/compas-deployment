@@ -29,7 +29,6 @@ TestCase005-01
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   OCL/FileSpecifics/SCD/RequiredElements/DataTypeTemplates_required;1;DataTypeTemplates section is mandatory
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-02
@@ -45,7 +44,6 @@ TestCase005-02
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   OCL/FileSpecifics/SCD/RequiredElements/DataTypeTemplates_required;1;DataTypeTemplates section is mandatory
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-03
@@ -61,7 +59,6 @@ TestCase005-03
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   [XSD validation] (line: 32, column: 47): cvc-complex-type.4: Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
 
 TestCase005-04
@@ -77,5 +74,4 @@ TestCase005-04
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   [XSD validation] (line: 32, column: 47): cvc-complex-type.4: Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
