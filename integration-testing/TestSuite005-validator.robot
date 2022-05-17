@@ -29,8 +29,7 @@ TestCase005-01
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   [SCD File] DataTypeTemplates section is mandatory (line 1)
-    Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
+    Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   333
 
 TestCase005-02
     [Documentation]     Execute the SCL Validator (REST API) with OCL Validation Errros.
@@ -45,8 +44,7 @@ TestCase005-02
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(6)    title    *=   [SCD File] DataTypeTemplates section is mandatory (line 1)
-    Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
+    Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   333
 
 TestCase005-03
     [Documentation]     Execute the SCL Validator (Websockets) with XSD Validation Errors.

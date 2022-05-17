@@ -46,7 +46,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.9.5-postgresql"
+    image: "lfenergy/compas-scl-data-service:0.9.6-postgresql"
     ports:
       - "9090:8080"
     environment:
@@ -76,7 +76,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.8.6"
+    image: "lfenergy/compas-cim-mapping:0.8.7"
     ports:
       - "9091:8080"
     environment:
@@ -100,7 +100,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.2.3"
+    image: "lfenergy/compas-scl-auto-alignment:0.2.4"
     ports:
       - "9092:8080"
     environment:
@@ -124,7 +124,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.1.4"
+    image: "lfenergy/compas-scl-validator:0.2.0"
     ports:
       - "9093:8080"
     environment:
@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.15.0.0"
+    image: "lfenergy/compas-open-scd:v0.16.0.0"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s
