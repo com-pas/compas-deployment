@@ -19,7 +19,7 @@ Open from CoMPAS
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
-    Check Title Filename        ${sclname}-${current-date}-${expectedVersion}    ${scltype}
+    Check Title Filename        ${name}-${current-date}-${expectedVersion}    ${type}
 
 Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
@@ -31,7 +31,7 @@ Add to CoMPAS
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
-    Check Title Filename        ${sclname}-${current-date}-${expectedVersion}    ${scltype}
+    Check Title Filename        ${name}-${current-date}-${expectedVersion}    ${type}
 
 Update in CoMPAS
     [Arguments]                 ${changeType}   ${name}   ${type}   ${expectedVersion}
@@ -40,7 +40,7 @@ Update in CoMPAS
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
-    Check Title Filename        ${sclname}-${current-date}-${expectedVersion}    ${scltype}
+    Check Title Filename        ${name}-${current-date}-${expectedVersion}    ${type}
 
 Change Websockets setting
     [Arguments]                 ${checked}
@@ -57,4 +57,4 @@ Change Websockets setting
 Check CoMPAS Error
     [Arguments]         ${secondaryMessage}
     Set Test Variable   ${primaryMessage}      Error communicating with CoMPAS Ecosystem
-    Check Log           ${primaryMessage}      ApplicationError: ${secondaryMessage}
+    Check Log           ${primaryMessage}      ${secondaryMessage}

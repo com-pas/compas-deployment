@@ -104,6 +104,6 @@ TestCase001-05
     Close Menu
 
     # Check if the expected error message is found
-    Set Test Variable    ${secondaryMessage}    Name is not a correct name to be used later as filename. (CORE-8000) (400)
+    Set Test Variable    ${secondaryMessage}    ApplicationError: Name is not a correct name to be used later as filename. (CORE-8000) (400)
     Check CoMPAS Error   ${secondaryMessage}
 

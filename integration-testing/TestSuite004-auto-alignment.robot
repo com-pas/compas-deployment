@@ -77,3 +77,19 @@ TestCase004-02
     Select SLD Substation    ${substation3}
     Check X/Y Coordinates    ${substation3VoltageLevel}    12    10
 
+TestCase004-03
+    [Documentation]     Failing SCL Auto Alignment with incompleet configuration
+    Set Test Variable   ${sclname}  Incompleet_Substation
+    Set Test Variable   ${scltype}  SCD
+
+    Enable Extension    Single Line Diagram
+    Enable Extension    Auto Align SLD
+
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
+
+    Execute SCL Auto Alignment  Substation 1
+
+    # Check if the expected error message is found
+    Set Test Variable    ${secondaryMessage}    ServerError: Unknown exception occurred. (CORE-9999) (500)
+    Check CoMPAS Error   ${secondaryMessage}

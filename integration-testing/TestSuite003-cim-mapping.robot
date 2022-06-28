@@ -41,6 +41,6 @@ TestCase003-02
     Close Menu
 
     # Check if the expected error message is found
-    Set Test Variable    ${secondaryMessage}    Invalid name used for this cim data file. (CORE-8000) (400)
+    Set Test Variable    ${secondaryMessage}    ApplicationError: Invalid name used for this cim data file. (CORE-8000) (400)
     Check CoMPAS Error   ${secondaryMessage}
 
