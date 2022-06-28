@@ -77,9 +77,9 @@ Open local file
     ${upload_result}=           Wait For  ${promise}
     Sleep                       0.5s   Wait until loading file starts.
     Wait for dialog is closed
-    # check if the title (filename) changed to the new expected one. This way we know we can close the menu.
-    Check Title Filename        ${name}    ${scltype}
     Close Menu
+    # check if the title (filename) changed to the new expected one.
+    Check Title Filename        ${name}    ${type}
 
 Save to local file
     [Arguments]         ${name}     ${type}
@@ -103,6 +103,15 @@ Wait until executed
 
 Close Issues Snackbar
     ${snackbarVisible}=   Get Element States   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button    *=    visible
-    IF                    ${snackbarVisible} == 'visible'
+    IF                    ${snackbarVisible} == True
     Click                 mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button
     END
+
+Check Log
+    [Arguments]   ${primaryMessage}   ${secondaryMessage}
+    Open Menu     View log
+    Get Text      mwc-dialog#log abbr[title="${primaryMessage}"]
+    Get Text      mwc-dialog#log abbr[title="${primaryMessage}"] span[slot="secondary"]:has-text("${secondaryMessage}")
+    Click         mwc-dialog#log mwc-button[slot="primaryAction"] > button
+    Wait for dialog is closed
+    Close Menu

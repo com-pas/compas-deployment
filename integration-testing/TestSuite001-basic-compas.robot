@@ -79,3 +79,31 @@ TestCase001-04
 
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}
+
+TestCase001-05
+    [Documentation]     Trying saving local file to CoMPAS with invalid name
+    # First we will open the local file to be saved.
+    Set Test Variable   ${sclname}  MiniGrid
+    Set Test Variable   ${scltype}  SCD
+
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
+
+    # Try saving the file with a invalid name
+    Set Test Variable   ${sclname}  invalid/*name
+    Set Test Variable   ${scltype}  CID
+
+    Open Menu           Save project
+    Get Text            ${dialog-selector} compas-save mwc-textfield#name input   ==   MiniGrid.scd
+    Fill Text           ${dialog-selector} compas-save mwc-textfield#name input   ${sclname}
+    Click               ${dialog-selector} compas-save compas-scltype-radiogroup mwc-list > mwc-radio-list-item[value="${scltype}"]
+    Click               ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Wait until executed
+    Click               ${dialog-selector} mwc-button[slot="secondaryAction"] > button
+    Wait for dialog is closed
+    Close Menu
+
+    # Check if the expected error message is found
+    Set Test Variable    ${secondaryMessage}    ApplicationError: Name is not a correct name to be used later as filename. (CORE-8000) (400)
+    Check CoMPAS Error   ${secondaryMessage}
+
