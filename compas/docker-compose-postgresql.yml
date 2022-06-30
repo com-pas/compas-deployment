@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.17.0.1"
+    image: "lfenergy/compas-open-scd:v0.18.0.0"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s
