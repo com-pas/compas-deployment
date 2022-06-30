@@ -7,10 +7,6 @@ Documentation   Generic variables and Keywords to work with the OpenSCD CoMPAS C
 Resource        ./general-config.robot
 Resource        ./general-openscd.robot
 
-*** Variables ***
-# Variables of Selectors commonly used.
-${compas-versions-editor-selector}  compas-versions-plugin
-
 *** Keywords ***
 Open from CoMPAS
     [Arguments]                 ${name}   ${type}   ${expectedVersion}

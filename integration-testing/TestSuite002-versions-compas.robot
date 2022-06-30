@@ -9,6 +9,10 @@ Resource        ./include/general-compas.robot
 Test Setup      Initialize and Start OpenSCD
 Test Teardown   Make screenshot and Stop OpenSCD
 
+*** Variables ***
+# Variables of Selectors commonly used.
+${compas-versions-editor-selector}  oscd-plugin932e8e83a469de68
+
 *** Keywords ***
 Upload new version
     [Arguments]                 ${changeType}   ${name}   ${type}
@@ -42,6 +46,7 @@ Initialize Versions
     IF                  ${create-multiple-versions} == True
     Open Menu           Save project
     Update in CoMPAS    MAJOR   ${sclname}   ${scltype}   2.0.0
+    Select Tab          CoMPAS Versions
     Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  2
     END
 

@@ -10,10 +10,12 @@ Test Setup      Initialize and Start OpenSCD
 Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Variables ***
-${substation1}                  _af9a4ae3-ba2e-4c34-8e47-5af894ee20f4
-${substation1VoltageLevel}      ${substation1}>S1 110kV
-${substation3}                  _974565b1-ac55-4901-9f48-afc7ef5486df
-${substation3VoltageLevel}      ${substation3}>S3 110kV
+${single-line-diagram-selector}   oscd-plugin631642fb644970bc
+
+${substation1}                    _af9a4ae3-ba2e-4c34-8e47-5af894ee20f4
+${substation1VoltageLevel}        ${substation1}>S1 110kV
+${substation3}                    _974565b1-ac55-4901-9f48-afc7ef5486df
+${substation3VoltageLevel}        ${substation3}>S3 110kV
 
 *** Keywords ***
 Execute SCL Auto Alignment
@@ -29,14 +31,14 @@ Execute SCL Auto Alignment
 Select SLD Substation
     [Arguments]         ${id}
     # First click on the selectbox to open the dropdown box, to make the values visible.
-    Click               single-line-diagram-plugin mwc-select[id="substationSelector"]
+    Click               ${single-line-diagram-selector} mwc-select[id="substationSelector"]
     # Now we can select the correct substation.
-    Click               single-line-diagram-plugin mwc-select[id="substationSelector"] > mwc-list-item[value="${id}"]
+    Click               ${single-line-diagram-selector} mwc-select[id="substationSelector"] > mwc-list-item[value="${id}"]
 
 Check X/Y Coordinates
     [Arguments]         ${id}   ${x}    ${y}
-    Get Attribute       single-line-diagram-plugin svg g[id="${id}"]   sxy:x   ==  ${x}
-    Get Attribute       single-line-diagram-plugin svg g[id="${id}"]   sxy:y   ==  ${y}
+    Get Attribute       ${single-line-diagram-selector} svg g[id="${id}"]   sxy:x   ==  ${x}
+    Get Attribute       ${single-line-diagram-selector} svg g[id="${id}"]   sxy:y   ==  ${y}
 
 *** Test Cases ***
 TestCase004-01
