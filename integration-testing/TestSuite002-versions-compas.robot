@@ -102,7 +102,7 @@ TestCase002-10
 
     Select Tab           CoMPAS Versions
     Get Element Count    ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  2
-    Get Text             ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:last-child   *=   ${sclname}-${current-date} (2.0.0)
+    Get Text             ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:last-child   *=   ${sclname}-${current-date} (Version: 2.0.0)
 
 TestCase002-11
     [Documentation]      Restore first version from the list of versions
