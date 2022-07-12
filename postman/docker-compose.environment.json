@@ -1,0 +1,39 @@
+{
+	"id": "42022eb4-7cc9-483c-919f-145bb2c5ba61",
+	"name": "Docker Compose",
+	"values": [
+		{
+			"key": "sclDataServiceBaseUrl",
+			"value": "http://localhost:9090/compas-scl-data-service",
+			"enabled": true
+		},
+		{
+			"key": "cimMappingBaseUrl",
+			"value": "http://localhost:9091/compas-cim-mapping",
+			"enabled": true
+		},
+		{
+			"key": "authUrl",
+			"value": "http://localhost:8089/auth",
+			"enabled": true
+		},
+		{
+			"key": "bearer",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "sclAutoAlignServiceBaseUrl",
+			"value": "http://localhost:9092/compas-scl-auto-alignment",
+			"enabled": true
+		},
+		{
+			"key": "sclValidatorBaseUrl",
+			"value": "http://localhost:9093/compas-scl-validator",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-07-11T08:51:37.380Z",
+	"_postman_exported_using": "Postman/9.24.1"
+}

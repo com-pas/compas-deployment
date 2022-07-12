@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "1cb5ef5a-b707-4e19-a271-fc1522a87ef6",
+		"name": "Compas Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1434829"
+	},
+	"item": [
+		{
+			"name": "Get JWT (SCL Data Editor)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseData=pm.response.json();",
+							"pm.environment.set(\"bearer\", responseData.access_token);",
+							"",
+							"let template = `",
+							"<html>",
+							"<head>",
+							"    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js\"></script>",
+							"    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js\"></script>",
+							"</head>",
+							"<body>",
+							"    <div>",
+							"    <div>",
+							"        <pre><code style=\"width:max-content!important;\" id=\"copyText\">Bearer ${pm.environment.get('bearer')}</code></pre>",
+							"    </div>",
+							"    <button id=\"copyButton\" class=\"copyButton\" type=\"button\" data-clipboard-action=\"copy\" data-clipboard-target=\"#copyText\" style=\"background:green;color:white;\">Copy to Clipboard</button>",
+							"    </div>",
+							"</body>",
+							"</html>",
+							"<script>",
+							"    var clipboard = new ClipboardJS('#copyButton');",
+							"",
+							"    clipboard.on('success', function(e) {",
+							"        e.clearSelection();",
+							"        e.trigger.textContent = '✔ Copied!';",
+							"        window.setTimeout(function() {",
+							"            e.trigger.textContent = 'Copy to Clipboard';",
+							"        }, 2000);",
+							"    });",
+							"    clipboard.on('error', function(e) {",
+							"        e.clearSelection();",
+							"        e.trigger.textContent = '✗ Not Copied';",
+							"        window.setTimeout(function() {",
+							"            e.trigger.textContent = 'Copy to Clipboard';",
+							"        }, 2000);",
+							"    });",
+							"    document.getElementById('copyButton').click()",
+							"</script>`;",
+							"",
+							"pm.visualizer.set(template, pm.response.json());",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "openscd",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "scl-data-editor",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "editor",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{authUrl}}/realms/compas/protocol/openid-connect/token",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"realms",
+						"compas",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get JWT (SCL Data Reader)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseData=pm.response.json();",
+							"pm.environment.set(\"bearer\", responseData.access_token);",
+							"",
+							"let template = `",
+							"<html>",
+							"<head>",
+							"    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js\"></script>",
+							"    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js\"></script>",
+							"</head>",
+							"<body>",
+							"    <div>",
+							"    <div>",
+							"        <pre><code style=\"width:max-content!important;\" id=\"copyText\">${pm.environment.get('bearer')}</code></pre>",
+							"    </div>",
+							"    <button id=\"copyButton\" class=\"copyButton\" type=\"button\" data-clipboard-action=\"copy\" data-clipboard-target=\"#copyText\" style=\"background:green;color:white;\">Copy to Clipboard</button>",
+							"    </div>",
+							"</body>",
+							"</html>",
+							"<script>",
+							"    var clipboard = new ClipboardJS('#copyButton');",
+							"",
+							"    clipboard.on('success', function(e) {",
+							"        e.clearSelection();",
+							"        e.trigger.textContent = '✔ Copied!';",
+							"        window.setTimeout(function() {",
+							"            e.trigger.textContent = 'Copy to Clipboard';",
+							"        }, 2000);",
+							"    });",
+							"    clipboard.on('error', function(e) {",
+							"        e.clearSelection();",
+							"        e.trigger.textContent = '✗ Not Copied';",
+							"        window.setTimeout(function() {",
+							"            e.trigger.textContent = 'Copy to Clipboard';",
+							"        }, 2000);",
+							"    });",
+							"    document.getElementById('copyButton').click()",
+							"</script>`;",
+							"",
+							"pm.visualizer.set(template, pm.response.json());",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "openscd",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "scl-data-reader",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "reader",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{authUrl}}/realms/compas/protocol/openid-connect/token",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"realms",
+						"compas",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get JWT (SCD Reader)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseData=pm.response.json();",
+							"pm.environment.set(\"bearer\", responseData.access_token);",
+							"",
+							"let template = `",
+							"<html>",
+							"<head>",
+							"    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js\"></script>",
+							"    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js\"></script>",
+							"</head>",
+							"<body>",
+							"    <div>",
+							"    <div>",
+							"        <pre><code style=\"width:max-content!important;\" id=\"copyText\">${pm.environment.get('bearer')}</code></pre>",
+							"    </div>",
+							"    <button id=\"copyButton\" class=\"copyButton\" type=\"button\" data-clipboard-action=\"copy\" data-clipboard-target=\"#copyText\" style=\"background:green;color:white;\">Copy to Clipboard</button>",
+							"    </div>",
+							"</body>",
+							"</html>",
+							"<script>",
+							"    var clipboard = new ClipboardJS('#copyButton');",
+							"",
+							"    clipboard.on('success', function(e) {",
+							"        e.clearSelection();",
+							"        e.trigger.textContent = '✔ Copied!';",
+							"        window.setTimeout(function() {",
+							"            e.trigger.textContent = 'Copy to Clipboard';",
+							"        }, 2000);",
+							"    });",
+							"    clipboard.on('error', function(e) {",
+							"        e.clearSelection();",
+							"        e.trigger.textContent = '✗ Not Copied';",
+							"        window.setTimeout(function() {",
+							"            e.trigger.textContent = 'Copy to Clipboard';",
+							"        }, 2000);",
+							"    });",
+							"    document.getElementById('copyButton').click()",
+							"</script>`;",
+							"",
+							"pm.visualizer.set(template, pm.response.json());",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "openscd",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "scd-reader",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "reader",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{authUrl}}/realms/compas/protocol/openid-connect/token",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"realms",
+						"compas",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
