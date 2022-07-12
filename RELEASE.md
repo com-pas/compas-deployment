@@ -13,10 +13,11 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 ### Release 0.9.0
 
 Next release for testing the CoMPAS System with all components.
-- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.18.0.0):
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.19.0.0):
   - Show Who/When/What information for the versions in CoMPAS;  
-  - See details in [Release notes](https://github.com/openscd/open-scd/releases/tag/v0.18.0);
-- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.8):
+  - See details in [Release notes (V0.19.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.19.0);
+  - See details in [Release notes (V0.18.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.18.0);
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.9):
   - Return Who/When/What information when returning versions;
   - Updated libraries to the latest versions;
 - [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.2.4):
