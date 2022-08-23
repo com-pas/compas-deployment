@@ -10,6 +10,16 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.11.0
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.22.0.0):
+  - Processing validation message from SCL Validator Service; 
+  - See details in [OpenSCD Release notes (V0.22.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.22.0);
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.4.1):
+  - Process validation messages from RiseClipse to be processed better by frontend;
+  - Updated libraries to the latest versions;
+
 ### Release 0.10.0
 
 Next release for testing the CoMPAS System with all components.
