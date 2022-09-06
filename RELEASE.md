@@ -10,7 +10,7 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
-### Release 0.xx.0
+### Release 0.12.0
 
 Next release for testing the CoMPAS System with all components.
 - [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.23.0.0):
