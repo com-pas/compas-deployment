@@ -34,6 +34,6 @@ a JSON Web Key (Set) (JWK/JWKS). Also it uses the configured Path to retrieve th
 
 ## Amazon Cloud (AWS)
 
-- **Amazon EKS**: Container Environment?
-- **Amazon Cognito**: SSO Provider?
-- **AWS Elastic Load Balancing**: Reverse proxy?
+- **[Amazon EKS](https://aws.amazon.com/eks/)**: Container Environment?
+- **[Amazon Cognito](https://aws.amazon.com/cognito/)**: SSO Provider?
+- **[AWS Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/)**: Reverse proxy?
