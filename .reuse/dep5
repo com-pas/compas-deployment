@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: compas-deployment
+Upstream-Contact: Sander Jansen <sander.jansen@alliander.com>
+Source: https://github.com/com-pas/compas-deployment
+
+Files: images/*
+Copyright: 2022 Alliander N.V.
+License: Apache-2.0
