@@ -59,7 +59,7 @@ TestCase005-03
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   [XSD validation] (line: 32, column: 47): cvc-complex-type.4: Attribute 'type' must appear on element 'DO'.
+    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
 
 TestCase005-04
@@ -75,5 +75,5 @@ TestCase005-04
 
     Open Menu           View diagnostics
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
-    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   [XSD validation] (line: 32, column: 47): cvc-complex-type.4: Attribute 'type' must appear on element 'DO'.
+    Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
