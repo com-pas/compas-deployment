@@ -76,7 +76,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.9.1"
+    image: "lfenergy/compas-cim-mapping:0.9.2"
     ports:
       - "9091:8080"
     environment:
@@ -100,7 +100,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.3.0"
+    image: "lfenergy/compas-scl-auto-alignment:0.3.1"
     ports:
       - "9092:8080"
     environment:
@@ -124,7 +124,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.4.2"
+    image: "lfenergy/compas-scl-validator:0.4.3"
     ports:
       - "9093:8080"
     environment:
@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.23.0.0"
+    image: "lfenergy/compas-open-scd:v0.24.0.0"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s
