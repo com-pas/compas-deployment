@@ -20,10 +20,10 @@ Open from CoMPAS
 Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
     # Make sure the initial value is entered. so we can continue.
-    Get Text                    ${dialog-selector} compas-save mwc-textfield#name input   ==   ${initialValue}
-    Fill Text                   ${dialog-selector} compas-save mwc-textfield#name input   ${name}-${current-date}
-    Click                       ${dialog-selector} compas-save compas-scltype-radiogroup mwc-list > mwc-radio-list-item[value="${type.upper()}"]
-    Click                       ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Get Text                    mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
+    Fill Text                   mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
+    Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
+    Click                       mwc-dialog#compas-save-dlg mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
@@ -31,8 +31,8 @@ Add to CoMPAS
 
 Update in CoMPAS
     [Arguments]                 ${changeType}   ${name}   ${type}   ${expectedVersion}
-    Click                       ${dialog-selector} compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
-    Click                       ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Click                       mwc-dialog#compas-save-dlg > compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
+    Click                       mwc-dialog#compas-save-dlg mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
