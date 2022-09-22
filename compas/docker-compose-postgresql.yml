@@ -46,7 +46,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.10.0-postgresql"
+    image: "lfenergy/compas-scl-data-service:0.11.0-postgresql"
     ports:
       - "9090:8080"
     environment:
@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.24.0.1"
+    image: "lfenergy/compas-open-scd:v0.24.0.2"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       interval: 30s

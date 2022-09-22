@@ -164,7 +164,7 @@ TestCase002-30
     # Next select the first version from the list and compare this to the current open edited version.
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
-    Get Text    ${dialog-selector} \#wizard-content > mwc-list > mwc-list-item:nth-child(3) >> text=Substation
+    Get Text    ${dialog-selector} div\#wizard-content mwc-list > mwc-list-item > span:has-text("Substation")
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
@@ -175,7 +175,7 @@ TestCase002-31
     Select Tab  CoMPAS Versions
     # Now select no versions and try to compare, should show a error dialog.
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
-    Get Text    ${dialog-selector} \#wizard-content:has-text("Select maximum one version to compare the current project against.")
+    Get Text    ${dialog-selector} div\#wizard-content > span:has-text("Select maximum one version to compare the current project against.")
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
@@ -183,7 +183,7 @@ TestCase002-31
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(2) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
-    Get Text    ${dialog-selector} \#wizard-content:has-text("Select maximum one version to compare the current project against.")
+    Get Text    ${dialog-selector} div\#wizard-content > span:has-text("Select maximum one version to compare the current project against.")
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
@@ -200,7 +200,7 @@ TestCase002-32
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(2) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare versions"] > button
-    Get Text    ${dialog-selector} \#wizard-content > mwc-list:nth-child(1) > mwc-list-item:nth-child(3) >> text=Substation
+    Get Text    ${dialog-selector} div\#wizard-content mwc-list > mwc-list-item > span:has-text("Substation")
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
@@ -221,7 +221,7 @@ TestCase002-33
     # Now select one versions and try to compare, should show a error dialog.
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare versions"] > button
-    Get Text    ${dialog-selector} \#wizard-content:has-text("Select maximum two versions to compare with each other.")
+    Get Text    ${dialog-selector} div#wizard-content > span:has-text("Select maximum two versions to compare with each other.")
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
@@ -229,6 +229,6 @@ TestCase002-33
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(2) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(3) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare versions"] > button
-    Get Text    ${dialog-selector} \#wizard-content:has-text("Select maximum two versions to compare with each other.")
+    Get Text    ${dialog-selector} div#wizard-content > span:has-text("Select maximum two versions to compare with each other.")
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
