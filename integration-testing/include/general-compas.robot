@@ -22,8 +22,9 @@ Add to CoMPAS
     # Make sure the initial value is entered. so we can continue.
     Get Text                    mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
     Fill Text                   mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
+    Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
     Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
-    Click                       mwc-dialog#compas-save-dlg mwc-button[slot="primaryAction"] > button
+    Click                       mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
@@ -32,7 +33,7 @@ Add to CoMPAS
 Update in CoMPAS
     [Arguments]                 ${changeType}   ${name}   ${type}   ${expectedVersion}
     Click                       mwc-dialog#compas-save-dlg > compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
-    Click                       mwc-dialog#compas-save-dlg mwc-button[slot="primaryAction"] > button
+    Click                       mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
