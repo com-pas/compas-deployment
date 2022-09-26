@@ -84,7 +84,7 @@ Open local file
 Save to local file
     [Arguments]         ${name}     ${type}
     ${dl_promise}=      Promise To Wait For Download    ${OUTPUT DIR}/saved-files/${name}-${current-date}.${type.lower()}
-    Click               ${dialog-selector} compas-save mwc-button[label="Save to file..."] button
+    Click               mwc-dialog#compas-save-dlg > compas-save mwc-button[label="Save to file..."] button
     ${file_obj}=        Wait For  ${dl_promise}
     File Should Exist   ${file_obj}[saveAs]
     Wait for dialog is closed

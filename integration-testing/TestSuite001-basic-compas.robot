@@ -33,7 +33,7 @@ TestCase001-02
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
@@ -51,7 +51,7 @@ TestCase001-03
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
 
     Close OpenSCD
     Open OpenSCD and Login
@@ -75,7 +75,7 @@ TestCase001-04
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Add to CoMPAS       MiniGrid.scd   ${sclname}   ${scltype}   1.0.0
+    Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
 
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}
@@ -94,12 +94,13 @@ TestCase001-05
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
-    Get Text            ${dialog-selector} compas-save mwc-textfield#name input   ==   MiniGrid.scd
-    Fill Text           ${dialog-selector} compas-save mwc-textfield#name input   ${sclname}
-    Click               ${dialog-selector} compas-save compas-scltype-radiogroup mwc-list > mwc-radio-list-item[value="${scltype}"]
-    Click               ${dialog-selector} mwc-button[slot="primaryAction"] > button
+    Get Text            mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   MiniGrid
+    Fill Text           mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${sclname}
+    Click               mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
+    Click               mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${scltype}"]
+    Click               mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
     Wait until executed
-    Click               ${dialog-selector} mwc-button[slot="secondaryAction"] > button
+    Click               mwc-dialog#compas-save-dlg > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
     Close Menu
 
