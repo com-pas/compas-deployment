@@ -10,12 +10,38 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.13.0
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.24.0.2):
+  - Add Labels when saving SCL File to CoMPAS;
+  - See details in [OpenSCD Release notes (V0.24.0)](https://github.com/openscd/open-scd/releases/tag/v0.24.0);
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.9.2):
+  - Updated libraries to the latest versions;
+- [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.3.1):
+  - Updated libraries to the latest versions;
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.4.3):
+  - Updated libraries to the latest versions;
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.11.0):
+  - Return labels by Listing SCL Files per SCL Type;
+  - Updated libraries to the latest versions;
+
+### Release 0.12.0
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.23.0.0):
+  - Processing validation message from SCL Validator Service;
+  - See details in [OpenSCD Release notes (V0.23.0)](https://github.com/openscd/open-scd/releases/tag/v0.23.0);
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.4.2):
+  - Process validation messages from XSD Validation to be processed better by frontend;
+  - Updated libraries to the latest versions;
+
 ### Release 0.11.0
 
 Next release for testing the CoMPAS System with all components.
 - [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.22.0.0):
   - Processing validation message from SCL Validator Service; 
-  - See details in [OpenSCD Release notes (V0.22.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.22.0);
+  - See details in [OpenSCD Release notes (V0.22.0)](https://github.com/openscd/open-scd/releases/tag/v0.22.0);
 - [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.4.1):
   - Process validation messages from RiseClipse to be processed better by frontend;
   - Updated libraries to the latest versions;
@@ -26,8 +52,8 @@ Next release for testing the CoMPAS System with all components.
 - [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.21.0.0):
   - Export IED Parameters to CSV File;
   - On IED Template Project from CoMPAS backend service;
-  - See details in [OpenSCD Release notes (V0.21.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.21.0);
-  - See details in [OpenSCD Release notes (V0.20.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.20.0);
+  - See details in [OpenSCD Release notes (V0.21.0)](https://github.com/openscd/open-scd/releases/tag/v0.21.0);
+  - See details in [OpenSCD Release notes (V0.20.0)](https://github.com/openscd/open-scd/releases/tag/v0.20.0);
 - [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.10.0):
   - Upgrade to JDK 17;
   - Updated libraries to the latest versions;
@@ -46,8 +72,8 @@ Next release for testing the CoMPAS System with all components.
 Next release for testing the CoMPAS System with all components.
 - [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.19.0.0):
   - Show Who/When/What information for the versions in CoMPAS;  
-  - See details in [OpenSCD Release notes (V0.19.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.19.0);
-  - See details in [OpenSCD Release notes (V0.18.0.0)](https://github.com/openscd/open-scd/releases/tag/v0.18.0);
+  - See details in [OpenSCD Release notes (V0.19.0)](https://github.com/openscd/open-scd/releases/tag/v0.19.0);
+  - See details in [OpenSCD Release notes (V0.18.0)](https://github.com/openscd/open-scd/releases/tag/v0.18.0);
 - [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.9.9):
   - Return Who/When/What information when returning versions;
   - Updated libraries to the latest versions;
