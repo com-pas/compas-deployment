@@ -10,8 +10,8 @@ Resource        ./general-openscd.robot
 *** Keywords ***
 Open from CoMPAS
     [Arguments]                 ${name}   ${type}   ${expectedVersion}
-    Click                       ${dialog-selector} compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
-    Click                       ${dialog-selector} compas-open compas-scl-list > mwc-list > mwc-list-item:has-text("${name}-${current-date}")
+    Click                       mwc-dialog#compas-open-dlg > compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
+    Click                       mwc-dialog#compas-open-dlg > compas-open compas-scl-list > filtered-list > mwc-list-item:has-text("${name}-${current-date}")
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
