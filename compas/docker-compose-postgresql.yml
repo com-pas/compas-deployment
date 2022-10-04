@@ -46,7 +46,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.11.0-postgresql"
+    image: "lfenergy/compas-scl-data-service:0.11.1-postgresql"
     ports:
       - "9090:8080"
     environment:
@@ -124,7 +124,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.4.3"
+    image: "lfenergy/compas-scl-validator:0.4.4"
     ports:
       - "9093:8080"
     environment:

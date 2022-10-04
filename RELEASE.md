@@ -10,6 +10,18 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.14.0
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.24.0.3):
+  - Filter (on labels) when opening project;
+- [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) (Version 0.4.4):
+  - Added CoMPAS XSD to validated CoMPAS private elements;
+  - Updated libraries to the latest versions;
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.11.1):
+  - Improved performance PostgreSQL implementation regarding labels;
+  - Updated libraries to the latest versions;
+
 ### Release 0.13.0
 
 Next release for testing the CoMPAS System with all components.

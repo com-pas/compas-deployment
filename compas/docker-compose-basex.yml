@@ -39,7 +39,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.11.0-basex"
+    image: "lfenergy/compas-scl-data-service:0.11.1-basex"
     ports:
       - "9090:8080"
     environment:
@@ -117,7 +117,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.4.3"
+    image: "lfenergy/compas-scl-validator:0.4.4"
     ports:
       - "9093:8080"
     environment:
