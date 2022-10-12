@@ -10,6 +10,13 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.14.1
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version 0.24.0.4):
+  - Save current project as version to an existing SCL File in CoMPAS;
+  - Switch to other base image (Bitnami) for container image;
+
 ### Release 0.14.0
 
 Next release for testing the CoMPAS System with all components.
