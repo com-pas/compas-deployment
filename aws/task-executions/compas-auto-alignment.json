@@ -1,0 +1,103 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:479722549598:task-definition/CoMPAS-Scl-Auto-Alignment:2",
+    "containerDefinitions": [
+        {
+            "name": "CoMPAS-Scl-Auto-Alignment",
+            "image": "lfenergy/compas-scl-auto-alignment:0.3.1",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "command": [],
+            "environment": [
+                {
+                    "name": "JWT_VERIFY_CLIENT_ID",
+                    "value": ""
+                },
+                {
+                    "name": "QUARKUS_HTTP_ACCESS_LOG_ENABLED",
+                    "value": "true"
+                },
+                {
+                    "name": "MP_JWT_TOKEN_HEADER\t",
+                    "value": "x-amzn-oidc-accesstoken"
+                },
+                {
+                    "name": "JWT_VERIFY_KEY",
+                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO/.well-known/jwks.json"
+                },
+                {
+                    "name": "QUARKUS_LOG_LEVEL",
+                    "value": "ALL"
+                },
+                {
+                    "name": "QUARKUS_HTTP_ACCESS_LOG_PATTERN\t",
+                    "value": "long"
+                },
+                {
+                    "name": "JWT_GROUPS_PATH",
+                    "value": "resource_access/scl-auto-alignment/roles"
+                },
+                {
+                    "name": "JWT_VERIFY_ISSUER",
+                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO"
+                },
+                {
+                    "name": "USERINFO_WHO_CLAIMNAME",
+                    "value": "username"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/scl-auto-alignment",
+                    "awslogs-region": "eu-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "CoMPAS-Scl-Auto-Alignment",
+    "executionRoleArn": "arn:aws:iam::479722549598:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "registeredAt": "2022-10-14T07:16:12.477Z",
+    "registeredBy": "arn:aws:iam::479722549598:root",
+    "tags": []
+}
