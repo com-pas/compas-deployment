@@ -73,7 +73,7 @@ Select Tab
 Open local file
     [Arguments]                 ${name}     ${type}
     ${promise}=                 Promise To Upload File    ${CURDIR}/../test-files/${name}.${type.lower()}
-    Click                       ${dialog-selector} compas-open mwc-button[label="Open file..."] button
+    Click                       mwc-dialog#compas-open-dlg > compas-open mwc-button[label="Open file..."] button
     ${upload_result}=           Wait For  ${promise}
     Sleep                       0.5s   Wait until loading file starts.
     Wait for dialog is closed

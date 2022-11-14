@@ -5,6 +5,7 @@
 *** Settings ***
 Documentation   Basic test cases for opening and saving SCL files to/from Local File and CoMPAS.
 Resource        ./include/general-compas.robot
+Resource    include/general-compas.robot
 
 Test Setup      Initialize and Start OpenSCD
 Test Teardown   Make screenshot and Stop OpenSCD
@@ -12,22 +13,16 @@ Test Teardown   Make screenshot and Stop OpenSCD
 *** Test Cases ***
 TestCase001-01
     [Documentation]     Open project from Local File
-    Set Test Variable   ${sclname}  MiniGrid
-    Set Test Variable   ${scltype}  SCD
-
     Open Menu           Open project
-    Open local file     ${sclname}    ${scltype}
+    Open local file     MiniGrid    SCD
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
 
 TestCase001-02
     [Documentation]     Open project from Local File and Add to CoMPAS
-    Set Test Variable   ${sclname}  MiniGrid
-    Set Test Variable   ${scltype}  SCD
-
     Open Menu           Open project
-    Open local file     ${sclname}    ${scltype}
+    Open local file     MiniGrid    SCD
 
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
@@ -41,11 +36,8 @@ TestCase001-02
 TestCase001-03
     [Documentation]     Open project from CoMPAS
     # First we need to add a project to CoMPAS to be able to open it from CoMPAS.
-    Set Test Variable   ${sclname}  MiniGrid
-    Set Test Variable   ${scltype}  SCD
-
     Open Menu           Open project
-    Open local file     ${sclname}    ${scltype}
+    Open local file     MiniGrid    SCD
 
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
@@ -65,11 +57,8 @@ TestCase001-03
 TestCase001-04
     [Documentation]     Open project from CoMPAS and Save to Local File
     # First we need to add a project to CoMPAS to be able to open it from CoMPAS.
-    Set Test Variable   ${sclname}  MiniGrid
-    Set Test Variable   ${scltype}  SCD
-
     Open Menu           Open project
-    Open local file     ${sclname}    ${scltype}
+    Open local file     MiniGrid    SCD
 
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
@@ -81,13 +70,43 @@ TestCase001-04
     Save to local file  ${sclname}    ${scltype}
 
 TestCase001-05
-    [Documentation]     Trying saving local file to CoMPAS with invalid name
-    # First we will open the local file to be saved.
-    Set Test Variable   ${sclname}  MiniGrid
-    Set Test Variable   ${scltype}  SCD
+    [Documentation]     Save a existing project from CoMPAS as new project
+    # First we need to add a project to CoMPAS to be able to open it from CoMPAS.
+    Open Menu           Open project
+    Open local file     MiniGrid    SCD
+
+    Set Test Variable   ${sclname}  ${TEST NAME}
+    Set Test Variable   ${scltype}  CID
+
+    Open Menu           Save project
+    Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+
+    Open Menu           Save project as
+    Save as to CoMPAS   ${sclname}-${current-date}-1.0.0   ${sclname}-as   ${scltype}   1.0.0
+
+TestCase001-06
+    [Documentation]     Save local project as new version to existing project in CoMPAS
+    # First we need to add a project to CoMPAS to be able to open it from CoMPAS.
+    Open Menu           Open project
+    Open local file     MiniGrid    SCD
+
+    Set Test Variable   ${sclname}  ${TEST NAME}
+    Set Test Variable   ${scltype}  CID
+
+    Open Menu           Save project
+    Add to CoMPAS       MiniGrid    ${sclname}   ${scltype}   1.0.0
 
     Open Menu           Open project
-    Open local file     ${sclname}    ${scltype}
+    Open local file     MiniGrid    SCD
+
+    Open Menu                Save as version
+    Save version to CoMPAS   MINOR   ${sclname}   ${scltype}   1.1.0
+
+TestCase001-10
+    [Documentation]     Trying saving local file to CoMPAS with invalid name
+    # First we will open the local file to be saved.
+    Open Menu           Open project
+    Open local file     MiniGrid    SCD
 
     # Try saving the file with a invalid name
     Set Test Variable   ${sclname}  invalid/*name
@@ -107,4 +126,3 @@ TestCase001-05
     # Check if the expected error message is found
     Set Test Variable    ${secondaryMessage}    ApplicationError: Name is not a correct name to be used later as filename. (CORE-8000) (400)
     Check CoMPAS Error   ${secondaryMessage}
-

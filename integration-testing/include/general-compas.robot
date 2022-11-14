@@ -10,8 +10,9 @@ Resource        ./general-openscd.robot
 *** Keywords ***
 Open from CoMPAS
     [Arguments]                 ${name}   ${type}   ${expectedVersion}
-    Click                       ${dialog-selector} compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
-    Click                       ${dialog-selector} compas-open compas-scl-list > mwc-list > mwc-list-item:has-text("${name}-${current-date}")
+    Click                       mwc-dialog#compas-open-dlg > compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
+    Select label                mwc-dialog#compas-open-dlg > compas-open    ${type}_${current-date}
+    Click                       mwc-dialog#compas-open-dlg > compas-open compas-scl-list > filtered-list > mwc-list-item:has-text("${name}-${current-date}")
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
@@ -24,7 +25,22 @@ Add to CoMPAS
     Fill Text                   mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
     Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
     Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
+    Add label                   mwc-dialog#compas-save-dlg > compas-save    ${type}_${current-date}
     Click                       mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
+    Wait for dialog is closed
+    Close Menu
+    # check if the title (filename) changed to the new expected one.
+    Check Title Filename        ${name}-${current-date}-${expectedVersion}    ${type}
+
+Save as to CoMPAS
+    [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
+    # Make sure the initial value is entered. so we can continue.
+    Get Text                    mwc-dialog#compas-save-as-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
+    Fill Text                   mwc-dialog#compas-save-as-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
+    Click                       mwc-dialog#compas-save-as-dlg > compas-save compas-scltype-select mwc-select
+    Click                       mwc-dialog#compas-save-as-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
+    Add label                   mwc-dialog#compas-save-as-dlg > compas-save    ${type}_as_${current-date}
+    Click                       mwc-dialog#compas-save-as-dlg > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
@@ -33,11 +49,24 @@ Add to CoMPAS
 Update in CoMPAS
     [Arguments]                 ${changeType}   ${name}   ${type}   ${expectedVersion}
     Click                       mwc-dialog#compas-save-dlg > compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
+    Add label                   mwc-dialog#compas-save-dlg > compas-save    ${type}_${current-date}_${expectedVersion.replace('.', '')}
     Click                       mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
     Check Title Filename        ${name}-${current-date}-${expectedVersion}    ${type}
+
+Save version to CoMPAS
+    [Arguments]                 ${changeType}   ${name}   ${type}   ${expectedVersion}
+    Click                       mwc-dialog#compas-save-as-version-dlg > compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")
+    Click                       mwc-dialog#compas-save-as-version-dlg > compas-open compas-scl-list > filtered-list > mwc-list-item:has-text("${name}-${current-date}")
+    Click                       mwc-dialog#compas-save-as-version-dlg > compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
+    Click                       mwc-dialog#compas-save-as-version-dlg > mwc-button[slot="primaryAction"] > button
+    Wait for dialog is closed
+    Close Menu
+    # check if the title (filename) changed to the new expected one.
+    Check Title Filename        ${name}-${current-date}-${expectedVersion}    ${type}
+
 
 Change Websockets setting
     [Arguments]                 ${checked}
@@ -55,3 +84,15 @@ Check CoMPAS Error
     [Arguments]         ${secondaryMessage}
     Set Test Variable   ${primaryMessage}      Error communicating with CoMPAS Ecosystem
     Check Log           ${primaryMessage}      ${secondaryMessage}
+
+Add label
+    [Arguments]     ${dialog}   ${label}
+    Fill Text       ${dialog} compas-labels-field wizard-textfield#newLabel label > input     ${label}
+    Click           ${dialog} compas-labels-field mwc-icon-button[icon="new_label"] > button
+
+Select label
+    [Arguments]     ${dialog}   ${label}
+    Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-icon-button > button
+    Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog mwc-formfield > mwc-checkbox
+    Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-check-list-item[value="${label}"]
+    Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog > mwc-button[slot="primaryAction"] > button
