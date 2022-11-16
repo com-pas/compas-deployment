@@ -109,7 +109,7 @@ TestCase001-11
     Open local file     MiniGrid    SCD
 
     # Try saving the file with a invalid name
-    Set Test Variable   ${sclname}  invalid/*name
+    Set Test Variable   ${sclname}  ${TEST NAME}-invalid/*name
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
@@ -173,7 +173,7 @@ TestCase001-61
     Open local file             MiniGrid    SCD
 
     # Try saving the file with a invalid name
-    Set Test Variable   ${sclname}  invalid/*name
+    Set Test Variable   ${sclname}  ${TEST NAME}-invalid/*name
     Set Test Variable   ${scltype}  CID
 
     Open Menu           Save project
