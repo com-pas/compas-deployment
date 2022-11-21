@@ -13,7 +13,7 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 ### Release 0.15.0
 
 Next release for testing the CoMPAS System with all components.
-- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version v0.26.0.0):
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version v0.26.0.1):
   - Use Websocket for Data Service to create/update retrieve SCL Files;
   - See details in [OpenSCD Release notes (V0.26.0)](https://github.com/openscd/open-scd/releases/tag/v0.26.0);
 - [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.10.0):
