@@ -164,8 +164,12 @@ TestCase002-30
     # Next select the first version from the list and compare this to the current open edited version.
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
-    Get Text    ${dialog-selector} div#wizard-content mwc-list > mwc-list-item > span:has-text("Substation")
-    Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
+    ${listItemValue}=   Evaluate JavaScript    mwc-dialog#compareDialog > plain-compare-list
+    ...        (element) => {
+    ...            return element.shadowRoot.querySelector('mwc-list > mwc-list-item > span').textContent
+    ...        }
+    Should Contain      ${listItemValue}    Substation
+    Click       mwc-dialog#compareDialog > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
 TestCase002-31
@@ -200,7 +204,11 @@ TestCase002-32
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(2) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare versions"] > button
-    Get Text    ${dialog-selector} div#wizard-content mwc-list > mwc-list-item > span:has-text("Substation")
+    ${listItemValue}=   Evaluate JavaScript    mwc-dialog#compareDialog > plain-compare-list
+    ...        (element) => {
+    ...            return element.shadowRoot.querySelector('mwc-list > mwc-list-item > span').textContent
+    ...        }
+    Should Contain      ${listItemValue}    Substation
     Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 

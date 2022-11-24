@@ -16,7 +16,7 @@ Next release for testing the CoMPAS System with all components.
 - [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version v0.26.0.2):
   - Use Websocket for Data Service to create/update retrieve SCL Files;
   - See details in [OpenSCD Release notes (V0.26.0)](https://github.com/openscd/open-scd/releases/tag/v0.26.0);
-- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.10.0):
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.10.1):
   - Updated libraries to the latest versions;
 - [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.4.0):
   - Updated libraries to the latest versions;
