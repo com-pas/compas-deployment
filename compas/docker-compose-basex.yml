@@ -39,7 +39,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.12.1-basex"
+    image: "lfenergy/compas-scl-data-service:0.12.2-basex"
     ports:
       - "9090:8080"
     environment:
@@ -117,7 +117,7 @@ services:
   scl-validator:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-validator:0.6.0"
+    image: "lfenergy/compas-scl-validator:0.6.1"
     ports:
       - "9093:8080"
     environment:
@@ -144,7 +144,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.26.0.1"
+    image: "lfenergy/compas-open-scd:v0.26.0.2"
     depends_on:
       - scl-data-service
       - cim-mapping
