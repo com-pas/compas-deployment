@@ -209,7 +209,7 @@ TestCase002-32
     ...            return element.shadowRoot.querySelector('mwc-list > mwc-list-item > span').textContent
     ...        }
     Should Contain      ${listItemValue}    Substation
-    Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
+    Click       mwc-dialog#compareDialog > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
 TestCase002-33
