@@ -164,13 +164,8 @@ TestCase002-30
     # Next select the first version from the list and compare this to the current open edited version.
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
-    # Needed field is non-interactive, so fetching won't work using 'Get Text'.
-    # Alternative way is using JavaScript to retrieve the value and compare it.
-    ${listItemValue}=   Evaluate JavaScript    mwc-dialog#compareDialog > plain-compare-list
-    ...        (element) => {
-    ...            return element.shadowRoot.querySelector('mwc-list > mwc-list-item > span').textContent
-    ...        }
-    Should Contain      ${listItemValue}    Substation
+    # The following part won't work in Presentor Mode (-v enable_presenter_mode:true), because the field is non-interactive.
+    Get Text    mwc-dialog#compareDialog > plain-compare-list mwc-list > mwc-list-item > span:has-text("Substation")
     Click       mwc-dialog#compareDialog > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
@@ -206,13 +201,8 @@ TestCase002-32
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(2) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare versions"] > button
-    # Needed field is non-interactive, so fetching won't work using 'Get Text'.
-    # Alternative way is using JavaScript to retrieve the value and compare it.
-    ${listItemValue}=   Evaluate JavaScript    mwc-dialog#compareDialog > plain-compare-list
-    ...        (element) => {
-    ...            return element.shadowRoot.querySelector('mwc-list > mwc-list-item > span').textContent
-    ...        }
-    Should Contain      ${listItemValue}    Substation
+    # The following part won't work in Presentor Mode (-v enable_presenter_mode:true), because the field is non-interactive.
+    Get Text    mwc-dialog#compareDialog > plain-compare-list mwc-list > mwc-list-item > span:has-text("Substation")
     Click       mwc-dialog#compareDialog > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
