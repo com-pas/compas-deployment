@@ -106,3 +106,6 @@ These roles are assigned to certain users (see below).
 - **A SCD Reader**: A user with the role 'Read' only on the SCD Type.
   - Username: scd-reader
   - Password: reader
+
+## AWS Documentation
+CoMPAS can also be deployed via AWS. please check the [documentation here](./aws/README.md)
