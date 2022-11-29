@@ -36,9 +36,8 @@ TestCase005-02
     Set Test Variable   ${sclname}  SingleSubstation
     Set Test Variable   ${scltype}  SCD
 
-    Change Websockets setting   False
-    Open Menu                   Open project
-    Open local file             ${sclname}    ${scltype}
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
 
     Execute SCL Validator
 
@@ -67,9 +66,8 @@ TestCase005-04
     Set Test Variable   ${sclname}  XsdValidationErrors
     Set Test Variable   ${scltype}  SCD
 
-    Change Websockets setting   False
-    Open Menu                   Open project
-    Open local file             ${sclname}    ${scltype}
+    Open Menu           Open project
+    Open local file     ${sclname}    ${scltype}
 
     Execute SCL Validator
 

@@ -164,8 +164,9 @@ TestCase002-30
     # Next select the first version from the list and compare this to the current open edited version.
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare version (current)"] > button
-    Get Text    ${dialog-selector} div#wizard-content mwc-list > mwc-list-item > span:has-text("Substation")
-    Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
+    # The following part won't work in Presentor Mode (-v enable_presenter_mode:true), because the field is non-interactive.
+    Get Text    mwc-dialog#compareDialog > plain-compare-list mwc-list > mwc-list-item > span:has-text("Substation")
+    Click       mwc-dialog#compareDialog > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
 TestCase002-31
@@ -200,8 +201,9 @@ TestCase002-32
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(1) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-list > mwc-check-list-item:nth-child(2) mwc-checkbox
     Click       ${compas-versions-editor-selector} mwc-fab[label="Compare versions"] > button
-    Get Text    ${dialog-selector} div#wizard-content mwc-list > mwc-list-item > span:has-text("Substation")
-    Click       ${dialog-selector} mwc-button[slot="secondaryAction"] > button
+    # The following part won't work in Presentor Mode (-v enable_presenter_mode:true), because the field is non-interactive.
+    Get Text    mwc-dialog#compareDialog > plain-compare-list mwc-list > mwc-list-item > span:has-text("Substation")
+    Click       mwc-dialog#compareDialog > mwc-button[slot="secondaryAction"] > button
     Wait for dialog is closed
 
 TestCase002-33
