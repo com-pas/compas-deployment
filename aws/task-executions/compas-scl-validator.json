@@ -79,45 +79,10 @@
     "executionRoleArn": "ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        }
-    ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "2048",
-    "tags": [
-        {
-            "key": "ecs:taskDefinition:createdFrom",
-            "value": "ecs-console-v2"
-        },
-        {
-            "key": "ecs:taskDefinition:stackId",
-            "value": "arn:aws:cloudformation:eu-west-1:479722549598:stack/ECS-Console-V2-TaskDefinition-831a400e-6a4b-40d4-87a9-1f6ca55d867c/965528e0-756a-11ed-9078-02c34e039b01"
-        }
-    ]
+    "memory": "2048"
 }

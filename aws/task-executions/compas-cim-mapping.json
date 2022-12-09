@@ -78,47 +78,11 @@
     "family": "CoMPAS-Cim-Mapping",
     "executionRoleArn": "ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 19,
     "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        }
-    ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "2048",
-    "tags": [
-        {
-            "key": "ecs:taskDefinition:createdFrom",
-            "value": "ecs-console-v2"
-        },
-        {
-            "key": "ecs:taskDefinition:stackId",
-            "value": "arn:aws:cloudformation:eu-west-1:479722549598:stack/ECS-Console-V2-TaskDefinition-3e61c1e5-1cd8-4ee2-a875-4b1f073dfa62/1e7a6d80-7565-11ed-968f-060277138aef"
-        }
-    ]
+    "memory": "2048"
 }
