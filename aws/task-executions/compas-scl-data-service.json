@@ -1,9 +1,8 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:479722549598:task-definition/CoMPAS-Scl-Data-Service:9",
     "containerDefinitions": [
         {
             "name": "CoMPAS-Scl-Data-Service",
-            "image": "lfenergy/compas-scl-data-service:0.11.1-postgresql",
+            "image": "lfenergy/compas-scl-data-service:0.12.2-postgresql",
             "cpu": 0,
             "portMappings": [
                 {
@@ -13,6 +12,8 @@
                 }
             ],
             "essential": true,
+            "entryPoint": [],
+            "command": [],
             "environment": [
                 {
                     "name": "MP_JWT_TOKEN_HEADER",
@@ -108,6 +109,8 @@
                 }
             ],
             "essential": true,
+            "entryPoint": [],
+            "command": [],
             "environment": [
                 {
                     "name": "POSTGRES_USER",
@@ -151,9 +154,9 @@
         }
     ],
     "family": "CoMPAS-Scl-Data-Service",
-    "executionRoleArn": "arn:aws:iam::479722549598:role/ecsTaskExecutionRole",
+    "executionRoleArn": "ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 9,
+    "revision": 10,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -192,7 +195,5 @@
     ],
     "cpu": "1024",
     "memory": "2048",
-    "registeredAt": "2022-10-14T11:17:13.217Z",
-    "registeredBy": "arn:aws:iam::479722549598:root",
     "tags": []
 }

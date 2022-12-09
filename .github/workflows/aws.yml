@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy CoMPAS OpenSCD
+    name: Deploy to AWS
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -30,5 +30,37 @@ jobs:
         with:
           task-definition: ./aws/task-executions/compas-openscd.json
           service: CoMPAS-OpenSCD
+          cluster: CoMPAS
+          wait-for-service-stability: true
+
+      - name: Deploy CoMPAS Auto Alignment task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ./aws/task-executions/compas-auto-alignment.json
+          service: CoMPAS-Scl-Auto-Alignment
+          cluster: CoMPAS
+          wait-for-service-stability: true
+
+      - name: Deploy CoMPAS Cim Mapping task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ./aws/task-executions/compas-cim-mapping.json
+          service: CoMPAS-Cim-Mapping-LB
+          cluster: CoMPAS
+          wait-for-service-stability: true
+
+      - name: Deploy CoMPAS Data Service task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ./aws/task-executions/compas-scl-data-service.json
+          service: CoMPAS-Scl-Data-Service
+          cluster: CoMPAS
+          wait-for-service-stability: true
+
+      - name: Deploy CoMPAS Scl Validator task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ./aws/task-executions/compas-scl-validator.json
+          service: CoMPAS-Scl-Validator
           cluster: CoMPAS
           wait-for-service-stability: true

@@ -1,10 +1,10 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:479722549598:task-definition/CoMPAS-Cim-Mapping:18",
     "containerDefinitions": [
         {
             "name": "CoMPAS-Cim-Mapping",
-            "image": "lfenergy/compas-cim-mapping:0.9.2",
+            "image": "lfenergy/compas-cim-mapping:0.10.1",
             "cpu": 0,
+            "links": [],
             "portMappings": [
                 {
                     "containerPort": 8080,
@@ -13,6 +13,7 @@
                 }
             ],
             "essential": true,
+            "entryPoint": [],
             "command": [],
             "environment": [
                 {
@@ -52,22 +53,32 @@
                     "value": "username"
                 }
             ],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "secrets": [],
+            "dnsServers": [],
+            "dnsSearchDomains": [],
+            "extraHosts": [],
+            "dockerSecurityOptions": [],
+            "dockerLabels": {},
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-group": "/ecs/cim-mapping",
                     "awslogs-region": "eu-west-1",
                     "awslogs-stream-prefix": "ecs"
-                }
-            }
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
     ],
     "family": "CoMPAS-Cim-Mapping",
-    "executionRoleArn": "arn:aws:iam::479722549598:role/ecsTaskExecutionRole",
+    "executionRoleArn": "ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 18,
+    "revision": 19,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -79,6 +90,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -97,7 +111,14 @@
     ],
     "cpu": "1024",
     "memory": "2048",
-    "registeredAt": "2022-10-13T14:15:32.751Z",
-    "registeredBy": "arn:aws:iam::479722549598:root",
-    "tags": []
+    "tags": [
+        {
+            "key": "ecs:taskDefinition:createdFrom",
+            "value": "ecs-console-v2"
+        },
+        {
+            "key": "ecs:taskDefinition:stackId",
+            "value": "arn:aws:cloudformation:eu-west-1:479722549598:stack/ECS-Console-V2-TaskDefinition-3e61c1e5-1cd8-4ee2-a875-4b1f073dfa62/1e7a6d80-7565-11ed-968f-060277138aef"
+        }
+    ]
 }
