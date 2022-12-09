@@ -8,6 +8,11 @@ Resource        ./general-config.robot
 Resource        ./general-openscd.robot
 
 *** Keywords ***
+Initialize and Start OpenSCD
+    Set global variables
+    Open OpenSCD and Login
+    Change Websockets setting   False
+
 Open from CoMPAS
     [Arguments]                 ${name}   ${type}   ${expectedVersion}
     Click                       mwc-dialog#compas-open-dlg > compas-open compas-scltype-list > mwc-list > mwc-list-item >> span:has-text("${type.upper()}")

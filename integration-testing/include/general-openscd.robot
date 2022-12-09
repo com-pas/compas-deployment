@@ -13,10 +13,6 @@ ${dialog-selector}              wizard-dialog
 ${substation-editor-selector}   substation-editor:first-child > action-pane
 
 *** Keywords ***
-Initialize and Start OpenSCD
-    Set global variables
-    Open OpenSCD and Login
-
 Make screenshot and Stop OpenSCD
     Run Keyword If Test Passed      Take Screenshot     filename=EMBED  fullPage=true
     Close OpenSCD
