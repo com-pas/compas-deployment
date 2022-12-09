@@ -1,4 +1,4 @@
-name: Build Project
+name: Deploy Project to AWS
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - 'main'
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy CoMPAS OpenSCD
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
