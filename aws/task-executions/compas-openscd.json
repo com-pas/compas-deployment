@@ -1,35 +1,47 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-west-1:479722549598:task-definition/CoMPAS-OpenSCD:5",
     "containerDefinitions": [
         {
             "name": "CoMPAS-OpenSCD",
-            "image": "lfenergy/compas-open-scd:v0.24.0.4",
+            "image": "lfenergy/compas-open-scd:v0.26.0.2",
             "cpu": 0,
+            "links": [],
             "portMappings": [
                 {
+                    "name": "http",
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp"
                 }
             ],
             "essential": true,
+            "entryPoint": [],
+            "command": [],
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "secrets": [],
+            "dnsServers": [],
+            "dnsSearchDomains": [],
+            "extraHosts": [],
+            "dockerSecurityOptions": [],
+            "dockerLabels": {},
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-group": "/ecs/openscd",
                     "awslogs-region": "eu-west-1",
                     "awslogs-stream-prefix": "ecs"
-                }
-            }
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
     ],
     "family": "CoMPAS-OpenSCD",
-    "executionRoleArn": "arn:aws:iam::479722549598:role/ecsTaskExecutionRole",
+    "executionRoleArn": "ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 5,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -41,6 +53,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -59,7 +74,16 @@
     ],
     "cpu": "1024",
     "memory": "2048",
-    "registeredAt": "2022-10-12T13:04:50.768Z",
-    "registeredBy": "arn:aws:iam::479722549598:root",
-    "tags": []
+    "registeredAt": "2022-12-06T13:23:14.866Z",
+    "registeredBy": "arn:aws:iam::479722549598:user/svddriest",
+    "tags": [
+        {
+            "key": "ecs:taskDefinition:createdFrom",
+            "value": "ecs-console-v2"
+        },
+        {
+            "key": "ecs:taskDefinition:stackId",
+            "value": "arn:aws:cloudformation:eu-west-1:479722549598:stack/ECS-Console-V2-TaskDefinition-76787c5f-6a3c-4f95-a881-0ac77a0a7bc3/216eaa70-7569-11ed-80ba-0a9a066e24d1"
+        }
+    ]
 }
