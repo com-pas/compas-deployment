@@ -1,0 +1,88 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "CoMPAS-Cim-Mapping",
+            "image": "lfenergy/compas-cim-mapping:0.10.1",
+            "cpu": 0,
+            "links": [],
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [
+                {
+                    "name": "MP_JWT_TOKEN_HEADER",
+                    "value": "x-amzn-oidc-accesstoken"
+                },
+                {
+                    "name": "JWT_VERIFY_CLIENT_ID",
+                    "value": ""
+                },
+                {
+                    "name": "QUARKUS_HTTP_ACCESS_LOG_ENABLED",
+                    "value": "true"
+                },
+                {
+                    "name": "JWT_VERIFY_KEY",
+                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO/.well-known/jwks.json"
+                },
+                {
+                    "name": "QUARKUS_LOG_LEVEL",
+                    "value": "ALL"
+                },
+                {
+                    "name": "JWT_GROUPS_PATH",
+                    "value": "resource_access/cim-mapping/roles"
+                },
+                {
+                    "name": "QUARKUS_HTTP_ACCESS_LOG_PATTERN",
+                    "value": "long"
+                },
+                {
+                    "name": "JWT_VERIFY_ISSUER",
+                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO"
+                },
+                {
+                    "name": "USERINFO_WHO_CLAIMNAME",
+                    "value": "username"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [],
+            "dnsServers": [],
+            "dnsSearchDomains": [],
+            "extraHosts": [],
+            "dockerSecurityOptions": [],
+            "dockerLabels": {},
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/cim-mapping",
+                    "awslogs-region": "eu-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "CoMPAS-Cim-Mapping",
+    "executionRoleArn": "ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
