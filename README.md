@@ -106,3 +106,6 @@ These roles are assigned to certain users (see below).
 - **A SCD Reader**: A user with the role 'Read' only on the SCD Type.
   - Username: scd-reader
   - Password: reader
+
+## AWS Documentation
+AWS documentation can be [found here](./aws/README.md)
