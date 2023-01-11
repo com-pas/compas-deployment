@@ -1,0 +1,166 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "CoMPAS-Scl-Data-Service",
+            "image": "lfenergy/compas-scl-data-service:0.12.2-postgresql",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [
+                {
+                    "name": "MP_JWT_TOKEN_HEADER",
+                    "value": "x-amzn-oidc-accesstoken"
+                },
+                {
+                    "name": "POSTGRESQL_USERNAME",
+                    "value": "compas"
+                },
+                {
+                    "name": "JWT_VERIFY_KEY",
+                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO/.well-known/jwks.json"
+                },
+                {
+                    "name": "POSTGRESQL_PASSWORD",
+                    "value": "postgres"
+                },
+                {
+                    "name": "POSTGRESQL_HOST",
+                    "value": "localhost"
+                },
+                {
+                    "name": "QUARKUS_HTTP_ACCESS_LOG_PATTERN",
+                    "value": "long"
+                },
+                {
+                    "name": "USERINFO_SESSION_EXPIRES",
+                    "value": "30"
+                },
+                {
+                    "name": "JWT_VERIFY_ISSUER",
+                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO"
+                },
+                {
+                    "name": "POSTGRESQL_DB",
+                    "value": "compas"
+                },
+                {
+                    "name": "USERINFO_WHO_CLAIMNAME",
+                    "value": "username"
+                },
+                {
+                    "name": "USERINFO_SESSION_WARNING",
+                    "value": "20"
+                },
+                {
+                    "name": "JWT_VERIFY_CLIENT_ID",
+                    "value": ""
+                },
+                {
+                    "name": "QUARKUS_HTTP_ACCESS_LOG_ENABLED",
+                    "value": "true"
+                },
+                {
+                    "name": "QUARKUS_LOG_LEVEL",
+                    "value": "ALL"
+                },
+                {
+                    "name": "JWT_GROUPS_PATH",
+                    "value": "cognito:groups"
+                },
+                {
+                    "name": "USERINFO_NAME_CLAIMNAME",
+                    "value": "username"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "dependsOn": [
+                {
+                    "containerName": "Postgresql",
+                    "condition": "HEALTHY"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/scl-data-service",
+                    "awslogs-region": "eu-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        },
+        {
+            "name": "Postgresql",
+            "image": "postgres:14.5",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 5432,
+                    "hostPort": 5432,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "entryPoint": [],
+            "command": [],
+            "environment": [
+                {
+                    "name": "POSTGRES_USER",
+                    "value": "compas"
+                },
+                {
+                    "name": "POSTGRES_PASSWORD",
+                    "value": "postgres"
+                },
+                {
+                    "name": "POSTGRES_DB",
+                    "value": "compas"
+                },
+                {
+                    "name": "PGUSER",
+                    "value": "compas"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/scl-data-service",
+                    "awslogs-region": "eu-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "\"pg_isready\"",
+                    "\"-d\"",
+                    "\"compas\""
+                ],
+                "interval": 30,
+                "timeout": 60,
+                "retries": 5,
+                "startPeriod": 80
+            }
+        }
+    ],
+    "family": "CoMPAS-Scl-Data-Service",
+    "executionRoleArn": "ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
+}
