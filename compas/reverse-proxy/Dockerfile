@@ -8,7 +8,10 @@
 FROM openresty/openresty:1.21.4.1-4-alpine-fat
 
 ARG COMPAS_HOSTNAME
+ARG CONFIGURATION_LOCATION
+ARG BACKDOOR_PORT
 
+RUN echo ${CONF_LOCATION}
 RUN mkdir /var/log/nginx
 
 RUN apk add --no-cache openssl-dev
@@ -18,8 +21,11 @@ RUN apk add --no-cache gcc
 RUN luarocks install lua-resty-openidc
 
 RUN mkdir -p /etc/nginx/include
-COPY ./nginx.conf /etc/nginx/nginx.conf
+
+COPY ${CONFIGURATION_LOCATION} /etc/nginx/nginx.conf
 COPY ./authenticate.include /etc/nginx/include/
+
 RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /etc/nginx/include/authenticate.include
+RUN sed -i "s/##BACKDOOR_PORT##/${BACKDOOR_PORT}/g" /etc/nginx/nginx.conf
 
 ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]

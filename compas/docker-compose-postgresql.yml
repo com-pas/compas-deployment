@@ -165,6 +165,8 @@ services:
       context: ./reverse-proxy
       args:
         COMPAS_HOSTNAME: ${COMPAS_HOSTNAME}
+        CONFIGURATION_LOCATION: ${CONFIGURATION_LOCATION}
+        BACKDOOR_PORT: ${BACKDOOR_PORT}
     ports:
       - "80:80"
     depends_on:
