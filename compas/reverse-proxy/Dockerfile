@@ -9,7 +9,9 @@ FROM openresty/openresty:1.21.4.1-4-alpine-fat
 
 ARG COMPAS_HOSTNAME
 ARG CONFIGURATION_LOCATION
+
 ARG BACKDOOR_PORT
+ARG BACKDOOR_PATH
 
 RUN echo ${CONF_LOCATION}
 RUN mkdir /var/log/nginx
@@ -27,5 +29,6 @@ COPY ./authenticate.include /etc/nginx/include/
 
 RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /etc/nginx/include/authenticate.include
 RUN sed -i "s/##BACKDOOR_PORT##/${BACKDOOR_PORT}/g" /etc/nginx/nginx.conf
+RUN sed -i "s/##BACKDOOR_PATH##/${BACKDOOR_PATH}/g" /etc/nginx/nginx.conf
 
 ENTRYPOINT ["/usr/local/openresty/nginx/sbin/nginx", "-c", "/etc/nginx/nginx.conf", "-g", "daemon off;"]
