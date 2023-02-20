@@ -167,6 +167,7 @@ services:
         COMPAS_HOSTNAME: ${COMPAS_HOSTNAME}
         CONFIGURATION_LOCATION: ${CONFIGURATION_LOCATION}
         BACKDOOR_PORT: ${BACKDOOR_PORT}
+        BACKDOOR_PATH: ${BACKDOOR_PATH}
     ports:
       - "80:80"
     depends_on:
