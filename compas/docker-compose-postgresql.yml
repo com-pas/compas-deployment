@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.26.0.2"
+    image: "lfenergy/compas-open-scd:v0.29.0.0"
     depends_on:
       - scl-data-service
       - cim-mapping
