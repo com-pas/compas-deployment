@@ -10,6 +10,27 @@ For information about CoMPAS go to this [site](https://com-pas.github.io/).
 
 ## Release notes
 
+### Release 0.16.0
+
+Next release for testing the CoMPAS System with all components.
+- [OpenSCD CoMPAS Edition](https://github.com/com-pas/compas-open-scd) (Version v0.29.0.1):
+  - Readonly CoMPAS for Siemens Sitipe Plugin
+  - See details in [OpenSCD Release notes (V0.29.0)](https://github.com/openscd/open-scd/releases/tag/v0.29.0);
+- [CIM Mapping Service](https://github.com/com-pas/compas-cim-mapping) (Version 0.10.2):
+  - Updated libraries to the latest versions;
+- [SCL Auto Alignment Service](https://github.com/com-pas/compas-scl-auto-alignment) (Version 0.4.2):
+  - Updated libraries to the latest versions;
+- [SCL Data Service](https://github.com/com-pas/compas-scl-data-service) (Version 0.13.0):
+  - Added Websocket endpoint to create/update/retrieve SCL Files, handling large files;
+  - Updated libraries to the latest versions;
+
+#### Notes
+-  [SCL Validator Service](https://github.com/com-pas/compas-scl-validator) has known issues:
+   - OCL rules are not working correctly
+   - Build is failing, no release is possible
+   - There is an ongoing issue. [https://github.com/com-pas/compas-scl-validator/issues/142]
+   
+
 ### Release 0.15.0
 
 Next release for testing the CoMPAS System with all components.
