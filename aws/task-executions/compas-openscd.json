@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "CoMPAS-OpenSCD",
-            "image": "lfenergy/compas-open-scd:v0.26.0.2",
+            "image": "lfenergy/compas-open-scd:v0.29.0.1",
             "cpu": 0,
             "links": [],
             "portMappings": [

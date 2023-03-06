@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "CoMPAS-Scl-Data-Service",
-            "image": "lfenergy/compas-scl-data-service:0.12.2-postgresql",
+            "image": "lfenergy/compas-scl-data-service:0.13.0-postgresql",
             "cpu": 0,
             "portMappings": [
                 {

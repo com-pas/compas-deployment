@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "CoMPAS-Cim-Mapping",
-            "image": "lfenergy/compas-cim-mapping:0.10.1",
+            "image": "lfenergy/compas-cim-mapping:0.10.2",
             "cpu": 0,
             "links": [],
             "portMappings": [
