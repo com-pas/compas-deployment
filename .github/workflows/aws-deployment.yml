@@ -31,10 +31,20 @@ jobs:
           container-name: CoMPAS-Scl-Data-Service
           image: ${{ steps.read_docker_compose.outputs.data }}
           environment-variables: |
-            POSTGRESQL_PASSWORD=bar
-            POSTGRESQL_USERNAME=${{ secrets.JWT_VERIFY_KEY }}
+            POSTGRESQL_PASSWORD=${{ secrets.POSTGRESQL_PASSWORD }}
+            POSTGRESQL_USERNAME=${{ secrets.POSTGRESQL_USERNAME }}
+            POSTGRESQL_HOST=${{ secrets.POSTGRESQL_HOST }}
+            POSTGRESQL_DB=${{ secrets.POSTGRESQL_DB }}
+            JWT_VERIFY_KEY=${{ secrets.JWT_VERIFY_KEY }}
+            JWT_VERIFY_ISSUER=${{ secrets.JWT_VERIFY_ISSUER }}
         env: 
+          POSTGRESQL_PASSWORD: ${{ secrets.POSTGRESQL_PASSWORD }}
+          POSTGRESQL_USERNAME: ${{ secrets.POSTGRESQL_USERNAME }}
+          POSTGRESQL_HOST: ${{ secrets.POSTGRESQL_HOST }}
+          POSTGRESQL_DB: ${{ secrets.POSTGRESQL_DB }}
           JWT_VERIFY_KEY: ${{ secrets.JWT_VERIFY_KEY }}
+          JWT_VERIFY_ISSUER: ${{ secrets.JWT_VERIFY_ISSUER }}
+
       - name: Read task definition
         id: gist
         uses: juliangruber/read-file-action@v1
