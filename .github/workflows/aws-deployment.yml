@@ -16,7 +16,7 @@ jobs:
         id: read_docker_compose
         with:
           file: ${{ github.workspace }}/compas/docker-compose-postgresql.yml
-          key-path: '["services"]'
+          key-path: '["services", "scl-data-service", "image"]'
 
       - name: use-yaml-file
         run: |
