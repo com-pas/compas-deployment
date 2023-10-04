@@ -10,15 +10,13 @@ jobs:
     environment: aws
     steps:
       - name: checkout
-        uses: actions/checkout@v3
-      
+        uses: actions/checkout@v3 
       - name: read-docker-compose
         id: read_docker_compose
         uses: jbutcher5/read-yaml@main 
         with:
           file: './compas/docker-compose-postgresql.yml'
           key-path: '["services", "scl-data-service", "image"]'
-
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
@@ -47,6 +45,6 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ secrets.AWS_SERVICE }}
           cluster: ${{ secrets.AWS_CLUSER }}
-      env:
-        AWS_SERVICE: CoMPAS-Scl-Data-Service
-        AWS_CLUSTER: CoMPAS
+        env:
+          AWS_SERVICE: CoMPAS-Scl-Data-Service
+          AWS_CLUSTER: CoMPAS
