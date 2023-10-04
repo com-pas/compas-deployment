@@ -25,8 +25,8 @@ jobs:
         with:
           file: './compas/docker-compose-postgresql.yml'
           key-path: '["services", "scl-data-service", "image"]'
-      - name: Fill in the new image ID in the Amazon ECS task definition
-        id: task-def
+      - name: Render CoMPAS SCL Data Service Container
+        id: render-scl-data-service
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ github.workspace }}/aws/task-executions/compas-scl-data-service.json
@@ -47,10 +47,26 @@ jobs:
           JWT_VERIFY_KEY: ${{ secrets.JWT_VERIFY_KEY }}
           JWT_VERIFY_ISSUER: ${{ secrets.JWT_VERIFY_ISSUER }}
 
+      - name: Modify Amazon ECS task definition with second container
+        id: render-postgres
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ steps.render-scl-data-service.outputs.task-definition }}
+          container-name: Postgresql
+          image: postgres:14.5
+          environment-variables: |
+            POSTGRES_USER=${{ secrets.POSTGRESQL_USERNAME }}
+            POSTGRES_PASSWORD=${{ secrets.POSTGRESQL_PASSWORD }}
+            POSTGRES_DB=${{ secrets.POSTGRESQL_DB }}
+            PG_USER=${{ secrets.POSTGRESQL_USERNAME }}
+        env: 
+          POSTGRESQL_PASSWORD: ${{ secrets.POSTGRESQL_PASSWORD }}
+          POSTGRESQL_USERNAME: ${{ secrets.POSTGRESQL_USERNAME }}
+          POSTGRESQL_DB: ${{ secrets.POSTGRESQL_DB }}
       - name: Deploy to Amazon ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          task-definition: ${{ steps.render-postgres.outputs.task-definition }}
           service: ${{ secrets.AWS_SERVICE }}
           cluster: ${{ secrets.AWS_CLUSER }}
         env:
