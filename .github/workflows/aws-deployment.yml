@@ -20,4 +20,4 @@ jobs:
 
       - name: use-yaml-file
         run: |
-          echo namespace: ${{ steps.read-docker-compose.outputs['services.scl-data-service.image'] }}
+          echo namespace: ${{ steps.read-docker-compose.outputs.data }}
