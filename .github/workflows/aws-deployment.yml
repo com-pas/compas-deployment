@@ -33,3 +33,12 @@ jobs:
       - name: use-yaml-file
         run: |
           echo namespace: ${{ steps.task-def.outputs.task-definition }}
+
+      - uses: popsiclestick/gist-sync-action@v1.2.0
+        id: sync
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/pascalwilbrink/7f705fb9c876557d31e15724fba5c61f
+          gist_title: Example Gist Title
+          gist_description: Example Gist Description
+          github_file: ${{ steps.task-def.outputs.task-definition }}
