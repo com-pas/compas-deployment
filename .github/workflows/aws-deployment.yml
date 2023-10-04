@@ -23,7 +23,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: ${{ github.workspace }}/aws/task-executions/compas-scl-data-service.json
-          container-name: ${{ steps.read_docker_compose.outputs.data }}
+          container-name: CoMPAS-Scl-Data-Service
           image: ${{ steps.read_docker_compose.outputs.data }}
 
       - name: use-yaml-file
