@@ -22,7 +22,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: task-definition.json
+          task-definition: ${{ github.workspace }}/aws/task-executions/compas-scl-data-service.json
           container-name: ${{ steps.read_docker_compose.outputs.data }}
           image: ${{ steps.read_docker_compose.outputs.data }}
 
