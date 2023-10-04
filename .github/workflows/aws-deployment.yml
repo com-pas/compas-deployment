@@ -12,11 +12,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: read-docker-compose
-        uses: actions-tools/yaml-outputs@v2
+        uses: jbutcher5/read-yaml@main  
         id: read_docker_compose
         with:
-          file-path: 'compas/docker-compose-postgresql.yml'
+          file: 'compas/docker-compose-postgresql.yml'
+          key-path: 'services'
+          
       - name: use-yaml-file
         run: |
-          echo namespace: ${{ steps.read_docker_compose.outputs.services__scl-data-service__image }}
+          echo namespace: ${{ steps.read_docker_compose.outputs.data }}
 
