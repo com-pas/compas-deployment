@@ -30,10 +30,10 @@ jobs:
           task-definition: ${{ github.workspace }}/aws/task-executions/compas-scl-data-service.json
           container-name: CoMPAS-Scl-Data-Service
           image: ${{ steps.read_docker_compose.outputs.data }}
-          environment-variables: >
-            "POSTGRESQL_PASSWORD=bar"
-            "POSTGRESQL_USERNAME="${{ secrets.JWT_VERIFY_KEY }}"
-        env: # Or as an environment variable
+          environment-variables: |
+            POSTGRESQL_PASSWORD=bar
+            POSTGRESQL_USERNAME=${{ secrets.JWT_VERIFY_KEY }}
+        env: 
           JWT_VERIFY_KEY: ${{ secrets.JWT_VERIFY_KEY }}
       - name: Read task definition
         id: gist
