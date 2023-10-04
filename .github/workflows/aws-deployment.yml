@@ -1,0 +1,22 @@
+name: AWS Deployment
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: read-docker-compose
+        uses: pietrobolcato/action-read-yaml@1.0.0
+        id: read_docker_compose
+        with:
+          config: ${{ github.workspace }}/compas/docker-compose-postgresql.yml
+
+      - name: use-yaml-file
+        run: |
+          echo namespace: ${{ steps.read-docker-compose.outputs['services.scl-data-service.image'] }}
