@@ -12,13 +12,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: read-docker-compose
-        uses: jbutcher5/read-yaml@main  
+        uses: pietrobolcato/action-read-yaml@1.0.0
         id: read_docker_compose
         with:
-          file: 'compas/docker-compose-postgresql.yml'
-          key-path: "['services']"
+          config: ${{ github.workspace }}/compas/docker-compose-postgresql.yml
           
       - name: use-yaml-file
         run: |
-          echo namespace: ${{ steps.read_docker_compose.outputs.data }}
+          echo namespace: ${{ steps.read_docker_compose.outputs }}
 
