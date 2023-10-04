@@ -12,10 +12,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
       
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        with:
-          detached: true
       - name: read-docker-compose
         id: read_docker_compose
         uses: jbutcher5/read-yaml@main 
@@ -45,18 +41,12 @@ jobs:
           JWT_VERIFY_KEY: ${{ secrets.JWT_VERIFY_KEY }}
           JWT_VERIFY_ISSUER: ${{ secrets.JWT_VERIFY_ISSUER }}
 
-      - name: Read task definition
-        id: gist
-        uses: juliangruber/read-file-action@v1
+      - name: Deploy to Amazon ECS service
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          path: ${{ steps.task-def.outputs.task-definition }}
-          
-      - name: Update gist
-        uses: gorgbus/gist-actions@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIST_TOKEN }}
-        with:
-          action: "update"
-          gist_id: "7f705fb9c876557d31e15724fba5c61f"
-          file_name: "task-description.json"
-          content: ${{ steps.gist.outputs.content }}
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ secrets.AWS_SERVICE }}
+          cluster: ${{ secrets.AWS_CLUSER }}
+      env:
+        AWS_SERVICE: CoMPAS-Scl-Data-Service
+        AWS_CLUSTER: CoMPAS
