@@ -10,7 +10,11 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
+      
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          detached: true
       - name: read-docker-compose
         id: read_docker_compose
         uses: jbutcher5/read-yaml@main 
