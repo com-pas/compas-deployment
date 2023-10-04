@@ -18,7 +18,14 @@ jobs:
           file: './compas/docker-compose-postgresql.yml'
           key-path: '["services", "scl-data-service", "image"]'
 
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition.json
+          container-name: ${{ steps.read_docker_compose.outputs.data }}
+          image: ${{ steps.build-image.outputs.image }}
+
       - name: use-yaml-file
         run: |
-          echo namespace: ${{ steps.read_docker_compose.outputs.data }}
-
+          echo namespace: ${{ steps.task-def.outputs.task-definition }}
