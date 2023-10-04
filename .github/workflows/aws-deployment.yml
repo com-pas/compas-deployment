@@ -7,6 +7,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    environment: aws
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -29,12 +30,10 @@ jobs:
           task-definition: ${{ github.workspace }}/aws/task-executions/compas-scl-data-service.json
           container-name: CoMPAS-Scl-Data-Service
           image: ${{ steps.read_docker_compose.outputs.data }}
-
-      - name: use-yaml-file
-        run: |
-          echo namespace: ${{ steps.task-def.outputs.task-definition }}
-
-      - name: Read package.json
+          environment-variables: |
+            "POSTGRESQL_PASSWORD=bar"
+            "POSTGRESQL_USERNAME="${{ secrets.JWT_VERIFY_KEY }}"
+      - name: Read task definition
         id: gist
         uses: juliangruber/read-file-action@v1
         with:
