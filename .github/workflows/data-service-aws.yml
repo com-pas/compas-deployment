@@ -1,8 +1,13 @@
-name: AWS Deployment
+# SPDX-FileCopyrightText: 2023 Alliander N.V.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+name: Deploy SCL Data Service on AWS
 
 on:
   push:
-  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   deployment:
@@ -39,15 +44,8 @@ jobs:
             POSTGRESQL_DB=${{ secrets.POSTGRESQL_DB }}
             JWT_VERIFY_KEY=${{ secrets.JWT_VERIFY_KEY }}
             JWT_VERIFY_ISSUER=${{ secrets.JWT_VERIFY_ISSUER }}
-        env: 
-          POSTGRESQL_PASSWORD: ${{ secrets.POSTGRESQL_PASSWORD }}
-          POSTGRESQL_USERNAME: ${{ secrets.POSTGRESQL_USERNAME }}
-          POSTGRESQL_HOST: ${{ secrets.POSTGRESQL_HOST }}
-          POSTGRESQL_DB: ${{ secrets.POSTGRESQL_DB }}
-          JWT_VERIFY_KEY: ${{ secrets.JWT_VERIFY_KEY }}
-          JWT_VERIFY_ISSUER: ${{ secrets.JWT_VERIFY_ISSUER }}
 
-      - name: Modify Amazon ECS task definition with second container
+      - name: Modify Amazon ECS task definition with postgres container
         id: render-postgres
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
@@ -59,16 +57,10 @@ jobs:
             POSTGRES_PASSWORD=${{ secrets.POSTGRESQL_PASSWORD }}
             POSTGRES_DB=${{ secrets.POSTGRESQL_DB }}
             PG_USER=${{ secrets.POSTGRESQL_USERNAME }}
-        env: 
-          POSTGRESQL_PASSWORD: ${{ secrets.POSTGRESQL_PASSWORD }}
-          POSTGRESQL_USERNAME: ${{ secrets.POSTGRESQL_USERNAME }}
-          POSTGRESQL_DB: ${{ secrets.POSTGRESQL_DB }}
+
       - name: Deploy to Amazon ECS service
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-postgres.outputs.task-definition }}
-          service: ${{ secrets.AWS_SERVICE }}
-          cluster: ${{ secrets.AWS_CLUSER }}
-        env:
-          AWS_SERVICE: CoMPAS-Scl-Data-Service
-          AWS_CLUSTER: CoMPAS
+          service: CoMPAS-Scl-Data-Service
+          cluster: ${{ secrets.AWS_CLUSTER }}
