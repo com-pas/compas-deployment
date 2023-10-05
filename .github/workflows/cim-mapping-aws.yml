@@ -34,7 +34,7 @@ jobs:
         id: render-cim-mapping
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ github.workspace }}/aws/task-executions/compas-cim-mapping.json
+          task-definition: ${{ github.workspace }}/aws/task-definitions/compas-cim-mapping.json
           container-name: CoMPAS-Cim-Mapping
           image: ${{ steps.read_docker_compose.outputs.data }}
           environment-variables: |

@@ -34,7 +34,7 @@ jobs:
         id: render-compas-openscd
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ github.workspace }}/aws/task-executions/compas-openscd.json
+          task-definition: ${{ github.workspace }}/aws/task-definitions/compas-openscd.json
           container-name: CoMPAS-OpenSCD
           image: ${{ steps.read_docker_compose.outputs.data }}
 
