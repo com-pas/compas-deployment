@@ -13,40 +13,6 @@ Containing tools / configurations for deploying CoMPAS services. For a deploymen
 
 More about the integration tests being run against these Docker Compose environment can be found [here](INTEGRATION_TESTING.md)
 
-## Docker Compose (BaseX)
-There is a pre configured [Docker Compose](compas/docker-compose-basex.yml) file, which starts all the given CoMPAS services.
-To start all configured services using BaseX, run the following two commands:
-
-```
-# Build (if needed) and start all the containers in the background.
-docker-compose --env-file compas/.env -f compas/docker-compose-basex.yml up -d --build
-```
-
-This command will first build the custom images for Keycloak and the Reverse Proxy and then start all containers.
-To know if all containers are running execute the shell script "bin/docker-wait-on-containers.sh". 
-This script will wait until all containers are running.
-
-Now, the following services are available:
-
-- open-scd, available at [http://localhost/](http://localhost/).
-- logout,  available at [http://localhost/logout](http://localhost/logout).
-- scl-data-service, available at [http://localhost/compas-scl-data-service](http://localhost/compas-scl-data-service).
-- cim-mapping - IEC 61850 mapping, available at [http://localhost/compas-cim-mapping/](http://localhost/compas-cim-mapping/).
-- basex, available at [http://localhost:1984/](http://localhost:1984/)
-- keycloak, available at [http://localhost/auth/](http://localhost/auth/) or directly if needed [http://localhost:8089/auth/](http://localhost:8089/auth/).
-  - Imports the demo configuration.
-- reverse-proxy, OpenResty instance that works as a reverse proxy so all services are available through a single port.
-  - The JWT Access Token is added to the header for all Services, like the SCL Data Service.
-
-To stop and remove all the containers run the command:
-
-```
-# Stop all containers and remove the volumes.
-docker-compose -f compas/docker-compose-basex.yml down -v
-```
-
-The option '-v' also removes the volumes created, so all data is lost with this option.
-
 ## Docker Compose (PostgreSQL)
 There is a pre configured [Docker Compose](compas/docker-compose-postgresql.yml) file, which starts all the given CoMPAS services.
 To start all configured services using PostgreSQL, run the following two commands:
@@ -60,8 +26,7 @@ This command will first build the custom images for Keycloak and the Reverse Pro
 To know if all containers are running execute the shell script "bin/docker-wait-on-containers.sh".
 This script will wait until all containers are running.
 
-The URLs are the same as for the BaseX version, except of course the BaseX Container. This is now a PostgreSQL
-container. The PostgreSQL container is available at port 5432. 
+The PostgreSQL container is available at port 5432. 
 
 To stop and remove all the containers run the command:
 
