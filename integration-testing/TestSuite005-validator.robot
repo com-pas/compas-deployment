@@ -27,7 +27,7 @@ TestCase005-01
 
     Execute SCL Validator
 
-    Open Nav Menu       menu.viewDiag
+    Open Navigation Menu       menu.viewDiag
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
@@ -41,7 +41,7 @@ TestCase005-02
 
     Execute SCL Validator
 
-    Open Nav Menu       menu.viewDiag
+    Open Navigation Menu       menu.viewDiag
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
@@ -56,7 +56,7 @@ TestCase005-03
 
     Execute SCL Validator
 
-    Open Nav Menu       menu.viewDiag
+    Open Navigation Menu       menu.viewDiag
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
     Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
@@ -71,7 +71,7 @@ TestCase005-04
 
     Execute SCL Validator
 
-    Open Nav Menu       menu.viewDiag
+    Open Navigation Menu       menu.viewDiag
     Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
     Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
