@@ -9,6 +9,7 @@ Resource        ./general-config.robot
 *** Variables ***
 # Variables of Selectors commonly used.
 ${menu-selector}                mwc-drawer[id="menu"]
+${nav-selector}                 mwc-top-app-bar-fixed
 ${dialog-selector}              wizard-dialog
 ${substation-editor-selector}   substation-editor:first-child > action-pane
 
@@ -43,6 +44,10 @@ Open Menu
     [Arguments]     ${menuItemTitle}
     Click           ${menu-selector} mwc-icon-button[label="Menu"] > button
     Click           ${menu-selector} mwc-list > mwc-list-item >> span:text-is("${menuItemTitle}")
+
+Open Nav Menu
+    [Arguments]     ${menuItemTitle}
+    Click           ${nav-selector} mwc-icon-button[label="${menuItemTitle}"] > button
 
 Close Menu
     # To make the editors visible again we need to close the menu.
