@@ -45,5 +45,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-cim-mapping.outputs.task-definition }}
-          service: CoMPAS-Cim-Mapping-LB
+          service: Compas-Cim-Mapping
           cluster: ${{ secrets.AWS_CLUSTER }}

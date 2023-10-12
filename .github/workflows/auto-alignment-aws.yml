@@ -45,5 +45,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-auto-alignment.outputs.task-definition }}
-          service: CoMPAS-Scl-Auto-Alignment
+          service: scl-auto-alignment
           cluster: ${{ secrets.AWS_CLUSTER }}

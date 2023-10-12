@@ -62,5 +62,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-postgres.outputs.task-definition }}
-          service: CoMPAS-Scl-Data-Service
+          service: Scl-Data-Service
           cluster: ${{ secrets.AWS_CLUSTER }}
