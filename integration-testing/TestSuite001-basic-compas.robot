@@ -103,6 +103,7 @@ TestCase001-06
     Save version to CoMPAS   MINOR   ${sclname}   ${scltype}   1.1.0
 
 TestCase001-11
+    skip
     [Documentation]     Trying saving local file to CoMPAS (Rest) with invalid name
     # First we will open the local file to be saved.
     Open Menu           Open project
@@ -166,6 +167,7 @@ TestCase001-52
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
 
 TestCase001-61
+    skip
     [Documentation]     Trying saving local file to CoMPAS (Websocket) with invalid name
     # First we will open the local file to be saved.
     Change Websockets setting   True

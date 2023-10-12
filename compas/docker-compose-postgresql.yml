@@ -100,7 +100,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.4.2"
+    image: "lfenergy/compas-scl-auto-alignment:0.5.0"
     ports:
       - "9092:8080"
     environment:
@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.29.0.1"
+    image: "lfenergy/compas-open-scd:v0.33.0.5"
     depends_on:
       - scl-data-service
       - cim-mapping
