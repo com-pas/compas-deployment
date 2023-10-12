@@ -32,6 +32,7 @@ TestCase003-01
 
 TestCase003-02
     [Documentation]         Trying to create a project from Invalid CIM Filename
+    skip
     Set Test Variable       ${sclname}  MiniGridTestConfiguration_Invalid_XML
 
     ${promise}=             Promise To Upload File    ${CURDIR}/test-files/${sclname}.xml

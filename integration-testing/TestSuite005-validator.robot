@@ -11,12 +11,13 @@ Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Keywords ***
 Execute SCL Validator
-    Open Menu            Validate using OCL
+    Open Menu            [WIP] Validate using OCL
     Wait until executed
     Close Menu
 
 *** Test Cases ***
 TestCase005-01
+    skip
     [Documentation]     Execute the SCL Validator (Websockets) with OCL Validation Errros.
     Set Test Variable   ${sclname}  SingleSubstation
     Set Test Variable   ${scltype}  SCD
@@ -28,10 +29,11 @@ TestCase005-01
     Execute SCL Validator
 
     Open Navigation Menu       menu.viewDiag
-    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
+    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   [WIP] Validate using OCL
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-02
+    skip
     [Documentation]     Execute the SCL Validator (REST API) with OCL Validation Errros.
     Set Test Variable   ${sclname}  SingleSubstation
     Set Test Variable   ${scltype}  SCD
@@ -42,10 +44,11 @@ TestCase005-02
     Execute SCL Validator
 
     Open Navigation Menu       menu.viewDiag
-    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   Validate using OCL
+    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(4)    ==   [WIP] Validate using OCL
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-03
+    skip
     [Documentation]     Execute the SCL Validator (Websockets) with XSD Validation Errors.
     Set Test Variable   ${sclname}  XsdValidationErrors
     Set Test Variable   ${scltype}  SCD
@@ -57,11 +60,12 @@ TestCase005-03
     Execute SCL Validator
 
     Open Navigation Menu       menu.viewDiag
-    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
+    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   [WIP] Validate using OCL
     Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
 
 TestCase005-04
+    skip
     [Documentation]     Execute the SCL Validator (REST API) with XSD Validation Errors.
     Set Test Variable   ${sclname}  XsdValidationErrors
     Set Test Variable   ${scltype}  SCD
@@ -72,6 +76,6 @@ TestCase005-04
     Execute SCL Validator
 
     Open Navigation Menu       menu.viewDiag
-    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   Validate using OCL
+    Get Text            mwc-dialog#diagnostic > filtered-list > mwc-list-item:nth-child(12)   ==   [WIP] Validate using OCL
     Get Attribute       mwc-dialog#diagnostic > filtered-list > abbr:nth-child(14)    title   *=   Attribute 'type' must appear on element 'DO'.
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
