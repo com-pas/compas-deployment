@@ -109,10 +109,11 @@ Close Issues Snackbar
     END
 
 Check Log
+    strict=false
     [Arguments]   ${primaryMessage}   ${secondaryMessage}
     Open Navigation Menu     menu.viewLog
-    Get Text      mwc-dialog#log abbr[title="${primaryMessage}"][0]
-    Get Text      mwc-dialog#log abbr[title="${primaryMessage}"][0] span[slot="secondary"]:has-text("${secondaryMessage}")
+    Get Text      mwc-dialog#log abbr[title="${primaryMessage}"]
+    Get Text      mwc-dialog#log abbr[title="${primaryMessage}"] span[slot="secondary"]:has-text("${secondaryMessage}")
     Click         mwc-dialog#log mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
