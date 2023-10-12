@@ -109,11 +109,12 @@ Close Issues Snackbar
     END
 
 Check Log
-    strict=false
     [Arguments]   ${primaryMessage}   ${secondaryMessage}
     Open Navigation Menu     menu.viewLog
+    Set Strict Mode false
     Get Text      mwc-dialog#log abbr[title="${primaryMessage}"]
     Get Text      mwc-dialog#log abbr[title="${primaryMessage}"] span[slot="secondary"]:has-text("${secondaryMessage}")
     Click         mwc-dialog#log mwc-button[slot="primaryAction"] > button
+    Set Strict Mode true
     Wait for dialog is closed
     Close Menu
