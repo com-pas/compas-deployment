@@ -110,7 +110,7 @@ Close Issues Snackbar
 
 Check Log
     [Arguments]   ${primaryMessage}   ${secondaryMessage}
-    Open Navigation Menu     menu.log
+    Open Navigation Menu     menu.viewLog
     Get Text      mwc-dialog#log abbr[title="${primaryMessage}"]
     Get Text      mwc-dialog#log abbr[title="${primaryMessage}"] span[slot="secondary"]:has-text("${secondaryMessage}")
     Click         mwc-dialog#log mwc-button[slot="primaryAction"] > button
