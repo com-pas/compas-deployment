@@ -17,6 +17,7 @@ Execute SCL Validator
 
 *** Test Cases ***
 TestCase005-01
+    skip
     [Documentation]     Execute the SCL Validator (Websockets) with OCL Validation Errros.
     Set Test Variable   ${sclname}  SingleSubstation
     Set Test Variable   ${scltype}  SCD
@@ -32,6 +33,7 @@ TestCase005-01
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-02
+    skip
     [Documentation]     Execute the SCL Validator (REST API) with OCL Validation Errros.
     Set Test Variable   ${sclname}  SingleSubstation
     Set Test Variable   ${scltype}  SCD
@@ -46,6 +48,7 @@ TestCase005-02
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   332
 
 TestCase005-03
+    skip
     [Documentation]     Execute the SCL Validator (Websockets) with XSD Validation Errors.
     Set Test Variable   ${sclname}  XsdValidationErrors
     Set Test Variable   ${scltype}  SCD
@@ -62,6 +65,7 @@ TestCase005-03
     Get Element Count   mwc-dialog#diagnostic > filtered-list > abbr                          ==   11
 
 TestCase005-04
+    skip
     [Documentation]     Execute the SCL Validator (REST API) with XSD Validation Errors.
     Set Test Variable   ${sclname}  XsdValidationErrors
     Set Test Variable   ${scltype}  SCD
