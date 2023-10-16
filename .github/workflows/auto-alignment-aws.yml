@@ -30,7 +30,7 @@ jobs:
         with:
           file: './compas/docker-compose-postgresql.yml'
           key-path: '["services", "scl-auto-alignment", "image"]'
-      - name: Render CoMPAS OpenSCD Container
+      - name: Render CoMPAS Auto Alignment Container
         id: render-auto-alignment
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:

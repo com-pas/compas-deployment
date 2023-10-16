@@ -30,7 +30,7 @@ jobs:
         with:
           file: './compas/docker-compose-postgresql.yml'
           key-path: '["services", "cim-mapping", "image"]'
-      - name: Render CoMPAS OpenSCD Container
+      - name: Render CoMPAS Cim Mapping Container
         id: render-cim-mapping
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
