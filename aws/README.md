@@ -36,11 +36,11 @@ Now change the executionRoleArn to something like this:
 
 Change the executionRoleArn in the following files:
 
-* [task-executions/compas-auto-alignment.json](./task-executions/compas-auto-alignment.json)
-* [task-executions/compas-cim-mapping.json](./task-executions/compas-cim-mapping.json)
-* [task-executions/compas-openscd.json](./task-executions/compas-openscd.json)
-* [task-executions/compas-scl-data-service.json](./task-executions/compas-scl-data-service.json)
-* [task-executions/compas-scl-validator.json](./task-executions/compas-scl-validator.json)
+* [task-definitions/compas-auto-alignment.json](task-definitions/compas-auto-alignment.json)
+* [task-definitions/compas-cim-mapping.json](task-definitions/compas-cim-mapping.json)
+* [task-definitions/compas-openscd.json](task-definitions/compas-openscd.json)
+* [task-definitions/compas-scl-data-service.json](task-definitions/compas-scl-data-service.json)
+* [task-definitions/compas-scl-validator.json](task-definitions/compas-scl-validator.json)
 
 Go to the `Elastic Container Service` in the AWS console.
 Here you can create a new cluster.

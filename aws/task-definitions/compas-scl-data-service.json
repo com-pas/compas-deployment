@@ -21,19 +21,19 @@
                 },
                 {
                     "name": "POSTGRESQL_USERNAME",
-                    "value": "compas"
+                    "value": ""
                 },
                 {
                     "name": "JWT_VERIFY_KEY",
-                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO/.well-known/jwks.json"
+                    "value": ""
                 },
                 {
                     "name": "POSTGRESQL_PASSWORD",
-                    "value": "postgres"
+                    "value": ""
                 },
                 {
                     "name": "POSTGRESQL_HOST",
-                    "value": "localhost"
+                    "value": ""
                 },
                 {
                     "name": "QUARKUS_HTTP_ACCESS_LOG_PATTERN",
@@ -45,11 +45,11 @@
                 },
                 {
                     "name": "JWT_VERIFY_ISSUER",
-                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO"
+                    "value": ""
                 },
                 {
                     "name": "POSTGRESQL_DB",
-                    "value": "compas"
+                    "value": ""
                 },
                 {
                     "name": "USERINFO_WHO_CLAIMNAME",
@@ -114,19 +114,19 @@
             "environment": [
                 {
                     "name": "POSTGRES_USER",
-                    "value": "compas"
+                    "value": ""
                 },
                 {
                     "name": "POSTGRES_PASSWORD",
-                    "value": "postgres"
+                    "value": ""
                 },
                 {
                     "name": "POSTGRES_DB",
-                    "value": "compas"
+                    "value": ""
                 },
                 {
                     "name": "PGUSER",
-                    "value": "compas"
+                    "value": ""
                 }
             ],
             "mountPoints": [],
