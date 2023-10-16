@@ -6,8 +6,6 @@ name: Deploy CoMPAS Cim Mapping on AWS
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   deployment:
