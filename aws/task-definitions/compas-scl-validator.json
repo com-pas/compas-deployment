@@ -30,7 +30,7 @@
                 },
                 {
                     "name": "JWT_VERIFY_KEY",
-                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO/.well-known/jwks.json"
+                    "value": ""
                 },
                 {
                     "name": "QUARKUS_LOG_LEVEL",
@@ -46,7 +46,7 @@
                 },
                 {
                     "name": "JWT_VERIFY_ISSUER",
-                    "value": "https://cognito-idp.eu-west-1.amazonaws.com/eu-west-1_sAuHe0PnO"
+                    "value": ""
                 },
                 {
                     "name": "USERINFO_WHO_CLAIMNAME",

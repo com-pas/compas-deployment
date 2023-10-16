@@ -29,7 +29,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/openscd",
+                    "awslogs-group": "/ecs/CoMPAS-OpenSCD",
                     "awslogs-region": "eu-west-1",
                     "awslogs-stream-prefix": "ecs"
                 },
