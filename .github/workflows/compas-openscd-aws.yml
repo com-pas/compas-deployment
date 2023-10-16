@@ -22,7 +22,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
-
       - name: read-docker-compose
         id: read_docker_compose
         uses: jbutcher5/read-yaml@main
@@ -41,5 +40,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-compas-openscd.outputs.task-definition }}
-          service: "CoMPAS-OpenSCD"
+          service: "CoMPAS-Open-SCD"
           cluster: ${{ secrets.AWS_CLUSTER }}
