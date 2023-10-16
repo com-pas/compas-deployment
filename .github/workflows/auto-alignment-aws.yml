@@ -6,8 +6,6 @@ name: Deploy CoMPAS SCL Auto Alignment on AWS
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   deployment:
