@@ -6,8 +6,6 @@ name: Deploy SCL Data Service on AWS
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
   deployment:
