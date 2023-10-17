@@ -42,7 +42,6 @@ jobs:
             POSTGRESQL_DB=${{ secrets.POSTGRESQL_DB }}
             JWT_VERIFY_KEY=${{ secrets.JWT_VERIFY_KEY }}
             JWT_VERIFY_ISSUER=${{ secrets.JWT_VERIFY_ISSUER }}
-            JWT_VERIFY_CLIENT_ID=${{ secrets.JWT_VERIFY_CLIENT_ID }}
             SMALLRYE_JWT_VERIFY_AUD=false
 
       - name: Modify Amazon ECS task definition with postgres container
