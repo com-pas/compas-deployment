@@ -43,6 +43,7 @@ jobs:
             JWT_VERIFY_KEY=${{ secrets.JWT_VERIFY_KEY }}
             JWT_VERIFY_ISSUER=${{ secrets.JWT_VERIFY_ISSUER }}
             JWT_VERIFY_CLIENT_ID=${{ secrets.JWT_VERIFY_CLIENT_ID }}
+            smallrye.jwt.verify.aud=false
 
       - name: Modify Amazon ECS task definition with postgres container
         id: render-postgres
