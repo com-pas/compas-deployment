@@ -4,5 +4,6 @@
     "config:recommended",
     ":gitSignOff"
   ],
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "enabledManagers": ["docker-compose"]
 }
