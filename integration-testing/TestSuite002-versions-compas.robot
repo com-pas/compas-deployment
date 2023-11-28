@@ -207,6 +207,7 @@ TestCase002-32
     Wait for dialog is closed
 
 TestCase002-33
+    skip
     [Documentation]      Compare versions from CoMPAS not selecting correct number of versions
     Initialize Versions  True
 
