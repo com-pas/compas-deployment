@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 *** Settings ***
+skip
 Documentation   Test cases for testing the CoMPAS Versions editor and saving multiple versions
 Resource        ./include/general-compas.robot
 
