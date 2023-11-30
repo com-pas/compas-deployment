@@ -14,6 +14,7 @@ TestCase001-01
     [Documentation]     Open project from Local File
     Open Menu           Open project
     Open local file     MiniGrid    SCD
+    Close Menu
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
@@ -28,6 +29,7 @@ TestCase001-02
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
@@ -50,6 +52,7 @@ TestCase001-03
 
     Open Menu           Open project
     Open from CoMPAS    ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
@@ -65,6 +68,7 @@ TestCase001-04
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}
@@ -80,6 +84,7 @@ TestCase001-05
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Open Menu           Save project as
     Save as to CoMPAS   ${sclname}-${current-date}-1.0.0   ${sclname}-as   ${scltype}   1.0.0
@@ -95,9 +100,11 @@ TestCase001-06
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid    ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Open Menu           Open project
     Open local file     MiniGrid    SCD
+    Close Menu
 
     Open Menu                Save as version
     Save version to CoMPAS   MINOR   ${sclname}   ${scltype}   1.1.0
@@ -139,6 +146,7 @@ TestCase001-51
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
@@ -162,6 +170,7 @@ TestCase001-52
 
     Open Menu           Open project
     Open from CoMPAS    ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Select Tab          Substation
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
