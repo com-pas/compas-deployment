@@ -65,9 +65,11 @@ TestCase001-04
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Open Menu           Save project
     Save to local file  ${sclname}    ${scltype}
+    Close Menu
 
 TestCase001-05
     [Documentation]     Save a existing project from CoMPAS (Rest) as new project
