@@ -39,6 +39,7 @@ Initialize Versions
 
     Open Menu           Save project
     Add to CoMPAS       MiniGrid   ${sclname}   ${scltype}   1.0.0
+    Close Menu
 
     Select Tab          CoMPAS Versions
     Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  1
@@ -46,9 +47,10 @@ Initialize Versions
     IF                  ${create-multiple-versions} == True
     Open Menu           Save project
     Update in CoMPAS    MAJOR   ${sclname}   ${scltype}   2.0.0
+    Close Menu
+    
     Select Tab          CoMPAS Versions
     Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  2
-    Close Menu
     END
 
 Delete first substation
