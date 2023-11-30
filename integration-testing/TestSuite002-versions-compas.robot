@@ -48,6 +48,7 @@ Initialize Versions
     Update in CoMPAS    MAJOR   ${sclname}   ${scltype}   2.0.0
     Select Tab          CoMPAS Versions
     Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  2
+    Close Menu
     END
 
 Delete first substation
