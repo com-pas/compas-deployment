@@ -30,8 +30,10 @@ Execute SCL Auto Alignment
 
 Select SLD Substation
     [Arguments]         ${id}
+    Sleep               0.5s   Wait before clicking the dropdown
     # First click on the selectbox to open the dropdown box, to make the values visible.
     Click               ${single-line-diagram-selector} mwc-select[id="substationSelector"]
+    Sleep               0.5s   Wait before selecting the correct substation
     # Now we can select the correct substation.
     Click               ${single-line-diagram-selector} mwc-select[id="substationSelector"] > mwc-list-item[value="${id}"]
 
