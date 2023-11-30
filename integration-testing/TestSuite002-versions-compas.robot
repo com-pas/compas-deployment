@@ -48,7 +48,7 @@ Initialize Versions
     Open Menu           Save project
     Update in CoMPAS    MAJOR   ${sclname}   ${scltype}   2.0.0
     Close Menu
-    
+
     Select Tab          CoMPAS Versions
     Get Element Count   ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  2
     END
@@ -69,6 +69,7 @@ TestCase002-01
 
     Open Menu           Open project
     Open local file     ${sclname}    ${scltype}
+    Close Menu
 
     Select Tab          CoMPAS Versions
     Get Text            ${compas-versions-editor-selector} mwc-list > mwc-list-item > span:has-text("No versions found")
@@ -86,18 +87,21 @@ TestCase002-03
 
     Open Menu            Save project
     Update in CoMPAS     MAJOR   ${sclname}   ${scltype}   2.0.0
+    Close Menu
 
     Select Tab           CoMPAS Versions
     Get Element Count    ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  2
 
     Open Menu            Save project
     Update in CoMPAS     MINOR   ${sclname}   ${scltype}   2.1.0
+    Close Menu
 
     Select Tab           CoMPAS Versions
     Get Element Count    ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  3
 
     Open Menu            Save project
     Update in CoMPAS     PATCH   ${sclname}   ${scltype}   2.1.1
+    Close Menu
 
     Select Tab           CoMPAS Versions
     Get Element Count    ${compas-versions-editor-selector} mwc-list > mwc-check-list-item   ==  4
@@ -198,6 +202,7 @@ TestCase002-32
     Delete first substation
     Open Menu            Save project
     Update in CoMPAS     MAJOR   ${sclname}   ${scltype}   2.0.0
+    Close Menu
 
     Select Tab  CoMPAS Versions
     # Next select the first and second version from the list and compare this to the current open edited version.
@@ -215,6 +220,7 @@ TestCase002-33
 
     Open Menu            Save project
     Update in CoMPAS     MAJOR   ${sclname}   ${scltype}   3.0.0
+    Close Menu
 
     Select Tab  CoMPAS Versions
     # Now select no versions and try to compare, should show a error dialog.
