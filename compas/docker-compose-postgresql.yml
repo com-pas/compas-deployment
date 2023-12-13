@@ -76,7 +76,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.10.2"
+    image: "lfenergy/compas-cim-mapping:0.10.4"
     ports:
       - "9091:8080"
     environment:
