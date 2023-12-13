@@ -46,7 +46,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.13.0-postgresql"
+    image: "lfenergy/compas-scl-data-service:0.15.0-postgresql"
     ports:
       - "9090:8080"
     environment:
@@ -76,7 +76,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.10.2"
+    image: "lfenergy/compas-cim-mapping:0.10.4"
     ports:
       - "9091:8080"
     environment:
@@ -100,7 +100,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.5.0"
+    image: "lfenergy/compas-scl-auto-alignment:0.5.1"
     ports:
       - "9092:8080"
     environment:
@@ -151,7 +151,7 @@ services:
   open-scd:
     labels:
       compas: true
-    image: "lfenergy/compas-open-scd:v0.33.0.5"
+    image: "lfenergy/compas-open-scd:v0.33.0.6"
     depends_on:
       - scl-data-service
       - cim-mapping

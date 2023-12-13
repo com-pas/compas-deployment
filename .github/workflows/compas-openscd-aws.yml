@@ -42,5 +42,5 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.render-compas-openscd.outputs.task-definition }}
-          service: CoMPAS-OpenSCD
+          service: CoMPAS-Open-SCD
           cluster: ${{ secrets.AWS_CLUSTER }}
