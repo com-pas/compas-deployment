@@ -5,7 +5,7 @@
 # We want to go back to below image, but it seems to be broken.
 # For now use fixed version which still works.
 #FROM openresty/openresty:alpine-fat
-FROM openresty/openresty:1.21.4.3-2-alpine-fat
+FROM openresty/openresty:1.25.3.1-0-alpine-fat
 
 ARG COMPAS_HOSTNAME
 ARG CONFIGURATION_LOCATION
