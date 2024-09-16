@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM bitnami/keycloak:latest
+FROM quay.io/keycloak/keycloak:latest
 
 ARG COMPAS_HOSTNAME
 
@@ -11,11 +11,7 @@ COPY --chown=keycloak:keycloak keycloak_compas_realm.json /tmp/keycloak_compas_r
 RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /tmp/keycloak_compas_realm.json
 
 # Creating an Admin account
-ENV KEYCLOAK_ADMIN_USER admin
-ENV KEYCLOAK_ADMIN_PASSWORD admin
+ENV KC_DB_USERNAME admin
+ENV KC_DB_PASSWORD admin
 
-# Choosing h2 database
-ENV KEYCLOAK_DATABASE_VENDOR "dev-file"
-
-# Import the configuration we just copied
-ENV KEYCLOAK_EXTRA_ARGS "--import-realm"
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--import-realm"]
