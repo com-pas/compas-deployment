@@ -6,10 +6,6 @@ FROM quay.io/keycloak/keycloak:latest
 
 ARG COMPAS_HOSTNAME
 
-# Copy the demo realm configuration to /tmp/ inside the container, so it can be used afterwards
-COPY --chown=keycloak:keycloak keycloak_compas_realm.json /tmp/keycloak_compas_realm.json
-RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /tmp/keycloak_compas_realm.json
-
 # Creating an Admin account
 ENV KC_DB_USERNAME admin
 ENV KC_DB_PASSWORD admin

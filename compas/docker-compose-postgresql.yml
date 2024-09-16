@@ -32,7 +32,6 @@ services:
       compas: true
     ports:
       - "8089:8080"
-     # - "8080:8080"
     environment:
       - KC_HOSTNAME=http://${COMPAS_HOSTNAME}/auth/
       - KC_HTTP_RELATIVE_PATH=auth
