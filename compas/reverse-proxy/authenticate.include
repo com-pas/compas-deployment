@@ -1,11 +1,11 @@
 access_by_lua_block {
   local opts = {
     redirect_uri = "http://##COMPAS_HOSTNAME##/redirect_uri",
-    discovery = "http://keycloak:8080/auth/realms/compas/.well-known/openid-configuration",
+    discovery = "http://keycloak:8080/realms/compas/.well-known/openid-configuration",
     client_id = "openscd",
     redirect_uri_scheme = "http",
     logout_path = "/logout",
-    redirect_after_logout_uri = "http://##COMPAS_HOSTNAME##/auth/realms/compas/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2F##COMPAS_HOSTNAME##%2F",
+    redirect_after_logout_uri = "http://##COMPAS_HOSTNAME##/realms/compas/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2F##COMPAS_HOSTNAME##%2F",
     redirect_after_logout_with_id_token_hint = false,
     session_contents = {id_token=true, access_token=true},
     renew_access_token_on_expiry = true,
