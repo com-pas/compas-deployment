@@ -8,7 +8,6 @@ services:
   postgresql:
     labels:
       compas: true
-    platform: linux/amd64
     image: "postgres:16.2"
     ports:
       - "5432:5432"
@@ -50,7 +49,6 @@ services:
   scl-data-service:
     labels:
       compas: true
-    platform: linux/amd64
     image: "lfenergy/compas-scl-data-service:0.15.0-postgresql"
     ports:
       - "9090:8080"
@@ -105,7 +103,6 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    platform: linux/amd64
     image: "lfenergy/compas-scl-auto-alignment:0.5.1"
     ports:
       - "9092:8080"
@@ -130,7 +127,6 @@ services:
   scl-validator:
     labels:
       compas: true
-    platform: linux/amd64
     image: "lfenergy/compas-scl-validator:0.6.1"
     ports:
       - "9093:8080"
@@ -158,7 +154,6 @@ services:
   open-scd:
     labels:
       compas: true
-    platform: linux/amd64
     image: "lfenergy/compas-open-scd:v0.33.0.7"
     depends_on:
       - scl-data-service
