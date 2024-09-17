@@ -32,7 +32,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Start containers
-        run: docker-compose -f "compas/docker-compose-postgresql.yml" up -d --build
+        run: docker compose -f "compas/docker-compose-postgresql.yml" up -d --build
         env:
           COMPAS_HOSTNAME: compas_reverse-proxy_1
           CONFIGURATION_LOCATION: /nginx.conf
@@ -84,4 +84,4 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker-compose -f "compas/docker-compose-postgresql.yml" down -v
+        run: docker compose -f "compas/docker-compose-postgresql.yml" down -v
