@@ -16,7 +16,7 @@ ${headless}                 true
 ${devtools}                 false
 
 ${browser}       %{BROWSER=firefox}
-${url}           http://127.0.0.1/
+${url}           http://localhost/
 ${username}      scl-data-editor
 ${password}      editor
 
