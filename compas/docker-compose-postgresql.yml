@@ -37,8 +37,6 @@ services:
       - KC_HTTP_RELATIVE_PATH=auth
       - KC_HTTP_ENABLED=true
       - KC_PROXY_HEADERS=xforwarded
-    volumes:
-      - ./keycloak/realms:/opt/keycloak/data/import
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/auth/"]
       interval: 30s

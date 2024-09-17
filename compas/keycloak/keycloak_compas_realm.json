@@ -1248,17 +1248,17 @@
       "clientId": "cim-mapping",
       "name": "CIM Mapping",
       "description": "CIM Mapping Service to convert CIM Data to SCL Data",
-      "rootUrl": "http://127.0.0.1/",
-      "adminUrl": "http://127.0.0.1/",
+      "rootUrl": "http://##COMPAS_HOSTNAME##/",
+      "adminUrl": "http://##COMPAS_HOSTNAME##/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1/*"
+        "http://##COMPAS_HOSTNAME##/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1"
+        "http://##COMPAS_HOSTNAME##"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -1328,17 +1328,17 @@
     {
       "id": "ace17366-e696-4821-9f24-89b797acb736",
       "clientId": "openscd",
-      "rootUrl": "http://127.0.0.1/",
-      "adminUrl": "http://127.0.0.1/",
+      "rootUrl": "http://##COMPAS_HOSTNAME##/",
+      "adminUrl": "http://##COMPAS_HOSTNAME##/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1/*"
+        "http://##COMPAS_HOSTNAME##/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1"
+        "http://##COMPAS_HOSTNAME##"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -1447,17 +1447,17 @@
       "clientId": "scl-auto-alignment",
       "name": "SCL Auto Alignment Service",
       "description": "The SCL Auto Alignment Service for calculating XY Coordinates",
-      "rootUrl": "http://127.0.0.1/",
-      "adminUrl": "http://127.0.0.1/",
+      "rootUrl": "http://##COMPAS_HOSTNAME##/",
+      "adminUrl": "http://##COMPAS_HOSTNAME##/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1/*"
+        "http://##COMPAS_HOSTNAME##/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1"
+        "http://##COMPAS_HOSTNAME##"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -1529,17 +1529,17 @@
       "clientId": "scl-data-service",
       "name": "SCL Data Service",
       "description": "The SCL Data Service for storing / retrieving SCLs",
-      "rootUrl": "http://127.0.0.1/",
-      "adminUrl": "http://127.0.0.1/",
+      "rootUrl": "http://##COMPAS_HOSTNAME##/",
+      "adminUrl": "http://##COMPAS_HOSTNAME##/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1/*"
+        "http://##COMPAS_HOSTNAME##/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1"
+        "http://##COMPAS_HOSTNAME##"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -1611,17 +1611,17 @@
       "clientId": "scl-validator",
       "name": "SCL Validator Service",
       "description": "The SCL Validator Service to validate SCL Files",
-      "rootUrl": "http://127.0.0.1/",
-      "adminUrl": "http://127.0.0.1/",
+      "rootUrl": "http://##COMPAS_HOSTNAME##/",
+      "adminUrl": "http://##COMPAS_HOSTNAME##/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1/*"
+        "http://##COMPAS_HOSTNAME##/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1"
+        "http://##COMPAS_HOSTNAME##"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -1693,17 +1693,17 @@
       "clientId": "sitipe-service",
       "name": "Sitipe Service",
       "description": "The Sitipe Service to retrieve Sitipe related data",
-      "rootUrl": "http://127.0.0.1/",
-      "adminUrl": "http://127.0.0.1/",
+      "rootUrl": "http://##COMPAS_HOSTNAME##/",
+      "adminUrl": "http://##COMPAS_HOSTNAME##/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://127.0.0.1/*"
+        "http://##COMPAS_HOSTNAME##/*"
       ],
       "webOrigins": [
-        "http://127.0.0.1"
+        "http://##COMPAS_HOSTNAME##"
       ],
       "notBefore": 0,
       "bearerOnly": false,
