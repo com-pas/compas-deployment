@@ -54,7 +54,7 @@ jobs:
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
             --network=compas_default \
-            ppodgorsek/robot-framework:latest
+            ppodgorsek/robot-framework:7.1.0
 
       - name: Created output directory (chromium)
         run: mkdir -p target/chromium
@@ -70,7 +70,7 @@ jobs:
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
             --network=compas_default \
-            ppodgorsek/robot-framework:latest
+            ppodgorsek/robot-framework:7.1.0
 
       - name: Archive Robot Framework Reports
         if: failure()
