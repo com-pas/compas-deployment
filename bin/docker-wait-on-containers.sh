@@ -11,7 +11,7 @@ do
 done
 
 # status=exited
-containers=$(docker ps -a --filter name=compas-keycloak-1)
+containers=$(docker ps -a -q --filter name=compas-keycloak-1)
 if [ -n "$containers" ]; then
   echo "Some containers are exited."
   docker logs $containers
