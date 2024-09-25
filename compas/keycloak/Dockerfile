@@ -2,20 +2,16 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM jboss/keycloak:latest
+FROM quay.io/keycloak/keycloak:latest
 
 ARG COMPAS_HOSTNAME
 
-# Copy the demo realm configuration to /tmp/ inside the container, so it can be used afterwards
-COPY --chown=jboss:jboss keycloak_compas_realm.json /tmp/keycloak_compas_realm.json
-RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /tmp/keycloak_compas_realm.json
+# Copy the demo realm configuration to /opt/keycloak/data/import inside the container, this is the default import path
+COPY --chown=keycloak:keycloak keycloak_compas_realm.json /opt/keycloak/data/import/keycloak_compas_realm.json
+RUN sed -i "s/##COMPAS_HOSTNAME##/${COMPAS_HOSTNAME}/g" /opt/keycloak/data/import/keycloak_compas_realm.json
 
 # Creating an Admin account
-ENV KEYCLOAK_USER admin
-ENV KEYCLOAK_PASSWORD admin
+ENV KC_DB_USERNAME admin
+ENV KC_DB_PASSWORD admin
 
-# Choosing h2 database
-ENV DB_VENDOR h2
-
-# Import the configuration we just copied
-ENV KEYCLOAK_IMPORT /tmp/keycloak_compas_realm.json
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--import-realm"]

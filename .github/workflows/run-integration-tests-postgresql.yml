@@ -32,9 +32,9 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Start containers
-        run: docker-compose -f "compas/docker-compose-postgresql.yml" up -d --build
+        run: docker compose -f "compas/docker-compose-postgresql.yml" up -d --build
         env:
-          COMPAS_HOSTNAME: compas_reverse-proxy_1
+          COMPAS_HOSTNAME: compas-reverse-proxy-1
           CONFIGURATION_LOCATION: /nginx.conf
 
       - name: Wait until containers started
@@ -45,11 +45,11 @@ jobs:
       - name: Execute integration tests (firefox)
         # Using the Docker Image from ppodgorsek (https://github.com/ppodgorsek/docker-robot-framework)
         # to run the Robot Framework Test Scripts.
-        # To connect with the Docker Compose and use http://compas_reverse-proxy_1/ as URL we are
+        # To connect with the Docker Compose and use http://compas-reverse-proxy-1/ as URL we are
         # connecting to the same network "compas_default" that's started bij Docker Compose.
         run: |
           docker run --rm -e BROWSER=firefox \
-            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
+            -e ROBOT_OPTIONS="-v url:http://compas-reverse-proxy-1/" \
             -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
@@ -61,11 +61,11 @@ jobs:
       - name: Execute integration tests (chromium)
         # Using the Docker Image from ppodgorsek (https://github.com/ppodgorsek/docker-robot-framework)
         # to run the Robot Framework Test Scripts.
-        # To connect with the Docker Compose and use http://compas_reverse-proxy_1/ as URL we are
+        # To connect with the Docker Compose and use http://compas-reverse-proxy-1/ as URL we are
         # connecting to the same network "compas_default" that's started bij Docker Compose.
         run: |
           docker run --rm -e BROWSER=chromium \
-            -e ROBOT_OPTIONS="-v url:http://compas_reverse-proxy_1/" \
+            -e ROBOT_OPTIONS="-v url:http://compas-reverse-proxy-1/" \
             -v $(pwd)/target/firefox:/opt/robotframework/reports:Z \
             -v $(pwd)/integration-testing:/opt/robotframework/tests:Z \
             --user $(id -u):$(id -g) \
@@ -84,4 +84,4 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker-compose -f "compas/docker-compose-postgresql.yml" down -v
+        run: docker compose -f "compas/docker-compose-postgresql.yml" down -v
