@@ -101,7 +101,7 @@ Wait for dialog is closed
     Wait For Elements State   ${dialog-selector}   hidden
 
 Wait until executed
-    Wait For Function         element => element.className.indexOf('mdc-linear-progress--closed') >= 0   open-scd > mwc-linear-progress > div[role="progressbar"]   timeout=30s
+    Wait For Function         element => element.className.indexOf('mdc-linear-progress--closed') >= 0   oscd-waiter > mwc-linear-progress > div[role="progressbar"]   timeout=30s
 
 Close Issues Snackbar
     ${snackbarVisible}=   Get Element States   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button    *=    visible
