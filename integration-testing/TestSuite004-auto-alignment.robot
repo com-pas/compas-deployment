@@ -10,7 +10,7 @@ Test Setup      Initialize and Start OpenSCD
 Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Variables ***
-${single-line-diagram-selector}   oscd-plugin5f1cbbcb9fada7d8
+${single-line-diagram-selector}   oscd-plugin54a33cdb5f615be0
 
 ${substation1}                    _af9a4ae3-ba2e-4c34-8e47-5af894ee20f4
 ${substation1VoltageLevel}        ${substation1}>S1 110kV
