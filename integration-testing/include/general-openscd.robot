@@ -8,7 +8,8 @@ Resource        ./general-config.robot
 
 *** Variables ***
 # Variables of Selectors commonly used.
-${menu-selector}                mwc-drawer[id="menu"]
+${menu-selector}                mwc-drawer[id='menu']
+${menu-button}                  mwc-icon-button[label="Menu"]
 ${nav-selector}                 mwc-top-app-bar-fixed
 ${dialog-selector}              wizard-dialog
 ${substation-editor-selector}   substation-editor:first-child > action-pane
@@ -42,7 +43,7 @@ Check Browser Title
 
 Open Menu
     [Arguments]     ${menuItemTitle}
-    Click           ${menu-selector} mwc-icon-button[label="Menu"] > button
+    Click           ${menu-button} > button
     Click           ${menu-selector} mwc-list > mwc-list-item >> span:text-is("${menuItemTitle}")
 
 Open Navigation Menu
@@ -93,14 +94,14 @@ Save to local file
 
 Check Title Filename
     [Arguments]     ${filename}     ${scltype}
-    Get Text        open-scd > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
+    Get Text        compas-layout > mwc-drawer span[slot="subtitle"]   ==   ${filename}.${scltype.lower()}
 
 Wait for dialog is closed
     Wait until executed
     Wait For Elements State   ${dialog-selector}   hidden
 
 Wait until executed
-    Wait For Function         element => element.className.indexOf('mdc-linear-progress--closed') >= 0   open-scd > mwc-linear-progress > div[role="progressbar"]   timeout=30s
+    Wait For Function         element => element.className.indexOf('mdc-linear-progress--closed') >= 0   oscd-waiter > mwc-linear-progress > div[role="progressbar"]   timeout=30s
 
 Close Issues Snackbar
     ${snackbarVisible}=   Get Element States   mwc-snackbar#issue > mwc-icon-button[slot="dismiss"] > button    *=    visible
