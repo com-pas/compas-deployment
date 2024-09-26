@@ -8,7 +8,9 @@ Resource        ./general-config.robot
 
 *** Variables ***
 # Variables of Selectors commonly used.
-${menu-selector}                mwc-drawer[id="menu"]
+${base-selector}                dom:document.querySelector("open-scd").shadowRoot.querySelector("compas-layout").shadowRoot
+${menu-selector}                ${base-selector}.querySelector(mwc-drawer[id="menu"])
+${menu-button}                  ${base-selector}.querySelector(mwc-icon-button [label="Menu"])
 ${nav-selector}                 mwc-top-app-bar-fixed
 ${dialog-selector}              wizard-dialog
 ${substation-editor-selector}   substation-editor:first-child > action-pane
@@ -42,7 +44,7 @@ Check Browser Title
 
 Open Menu
     [Arguments]     ${menuItemTitle}
-    Click           ${menu-selector} mwc-icon-button[label="Menu"] > button
+    Click           ${menu-button} > button
     Click           ${menu-selector} mwc-list > mwc-list-item >> span:text-is("${menuItemTitle}")
 
 Open Navigation Menu
