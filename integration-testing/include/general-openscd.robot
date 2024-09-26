@@ -94,7 +94,7 @@ Save to local file
 
 Check Title Filename
     [Arguments]     ${filename}     ${scltype}
-    Get Text        open-scd > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
+    Get Text        compas-layout > mwc-drawer div#title   ==   ${filename}.${scltype.lower()}
 
 Wait for dialog is closed
     Wait until executed
