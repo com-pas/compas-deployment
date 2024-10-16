@@ -58,7 +58,7 @@ Close Menu
 
 Enable Extension
     [Arguments]           ${extensionName}
-    Open Menu             Extensions
+    Open Menu             Plug-ins
     ${checkboxChecked}=   Get Element States   mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]   *=   checked
     IF                    ${checkboxChecked} == False
       Check Checkbox      mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
