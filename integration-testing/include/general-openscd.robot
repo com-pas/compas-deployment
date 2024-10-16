@@ -31,7 +31,7 @@ Open OpenSCD and Login
     Set Viewport Size   1920    1080
     Fill Text           input[id="username"]     ${username}
     Fill Secret         input[id="password"]     $password
-    Click               input[type="submit"][id="kc-login"]
+    Click               button[type="submit"][id="kc-login"]
     Wait For Response
     Check Browser Title
 
@@ -58,7 +58,7 @@ Close Menu
 
 Enable Extension
     [Arguments]           ${extensionName}
-    Open Menu             Extensions
+    Open Menu             Plug-ins
     ${checkboxChecked}=   Get Element States   mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]   *=   checked
     IF                    ${checkboxChecked} == False
       Check Checkbox      mwc-list#pluginList > mwc-check-list-item:has-text("${extensionName}") input[type="checkbox"]
