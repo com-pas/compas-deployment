@@ -31,7 +31,7 @@ Open OpenSCD and Login
     Set Viewport Size   1920    1080
     Fill Text           input[id="username"]     ${username}
     Fill Secret         input[id="password"]     $password
-    Click               input[type="submit"][id="kc-login"]
+    Click               button[type="submit"][id="kc-login"]
     Wait For Response
     Check Browser Title
 
