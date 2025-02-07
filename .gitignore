@@ -9,6 +9,9 @@ target
 .idea
 *.iml
 
+helm/charts/compas-keycloak/charts
+helm/charts/compas-keycloak/Chart.lock
+
 # Data Directories for Docker Compose
 # Ignore all files, except the README.md
 compas/data/**/*.*

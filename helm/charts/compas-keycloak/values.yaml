@@ -1,0 +1,40 @@
+config:
+  keycloak:
+    keycloakUrl: "http://localhost/"
+    clientUrl: "http://localhost/"
+
+keycloak:
+  postgresql:
+    enabled: false
+
+  ingress:
+    enabled: true;
+    hostname: "localhost"
+    annotations:
+      alb.ingress.kubernetes.io/group.name: "openscd"
+      external-dns.alpha.kubernetes.io/hostname: localhost
+      kubernetes.io/ingress.class: nginx
+
+  extraEnvVars:
+    - name: KEYCLOAK_EXTRA_ARGS
+      value: "--import-realm"
+
+  externalDatabase:
+    host: "postgres-keycloak"
+    port: 5432
+    user: keycloak
+    database: "keycloak"
+    existingSecret: keycloak-db-credentials
+
+  extraVolumeMounts:
+    - name: keycloak-realm-cm
+      mountPath: /opt/bitnami/keycloak/data/import/keycloak_compas_realm.json
+      subPath: keycloak_compas_realm.json
+
+  extraVolumes:
+    - name: keycloak-realm-cm
+      configMap:
+        name: keycloak-realm-cm
+
+  secrets:
+    dbPassword: weFSG7zn9VIOul3

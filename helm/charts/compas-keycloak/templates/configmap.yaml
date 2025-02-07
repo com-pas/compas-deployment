@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-realm-cm
+data:
+  keycloak_compas_realm.json: |-
+    {{ tpl (.Files.Get "resources/compas-realm.json") . | nindent 4 }}

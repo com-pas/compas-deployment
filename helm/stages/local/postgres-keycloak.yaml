@@ -1,0 +1,5 @@
+service:
+  environment:
+    keycloak:
+      db:
+        password: cfbrpSPZQJ7DhTExRs63an

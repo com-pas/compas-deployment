@@ -1,0 +1,9 @@
+helmDefaults:
+  createNamespace: false
+
+releases:
+  - name: keycloak
+    chart: ../charts/compas-keycloak
+    values:
+      - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
+      - ./{{ requiredEnv "STAGE_NAME" }}/keycloak.yaml

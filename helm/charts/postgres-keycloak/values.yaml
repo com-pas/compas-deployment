@@ -1,0 +1,31 @@
+image:
+  name: postgres
+  tag: 17-alpine
+  pullPolicy: Always
+  pullSecret: docker-private-registry
+
+service:
+  port: 5432
+  deployment:
+    port: 5432
+  environment:
+    public:
+      keycloak:
+        realm: compas
+    keycloak:
+      db:
+        database: keycloak
+        username: keycloak
+        password: weFSG7zn9VIOul3
+
+runtime:
+  replicas: 1
+  restartPolicy: Always
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi

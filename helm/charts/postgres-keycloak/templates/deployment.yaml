@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Chart.Name }}
+spec:
+    replicas: {{ .Values.runtime.replicas }}
+    selector:
+        matchLabels:
+            io.compas.service: {{ .Chart.Name }}
+            io.compas.chart: {{ include "application.name" . }}
+    template:
+        metadata:
+            labels:
+                io.compas.service: {{ .Chart.Name }}
+                io.compas.chart: {{ include "application.name" . }}
+            annotations:
+                checksum/config: {{ .Values.service.environment | toYaml | sha256sum }}
+        spec:
+            restartPolicy: {{.Values.runtime.restartPolicy}}
+            imagePullSecrets:
+                - name: "{{ .Values.image.pullSecret }}"
+            containers:
+                - name: {{ .Chart.Name }}
+                  image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+                  imagePullPolicy: {{ .Values.image.pullPolicy }}
+                  env:
+                    - name: POSTGRES_DB
+                      value: {{ .Values.service.environment.keycloak.db.database }}
+                    - name: POSTGRES_USER
+                      value: {{ .Values.service.environment.keycloak.db.username }}
+                    - name: POSTGRES_PASSWORD
+                      value: {{ .Values.service.environment.keycloak.db.password }}
+                  ports:
+                      - containerPort: {{ .Values.service.deployment.port }}
+                        protocol: TCP

@@ -1,0 +1,10 @@
+apiVersion: v2
+name: keycloak
+description: CoMPAS keycloak umbrella chart
+version: 1.0.0
+appVersion: "24.4.6"
+
+dependencies:
+  - name: keycloak
+    version: 24.4.6
+    repository: https://charts.bitnami.com/bitnami

@@ -1,0 +1,14 @@
+helmDefaults:
+  createNamespace: false
+
+releases:
+  - name: postgres-keycloak
+    chart: ../charts/postgres-keycloak
+    values:
+      - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
+      - ./{{ requiredEnv "STAGE_NAME" }}/postgres-keycloak.yaml
+  - name: postgres-compas
+    chart: ../charts/postgres-compas
+    values:
+      - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
+      - ./{{ requiredEnv "STAGE_NAME" }}/postgres-compas.yaml

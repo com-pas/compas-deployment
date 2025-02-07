@@ -1,0 +1,4 @@
+global:
+  hostname: http://localhost:80
+  keycloak:
+    baseUrl: http://localhost:80
