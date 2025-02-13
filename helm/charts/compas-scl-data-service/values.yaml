@@ -9,7 +9,7 @@ replicaCount: 1
 image:
   repository: lfenergy/compas-scl-data-service
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "0.15.6-postgresql"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
@@ -48,9 +48,31 @@ service:
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 80
 
-env: []
-#   - name: MY_ENV_VAR
-#     value: my-env-var-value
+env:
+  - name: POSTGRESQL_HOST
+    value: postgres-compas
+  - name: POSTGRESQL_DB
+    value: compas
+  - name: JWT_VERIFY_KEY
+    value: http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
+  - name: JWT_VERIFY_ISSUER
+    value: http://${COMPAS_HOSTNAME}/auth/realms/compas
+  - name: JWT_VERIFY_CLIENT_ID
+    value: scl-data-service
+  - name: JWT_GROUPS_PATH
+    value: resource_access/scl-data-service/roles
+  - name: USERINFO_NAME_CLAIMNAME
+    value: name
+  - name: USERINFO_WHO_CLAIMNAME
+    value: name
+  - name: USERINFO_SESSION_WARNING
+    value: "20"
+  - name: USERINFO_SESSION_EXPIRES
+    value: "30"
+  - name: POSTGRESQL_USERNAME
+    value: compas
+  - name: POSTGRESQL_PASSWORD
+    value: Xxunztz8y5Ffxu2
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:

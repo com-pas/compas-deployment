@@ -2,8 +2,13 @@ helmDefaults:
   createNamespace: false
 
 releases:
-  - name: keycloak
-    chart: ../charts/compas-keycloak
+  - name: compas-openscd
+    chart: ../charts/compas-openscd
     values:
       - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
-      - ./{{ requiredEnv "STAGE_NAME" }}/keycloak.yaml
+  - name: compas-scl-data-service
+    chart: ../charts/compas-scl-data-service
+    values:
+      - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
+      - ./{{ requiredEnv "STAGE_NAME" }}/scl-data-service.yaml
+

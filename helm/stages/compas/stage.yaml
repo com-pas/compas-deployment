@@ -1,0 +1,14 @@
+public:
+  hostname: http://localhost:80
+  keycloak:
+    hostname: http://localhost:80
+
+global:
+  kubernetes:
+    hostname:
+      keycloak: http://compas-keycloak
+      openscd: http://compas-openscd
+      scl-data-service: http://compas-scl-data-service
+      cim-mapping: http://compas-cim-mapping
+      scl-auto-alignment: http://compas-scl-auto-alignment
+      scl-validator: http://compas-scl-validator

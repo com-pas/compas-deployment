@@ -1248,17 +1248,17 @@
             "clientId": "cim-mapping",
             "name": "CIM Mapping",
             "description": "CIM Mapping Service to convert CIM Data to SCL Data",
-            "rootUrl": "{{ .Values.global.keycloak.baseUrl }}/",
-            "adminUrl": "{{ .Values.global.keycloak.baseUrl }}/",
+            "rootUrl": "{{ .Values.public.keycloak.hostname }}/",
+            "adminUrl": "{{ .Values.public.keycloak.hostname }}/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
             "redirectUris": [
-                "{{ .Values.global.keycloak.baseUrl }}/*"
+                "{{ .Values.public.keycloak.hostname }}/*"
             ],
             "webOrigins": [
-                "{{ .Values.global.keycloak.baseUrl }}"
+                "{{ .Values.public.keycloak.hostname }}"
             ],
             "notBefore": 0,
             "bearerOnly": false,
@@ -1328,17 +1328,17 @@
         {
             "id": "ace17366-e696-4821-9f24-89b797acb736",
             "clientId": "openscd",
-            "rootUrl": "{{ .Values.global.keycloak.baseUrl }}/",
-            "adminUrl": "{{ .Values.global.keycloak.baseUrl }}/",
+            "rootUrl": "{{ .Values.public.keycloak.hostname }}/",
+            "adminUrl": "{{ .Values.public.keycloak.hostname }}/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
             "redirectUris": [
-                "{{ .Values.global.keycloak.baseUrl }}/*"
+                "{{ .Values.public.keycloak.hostname }}/*"
             ],
             "webOrigins": [
-                "{{ .Values.global.keycloak.baseUrl }}"
+                "{{ .Values.public.keycloak.hostname }}"
             ],
             "notBefore": 0,
             "bearerOnly": false,
@@ -1447,17 +1447,17 @@
             "clientId": "scl-auto-alignment",
             "name": "SCL Auto Alignment Service",
             "description": "The SCL Auto Alignment Service for calculating XY Coordinates",
-            "rootUrl": "{{ .Values.global.keycloak.baseUrl }}/",
-            "adminUrl": "{{ .Values.global.keycloak.baseUrl }}/",
+            "rootUrl": "{{ .Values.public.keycloak.hostname }}/",
+            "adminUrl": "{{ .Values.public.keycloak.hostname }}/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
             "redirectUris": [
-                "{{ .Values.global.keycloak.baseUrl }}/*"
+                "{{ .Values.public.keycloak.hostname }}/*"
             ],
             "webOrigins": [
-                "{{ .Values.global.keycloak.baseUrl }}"
+                "{{ .Values.public.keycloak.hostname }}"
             ],
             "notBefore": 0,
             "bearerOnly": false,
@@ -1529,17 +1529,17 @@
             "clientId": "scl-data-service",
             "name": "SCL Data Service",
             "description": "The SCL Data Service for storing / retrieving SCLs",
-            "rootUrl": "{{ .Values.global.keycloak.baseUrl }}/",
-            "adminUrl": "{{ .Values.global.keycloak.baseUrl }}/",
+            "rootUrl": "{{ .Values.public.keycloak.hostname }}/",
+            "adminUrl": "{{ .Values.public.keycloak.hostname }}/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
             "redirectUris": [
-                "{{ .Values.global.keycloak.baseUrl }}/*"
+                "{{ .Values.public.keycloak.hostname }}/*"
             ],
             "webOrigins": [
-                "{{ .Values.global.keycloak.baseUrl }}"
+                "{{ .Values.public.keycloak.hostname }}"
             ],
             "notBefore": 0,
             "bearerOnly": false,
@@ -1611,17 +1611,17 @@
             "clientId": "scl-validator",
             "name": "SCL Validator Service",
             "description": "The SCL Validator Service to validate SCL Files",
-            "rootUrl": "{{ .Values.global.keycloak.baseUrl }}/",
-            "adminUrl": "{{ .Values.global.keycloak.baseUrl }}/",
+            "rootUrl": "{{ .Values.public.keycloak.hostname }}/",
+            "adminUrl": "{{ .Values.public.keycloak.hostname }}/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
             "redirectUris": [
-                "{{ .Values.global.keycloak.baseUrl }}/*"
+                "{{ .Values.public.keycloak.hostname }}/*"
             ],
             "webOrigins": [
-                "{{ .Values.global.keycloak.baseUrl }}"
+                "{{ .Values.public.keycloak.hostname }}"
             ],
             "notBefore": 0,
             "bearerOnly": false,
@@ -1693,17 +1693,17 @@
             "clientId": "sitipe-service",
             "name": "Sitipe Service",
             "description": "The Sitipe Service to retrieve Sitipe related data",
-            "rootUrl": "{{ .Values.global.keycloak.baseUrl }}/",
-            "adminUrl": "{{ .Values.global.keycloak.baseUrl }}/",
+            "rootUrl": "{{ .Values.public.keycloak.hostname }}/",
+            "adminUrl": "{{ .Values.public.keycloak.hostname }}/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
             "redirectUris": [
-                "{{ .Values.global.keycloak.baseUrl }}/*"
+                "{{ .Values.public.keycloak.hostname }}/*"
             ],
             "webOrigins": [
-                "{{ .Values.global.keycloak.baseUrl }}"
+                "{{ .Values.public.keycloak.hostname }}"
             ],
             "notBefore": 0,
             "bearerOnly": false,
@@ -3204,7 +3204,7 @@
         "clientSessionIdleTimeout": "0",
         "parRequestUriLifespan": "60",
         "clientSessionMaxLifespan": "0",
-        "frontendUrl": "{{ .Values.global.keycloak.baseUrl }}/auth",
+        "frontendUrl": "{{ .Values.public.keycloak.hostname }}/auth",
         "clientOfflineSessionIdleTimeout": "0",
         "cibaInterval": "5"
     },

@@ -1,0 +1,5 @@
+service:
+  environment:
+    compas:
+      db:
+        password: 5OSvbcqvYeU1PI6FSh7i

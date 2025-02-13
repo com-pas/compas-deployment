@@ -1,7 +1,13 @@
 config:
   keycloak:
-    keycloakUrl: "http://localhost/"
-    clientUrl: "http://localhost/"
+    keycloakUrl: "http://compas.local/"
+    clientUrl: "http://compas.local/"
+
+service:
+  environment:
+    public:
+      keycloak:
+        realm: compas
 
 keycloak:
   postgresql:
@@ -9,10 +15,10 @@ keycloak:
 
   ingress:
     enabled: true;
-    hostname: "localhost"
+    hostname: "compas.local"
     annotations:
       alb.ingress.kubernetes.io/group.name: "openscd"
-      external-dns.alpha.kubernetes.io/hostname: localhost
+      external-dns.alpha.kubernetes.io/hostname: compas.local
       kubernetes.io/ingress.class: nginx
 
   extraEnvVars:

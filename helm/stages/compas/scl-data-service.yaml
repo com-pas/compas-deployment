@@ -1,0 +1,27 @@
+env:
+  - name: COMPAS_HOSTNAME
+    value: compas-keycloak
+  - name: POSTGRESQL_HOST
+    value: postgres-compas
+  - name: POSTGRESQL_DB
+    value: compas
+  - name: JWT_VERIFY_KEY
+    value: http://keycloak:8080/auth/realms/compas/protocol/openid-connect/certs
+  - name: JWT_VERIFY_ISSUER
+    value: http://${COMPAS_HOSTNAME}/auth/realms/compas
+  - name: JWT_VERIFY_CLIENT_ID
+    value: scl-data-service
+  - name: JWT_GROUPS_PATH
+    value: resource_access/scl-data-service/roles
+  - name: USERINFO_NAME_CLAIMNAME
+    value: name
+  - name: USERINFO_WHO_CLAIMNAME
+    value: name
+  - name: USERINFO_SESSION_WARNING
+    value: "20"
+  - name: USERINFO_SESSION_EXPIRES
+    value: "30"
+  - name: POSTGRESQL_USERNAME
+    value: compas
+  - name: POSTGRESQL_PASSWORD
+    value: 5OSvbcqvYeU1PI6FSh7i

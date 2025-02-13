@@ -1,0 +1,3 @@
+keycloak:
+  secrets:
+    dbPassword: "cfbrpSPZQJ7DhTExRs63an"

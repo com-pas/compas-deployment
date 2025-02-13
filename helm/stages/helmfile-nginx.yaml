@@ -1,0 +1,9 @@
+helmDefaults:
+  createNamespace: false
+
+releases:
+  - name: compas-nginx
+    chart: ../charts/compas-nginx
+    values:
+      - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
+      - ./{{ requiredEnv "STAGE_NAME" }}/nginx.yaml

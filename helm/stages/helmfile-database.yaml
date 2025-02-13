@@ -12,3 +12,8 @@ releases:
     values:
       - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
       - ./{{ requiredEnv "STAGE_NAME" }}/postgres-compas.yaml
+  - name: compas-keycloak
+    chart: ../charts/compas-keycloak
+    values:
+      - ./{{ requiredEnv "STAGE_NAME" }}/stage.yaml
+      - ./{{ requiredEnv "STAGE_NAME" }}/keycloak.yaml

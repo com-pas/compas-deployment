@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-configs
+data:
+  authenticate.include: |-
+    {{ .Files.Get "resources/authenticate.include" | nindent 4 }}
+  nginx.conf: |-
+    {{ .Files.Get "resources/nginx.conf" | nindent 4 }}

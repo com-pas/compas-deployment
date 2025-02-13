@@ -1,5 +1,0 @@
-service:
-  environment:
-    keycloak:
-      db:
-        password: MB6e5JU3wamDHPKgW9TSV2
