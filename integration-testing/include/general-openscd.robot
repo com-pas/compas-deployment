@@ -94,7 +94,7 @@ Save to local file
 
 Check Title Filename
     [Arguments]     ${filename}     ${scltype}
-    Get Text        compas-layout > mwc-drawer span[slot="subtitle"]   ==   ${filename}.${scltype.lower()}
+    Get Text        compas-layout > div > mwc-drawer span[slot="subtitle"]   ==   ${filename}.${scltype.lower()}
 
 Wait for dialog is closed
     Wait until executed
