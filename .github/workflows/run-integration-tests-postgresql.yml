@@ -35,7 +35,7 @@ jobs:
         run: docker compose -f "compas/docker-compose-postgresql.yml" up -d --build
         env:
           COMPAS_HOSTNAME: compas-reverse-proxy-1
-          CONFIGURATION_LOCATION: /nginx.conf
+          CONFIGURATION_LOCATION: ./nginx.conf
 
       - name: Wait until containers started
         run: sh ./bin/docker-wait-on-containers.sh
