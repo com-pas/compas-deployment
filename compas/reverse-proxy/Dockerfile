@@ -5,7 +5,7 @@
 # We want to go back to below image, but it seems to be broken.
 # For now use fixed version which still works.
 #FROM openresty/openresty:alpine-fat
-FROM openresty/openresty:1.25.3.1-2-alpine-fat
+FROM openresty/openresty:1.27.1.2-alpine-fat  
 
 ARG COMPAS_HOSTNAME
 ARG CONFIGURATION_LOCATION
@@ -13,7 +13,7 @@ ARG CONFIGURATION_LOCATION
 ARG BACKDOOR_PORT
 ARG BACKDOOR_PATH
 
-RUN echo ${CONF_LOCATION}
+RUN echo ${CONFIGURATION_LOCATION}
 RUN mkdir /var/log/nginx
 
 RUN apk add --no-cache openssl-dev
