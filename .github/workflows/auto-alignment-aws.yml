@@ -42,7 +42,7 @@ jobs:
             JWT_VERIFY_ISSUER=${{ secrets.JWT_VERIFY_ISSUER }}
 
       - name: Deploy to Amazon ECS service
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.render-auto-alignment.outputs.task-definition }}
           service: scl-auto-alignment
