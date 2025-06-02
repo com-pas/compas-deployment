@@ -44,7 +44,7 @@ Check Browser Title
 Open Menu
     [Arguments]     ${menuItemTitle}
     Click           ${menu-button} > button
-    Click           ${menu-selector} mwc-list > mwc-list-item >> span:text-is("${menuItemTitle}")
+    Click           ${menu-selector} mwc-list > mwc-list-item > span:text-is("${menuItemTitle}")
 
 Open Navigation Menu
     [Arguments]     ${menuItemTitle}
