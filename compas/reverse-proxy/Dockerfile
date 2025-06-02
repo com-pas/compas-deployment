@@ -20,7 +20,7 @@ RUN apk add --no-cache openssl-dev
 RUN apk add --no-cache git
 RUN apk add --no-cache gcc
 
-RUN luarocks install lua-resty-openidc
+RUN luarocks install lua-resty-openidc --only-server https://raw.githubusercontent.com/rocks-moonscript-org/moonrocks-mirror/daab2726276e3282dc347b89a42a5107c3500567
 
 RUN mkdir -p /etc/nginx/include
 
