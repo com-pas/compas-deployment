@@ -29,9 +29,9 @@ Open from CoMPAS
 Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
     # Make sure the initial value is entered. so we can continue.
-    Wait for compas save dialog
+    # Wait for compas save dialog
+    Sleep                       1s  Wait for dialog to be open
     Get Text                    ${compas-save-dialog-selector} > compas-save mwc-textfield#name label > input   ==   ${initialValue}
-    # Sleep                       1s  test
     Fill Text                   ${compas-save-dialog-selector} > compas-save mwc-textfield#name label > input   ${name}-${current-date}
     Click                       ${compas-save-dialog-selector} > compas-save compas-scltype-select mwc-select
     Click                       ${compas-save-dialog-selector} > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
