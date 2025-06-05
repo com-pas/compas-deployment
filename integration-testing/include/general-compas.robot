@@ -7,6 +7,9 @@ Documentation   Generic variables and Keywords to work with the OpenSCD CoMPAS C
 Resource        ./general-config.robot
 Resource        ./general-openscd.robot
 
+*** Variables ***
+${compas-save-dialog-selector}                mwc-dialog#compas-save-dlg
+
 *** Keywords ***
 Initialize and Start OpenSCD
     Set global variables
@@ -25,13 +28,15 @@ Open from CoMPAS
 
 Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
+    # Wait for compas save dialog to open
+    Sleep                       0.5s  Wait for dialog to be open
     # Make sure the initial value is entered. so we can continue.
-    Get Text                    mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
-    Fill Text                   mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
-    Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
-    Click                       mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
-    Add label                   mwc-dialog#compas-save-dlg > compas-save    ${type}_${current-date}
-    Click                       mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
+    Get Text                    ${compas-save-dialog-selector} > compas-save mwc-textfield#name label > input   ==   ${initialValue}
+    Fill Text                   ${compas-save-dialog-selector} > compas-save mwc-textfield#name label > input   ${name}-${current-date}
+    Click                       ${compas-save-dialog-selector} > compas-save compas-scltype-select mwc-select
+    Click                       ${compas-save-dialog-selector} > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
+    Add label                   ${compas-save-dialog-selector} > compas-save    ${type}_${current-date}
+    Click                       ${compas-save-dialog-selector} > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
@@ -39,6 +44,8 @@ Add to CoMPAS
 
 Save as to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
+    # Wait for compas save dialog to open
+    Sleep                       0.5s  Wait for dialog to be open
     # Make sure the initial value is entered. so we can continue.
     Get Text                    mwc-dialog#compas-save-as-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
     Fill Text                   mwc-dialog#compas-save-as-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
@@ -53,9 +60,11 @@ Save as to CoMPAS
 
 Update in CoMPAS
     [Arguments]                 ${changeType}   ${name}   ${type}   ${expectedVersion}
-    Click                       mwc-dialog#compas-save-dlg > compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
-    Add label                   mwc-dialog#compas-save-dlg > compas-save    ${type}_${current-date}_${expectedVersion.replace('.', '')}
-    Click                       mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
+    # Wait for compas save dialog to open
+    Sleep                       0.5s  Wait for dialog to be open
+    Click                       ${compas-save-dialog-selector} > compas-save compas-changeset-radiogroup mwc-list > mwc-radio-list-item[value="${changeType.upper()}"]
+    Add label                   ${compas-save-dialog-selector} > compas-save    ${type}_${current-date}_${expectedVersion.replace('.', '')}
+    Click                       ${compas-save-dialog-selector} > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.

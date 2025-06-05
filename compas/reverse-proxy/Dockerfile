@@ -20,7 +20,10 @@ RUN apk add --no-cache openssl-dev
 RUN apk add --no-cache git
 RUN apk add --no-cache gcc
 
-RUN luarocks install lua-resty-openidc
+# We are using fixed version of the lua repository, because the current version is too large and throws an exception during install,
+# see issue https://github.com/luarocks/luarocks/issues/1797
+# Once the issue is fixed we should remove --only-server ... workaround
+RUN luarocks install lua-resty-openidc --only-server https://raw.githubusercontent.com/rocks-moonscript-org/moonrocks-mirror/daab2726276e3282dc347b89a42a5107c3500567
 
 RUN mkdir -p /etc/nginx/include
 
