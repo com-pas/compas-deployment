@@ -27,6 +27,7 @@ Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
     # Make sure the initial value is entered. so we can continue.
     Get Text                    div#menuContent mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
+    Sleep                       1s  test
     Fill Text                   div#menuContent mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
     Click                       div#menuContent mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
     Click                       div#menuContent mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
