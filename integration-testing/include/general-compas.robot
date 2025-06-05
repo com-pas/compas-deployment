@@ -108,7 +108,3 @@ Select label
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog mwc-formfield > mwc-checkbox
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-check-list-item[value="${label}"]
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog > mwc-button[slot="primaryAction"] > button
-
-Wait for compas save dialog
-    Wait Until Page Contains Element ${compas-save-dialog-selector}[open]
-    # Wait For Elements State   ${compas-save-dialog-selector}    visible
