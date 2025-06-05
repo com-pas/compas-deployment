@@ -8,7 +8,7 @@ Resource        ./general-config.robot
 Resource        ./general-openscd.robot
 
 *** Variables ***
-${compas-save-dialog-selector}                div#menuContent mwc-dialog#compas-save-dlg
+${compas-save-dialog-selector}                mwc-dialog#compas-save-dlg
 
 *** Keywords ***
 Initialize and Start OpenSCD
