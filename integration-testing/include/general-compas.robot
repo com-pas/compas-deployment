@@ -30,13 +30,13 @@ Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
     # Make sure the initial value is entered. so we can continue.
     Wait for compas save dialog
-    Get Text                    div#menuContent mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
+    Get Text                    ${compas-save-dialog-selector} > compas-save mwc-textfield#name label > input   ==   ${initialValue}
     # Sleep                       1s  test
-    Fill Text                   div#menuContent mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
-    Click                       div#menuContent mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
-    Click                       div#menuContent mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
-    Add label                   div#menuContent mwc-dialog#compas-save-dlg > compas-save    ${type}_${current-date}
-    Click                       div#menuContent mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
+    Fill Text                   ${compas-save-dialog-selector} > compas-save mwc-textfield#name label > input   ${name}-${current-date}
+    Click                       ${compas-save-dialog-selector} > compas-save compas-scltype-select mwc-select
+    Click                       ${compas-save-dialog-selector} > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${type.upper()}"]
+    Add label                   ${compas-save-dialog-selector} > compas-save    ${type}_${current-date}
+    Click                       ${compas-save-dialog-selector} > mwc-button[slot="primaryAction"] > button
     Wait for dialog is closed
     Close Menu
     # check if the title (filename) changed to the new expected one.
@@ -108,4 +108,4 @@ Select label
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog > mwc-button[slot="primaryAction"] > button
 
 Wait for compas save dialog
-    Wait Until Element Is Visible   ${compas-save-dialog-selector}
+    Wait For Elements State   ${compas-save-dialog-selector}    visible
