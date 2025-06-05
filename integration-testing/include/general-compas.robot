@@ -7,6 +7,9 @@ Documentation   Generic variables and Keywords to work with the OpenSCD CoMPAS C
 Resource        ./general-config.robot
 Resource        ./general-openscd.robot
 
+*** Variables ***
+${compas-save-dialog-selector}                div#menuContent mwc-dialog#compas-save-dlg
+
 *** Keywords ***
 Initialize and Start OpenSCD
     Set global variables
@@ -26,6 +29,7 @@ Open from CoMPAS
 Add to CoMPAS
     [Arguments]                 ${initialValue}   ${name}   ${type}   ${expectedVersion}
     # Make sure the initial value is entered. so we can continue.
+    Wait for compas save dialog
     Get Text                    div#menuContent mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   ${initialValue}
     # Sleep                       1s  test
     Fill Text                   div#menuContent mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${name}-${current-date}
@@ -102,3 +106,6 @@ Select label
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog mwc-formfield > mwc-checkbox
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-check-list-item[value="${label}"]
     Click           ${dialog} compas-scl-list oscd-filter-button#labelsFilter > mwc-dialog#filterDialog > mwc-button[slot="primaryAction"] > button
+
+Wait for compas save dialog
+    Wait Until Element Is Visible   ${compas-save-dialog-selector}
