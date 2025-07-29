@@ -20,9 +20,6 @@ RUN apk add --no-cache openssl-dev
 RUN apk add --no-cache git
 RUN apk add --no-cache gcc
 
-# We are using fixed version of the lua repository, because the current version is too large and throws an exception during install,
-# see issue https://github.com/luarocks/luarocks/issues/1797
-# Once the issue is fixed we should remove --only-server ... workaround
 RUN luarocks install lua-resty-openidc
 
 RUN mkdir -p /etc/nginx/include
