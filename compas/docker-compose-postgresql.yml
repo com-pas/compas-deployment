@@ -46,7 +46,7 @@ services:
   scl-data-service:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-data-service:0.15.6-postgresql"
+    image: "lfenergy/compas-scl-data-service:0.16.0-postgresql"
     ports:
       - "9090:8080"
     environment:
