@@ -59,7 +59,7 @@ jobs:
             PG_USER=${{ secrets.POSTGRESQL_USERNAME }}
 
       - name: Deploy to Amazon ECS service
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.render-postgres.outputs.task-definition }}
           service: Scl-Data-Service
