@@ -60,7 +60,6 @@ services:
       - USERINFO_WHO_CLAIMNAME=name
       - USERINFO_SESSION_WARNING=20
       - USERINFO_SESSION_EXPIRES=30
-      - SCL_DATA_SERVICE_SOFT_DELETE_ENABLED=true
     deploy:
       restart_policy:
         condition: on-failure
