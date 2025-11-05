@@ -78,6 +78,10 @@
                 {
                     "name": "USERINFO_NAME_CLAIMNAME",
                     "value": "username"
+                },
+                {
+                    "name": "SCL_DATA_SERVICE_SOFT_DELETE_ENABLED",
+                    "value": "true"
                 }
             ],
             "mountPoints": [],
