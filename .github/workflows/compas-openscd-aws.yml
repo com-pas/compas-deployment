@@ -39,7 +39,7 @@ jobs:
           image: ${{ steps.read_docker_compose.outputs.data }}
 
       - name: Deploy to Amazon ECS service
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.render-compas-openscd.outputs.task-definition }}
           service: CoMPAS-Open-SCD
