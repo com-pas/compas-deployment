@@ -100,7 +100,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.5.6"
+    image: "lfenergy/compas-scl-auto-alignment:0.5.7"
     ports:
       - "9092:8080"
     environment:
