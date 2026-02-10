@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-FROM quay.io/keycloak/keycloak:26.5.2
+FROM quay.io/keycloak/keycloak:26.5.3
 
 ARG COMPAS_HOSTNAME
 
