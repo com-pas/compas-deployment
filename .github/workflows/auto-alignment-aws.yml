@@ -15,10 +15,10 @@ jobs:
     environment: aws
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v6
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 #v6
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -32,7 +32,7 @@ jobs:
           key-path: '["services", "scl-auto-alignment", "image"]'
       - name: Render CoMPAS OpenSCD Container
         id: render-auto-alignment
-        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        uses: aws-actions/amazon-ecs-render-task-definition@6b89923a897d41e9ad789181d8865b532ecf973c #v1
         with:
           task-definition: ${{ github.workspace }}/aws/task-definitions/compas-auto-alignment.json
           container-name: CoMPAS-Scl-Auto-Alignment
@@ -42,7 +42,7 @@ jobs:
             JWT_VERIFY_ISSUER=${{ secrets.JWT_VERIFY_ISSUER }}
 
       - name: Deploy to Amazon ECS service
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        uses: aws-actions/amazon-ecs-deploy-task-definition@cbf54ec46642b86ff78c2f5793da6746954cf8ff #v2
         with:
           task-definition: ${{ steps.render-auto-alignment.outputs.task-definition }}
           service: scl-auto-alignment
