@@ -32,7 +32,7 @@ jobs:
           key-path: '["services", "scl-auto-alignment", "image"]'
       - name: Render CoMPAS OpenSCD Container
         id: render-auto-alignment
-        uses: aws-actions/amazon-ecs-render-task-definition@6b89923a897d41e9ad789181d8865b532ecf973c #v1
+        uses: aws-actions/amazon-ecs-render-task-definition@77954e213ba1f9f9cb016b86a1d4f6fcdea0d57e #v1
         with:
           task-definition: ${{ github.workspace }}/aws/task-definitions/compas-auto-alignment.json
           container-name: CoMPAS-Scl-Auto-Alignment

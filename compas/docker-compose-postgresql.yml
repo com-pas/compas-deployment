@@ -76,7 +76,7 @@ services:
   cim-mapping:
     labels:
       compas: true
-    image: "lfenergy/compas-cim-mapping:0.12.0"
+    image: "lfenergy/compas-cim-mapping:0.12.1"
     ports:
       - "9091:8080"
     environment:
@@ -100,7 +100,7 @@ services:
   scl-auto-alignment:
     labels:
       compas: true
-    image: "lfenergy/compas-scl-auto-alignment:0.6.0"
+    image: "lfenergy/compas-scl-auto-alignment:0.6.1"
     ports:
       - "9092:8080"
     environment:
