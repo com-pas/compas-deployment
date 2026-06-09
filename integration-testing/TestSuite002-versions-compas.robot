@@ -11,7 +11,7 @@ Test Teardown   Make screenshot and Stop OpenSCD
 
 *** Variables ***
 # Variables of Selectors commonly used.
-${compas-versions-editor-selector}  oscd-plugin932e8e83a469de68
+${compas-versions-editor-selector}  oscd-pluginfd8a02504e752bf8
 
 *** Keywords ***
 Upload new version
