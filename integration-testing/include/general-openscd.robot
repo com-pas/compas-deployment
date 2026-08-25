@@ -28,7 +28,7 @@ Open OpenSCD and Login
     ...                 devtools=${devtools}
     New Context         acceptDownloads=True
     New Page            url=${url}
-    Set Viewport Size   1920    1080
+    Set Viewport Size   ${viewport_width}    ${viewport_height}
     Fill Text           input[id="username"]     ${username}
     Fill Secret         input[id="password"]     $password
     Click               button[type="submit"][id="kc-login"]
@@ -52,9 +52,13 @@ Open Navigation Menu
 
 Close Menu
     # To make the editors visible again we need to close the menu.
-    # We click outside the menu somewhere in the browser.
-    Mouse Button    click   x=350   y=350
-    Sleep           100 milliseconds
+    # We click outside the menu somewhere in the browser, retrying until the drawer is actually closed.
+    Wait Until Keyword Succeeds    10x    200ms    Click Outside Menu And Verify Closed
+
+Click Outside Menu And Verify Closed
+    Mouse Button    click   x=350   y=700
+    ${attrs}=    Get Attribute Names    ${menu-selector}
+    Should Not Contain    ${attrs}    open
 
 Enable Extension
     [Arguments]           ${extensionName}

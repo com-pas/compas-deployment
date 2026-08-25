@@ -31,7 +31,6 @@ TestCase003-01
     Get Text                ${substation-editor-selector} section > h1:has-text("af9a4ae3-ba2e-4c34-8e47-5af894ee20f4 - Sub1")
 
 TestCase003-02
-    skip
     [Documentation]         Trying to create a project from Invalid CIM Filename
     Set Test Variable       ${sclname}  MiniGridTestConfiguration_Invalid_XML
 
