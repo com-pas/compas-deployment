@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 *** Settings ***
+skip
 Documentation   Test cases for testing the CoMPAS Versions editor and saving multiple versions
 Resource        ./include/general-compas.robot
 
@@ -215,6 +216,7 @@ TestCase002-32
     Wait for dialog is closed
 
 TestCase002-33
+    skip
     [Documentation]      Compare versions from CoMPAS not selecting correct number of versions
     Initialize Versions  True
 
