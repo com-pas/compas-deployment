@@ -20,6 +20,10 @@ ${url}           http://localhost/
 ${username}      scl-data-editor
 ${password}      editor
 
+# Override locally with -v viewport_width:<n> -v viewport_height:<n> to fit your screen.
+${viewport_width}     1920
+${viewport_height}    1080
+
 *** Keywords ***
 Set global variables
     ${current-date}=    Get Current Date  result_format=%Y%m%d_%H%M%S

@@ -33,7 +33,8 @@ Initialize Versions
 
     Open Menu           Open project
     Open local file     ${sclname}    ${scltype}
-
+    Close Menu
+    
     Set Test Variable   ${sclname}  ${TEST NAME}
     Set Test Variable   ${scltype}  CID
 

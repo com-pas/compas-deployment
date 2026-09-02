@@ -110,7 +110,6 @@ TestCase001-06
     Save version to CoMPAS   MINOR   ${sclname}   ${scltype}   1.1.0
 
 TestCase001-11
-    skip
     [Documentation]     Trying saving local file to CoMPAS (Rest) with invalid name
     # First we will open the local file to be saved.
     Open Menu           Open project
@@ -122,7 +121,9 @@ TestCase001-11
 
     Open Menu           Save project
     Get Text            mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   MiniGrid
-    Fill Text           mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${sclname}
+    Click                mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input
+    Fill Text            mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input    ${sclname}
+    Get Property         mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input    value    ==    ${sclname}
     Click               mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
     Click               mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${scltype}"]
     Click               mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
@@ -176,7 +177,6 @@ TestCase001-52
     Get Text            ${substation-editor-selector} section > h1:has-text("Sub1")
 
 TestCase001-61
-    skip
     [Documentation]     Trying saving local file to CoMPAS (Websocket) with invalid name
     # First we will open the local file to be saved.
     Change Websockets setting   True
@@ -189,7 +189,9 @@ TestCase001-61
 
     Open Menu           Save project
     Get Text            mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ==   MiniGrid
-    Fill Text           mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input   ${sclname}
+    Click                mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input
+    Fill Text            mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input    ${sclname}
+    Get Property         mwc-dialog#compas-save-dlg > compas-save mwc-textfield#name label > input    value    ==    ${sclname}
     Click               mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select
     Click               mwc-dialog#compas-save-dlg > compas-save compas-scltype-select mwc-select > mwc-list-item[value="${scltype}"]
     Click               mwc-dialog#compas-save-dlg > mwc-button[slot="primaryAction"] > button
