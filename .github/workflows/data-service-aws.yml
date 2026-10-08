@@ -32,7 +32,7 @@ jobs:
           key-path: '["services", "scl-data-service", "image"]'
       - name: Render CoMPAS SCL Data Service Container
         id: render-scl-data-service
-        uses: aws-actions/amazon-ecs-render-task-definition@138c24f321fdbdf7edee4a685519d253cae2cdea #v1
+        uses: aws-actions/amazon-ecs-render-task-definition@8d79160660ad39c402a16e5fc7cd2a32e8f7d6b7 #v1
         with:
           task-definition: ${{ github.workspace }}/aws/task-definitions/compas-scl-data-service.json
           container-name: CoMPAS-Scl-Data-Service
@@ -47,7 +47,7 @@ jobs:
 
       - name: Modify Amazon ECS task definition with postgres container
         id: render-postgres
-        uses: aws-actions/amazon-ecs-render-task-definition@138c24f321fdbdf7edee4a685519d253cae2cdea #v1
+        uses: aws-actions/amazon-ecs-render-task-definition@8d79160660ad39c402a16e5fc7cd2a32e8f7d6b7 #v1
         with:
           task-definition: ${{ steps.render-scl-data-service.outputs.task-definition }}
           container-name: Postgresql
