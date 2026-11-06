@@ -32,7 +32,7 @@ jobs:
           key-path: '["services", "open-scd", "image"]'
       - name: Render CoMPAS OpenSCD Container
         id: render-compas-openscd
-        uses: aws-actions/amazon-ecs-render-task-definition@138c24f321fdbdf7edee4a685519d253cae2cdea #v1
+        uses: aws-actions/amazon-ecs-render-task-definition@8d79160660ad39c402a16e5fc7cd2a32e8f7d6b7 #v1
         with:
           task-definition: ${{ github.workspace }}/aws/task-definitions/compas-openscd.json
           container-name: CoMPAS-OpenSCD
